@@ -119,6 +119,11 @@ a {
   padding: 0;
 }
 
+#primary-nav > li {
+  display: flex;
+  align-items: center;
+}
+
 #primary-nav a {
   display: block;
   text-decoration: none;
