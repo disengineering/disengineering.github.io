@@ -6,15 +6,6 @@
   font-display: swap;
 }
 
-:root {
-  --bg: #000000;
-  --text: #ffffff;
-  --accent-blue: #4a8cff;
-  --accent-red: #ff3333;
-  --border: #ffffff;
-  --sidebar-width: min(28rem, 100%);
-}
-
 *,
 *::before,
 *::after {
@@ -28,12 +19,24 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
-  font-size: clamp(0.65rem, 1.6vw, 0.85rem);
+  background: black;
+  font-size: x-large;
+  color: white;
   line-height: 1.5;
+  letter-spacing: 0.15em;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+}
+
+h1 { font-size: 1.75em; }
+h2 { font-size: 1.25em; }
+h3 { font-size: 1em; }
+h4 { font-size: 0.9em; }
+h5 { font-size: 0.75em; }
+h6 { font-size: 0.6em; }
 
 img {
   max-width: 100%;
@@ -41,25 +44,11 @@ img {
   display: block;
 }
 
-a {
-  color: inherit;
-}
-
 #page {
   max-width: 120rem;
   margin: 0 auto;
   padding: clamp(0.5rem, 1.5vw, 1rem);
-  border: 3px solid var(--border);
-  background:
-    linear-gradient(var(--bg), var(--bg)) padding-box,
-    repeating-linear-gradient(
-        90deg,
-        #0a0a0a 0,
-        #0a0a0a 2px,
-        #111 2px,
-        #111 4px
-      )
-      border-box;
+  border: 3px solid white;
 }
 
 #site-header {
@@ -69,7 +58,7 @@ a {
   gap: clamp(0.5rem, 2vw, 1.5rem);
   margin-bottom: clamp(1rem, 3vw, 2rem);
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid white;
 }
 
 #banner-side-left,
@@ -131,7 +120,7 @@ a {
 }
 
 #primary-nav a:focus-visible {
-  outline: 2px solid var(--accent-blue);
+  outline: 2px solid #4a8cff;
   outline-offset: 2px;
 }
 
@@ -164,7 +153,7 @@ a {
 
 #layout {
   display: grid;
-  grid-template-columns: 1fr min(var(--sidebar-width), 100%);
+  grid-template-columns: 1fr min(28rem, 100%);
   gap: clamp(1rem, 2vw, 2rem);
   align-items: start;
 }
@@ -198,18 +187,25 @@ a {
 }
 
 main {
-  border: 1px solid var(--border);
-  padding: clamp(0.75rem, 2vw, 1.25rem);
+  border: 1px solid white;
   min-width: 0;
 }
 
-#section-title {
-  background-color: blue;
+.header-wrapper {
+  padding: 8px;
+  border: 1px solid white;
+  margin: 0;
+}
+
+.section-heading {
+  margin: 0;
+  padding: 0;
   color: white;
   text-align: center;
 }
 
 .content-block {
+  padding: 1rem;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
   gap: clamp(0.75rem, 2vw, 1.25rem);
@@ -231,6 +227,7 @@ main {
 
 .content-block__body {
   display: flex;
+  text-align: justify;
   flex-direction: column;
   gap: 0.75rem;
 }
@@ -239,11 +236,21 @@ main {
   margin: 0;
 }
 
+a {
+  color: inherit;
+}
+
+a:hover, a:focus-visible {
+  color: yellow;
+}
+
 .btn {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: medium;
   align-self: flex-start;
   display: inline-block;
   padding: 0.35rem 0.85rem;
-  border: 2px solid var(--border);
+  border: 2px solid white;
   background: transparent;
   text-decoration: none;
   background-color: white;
@@ -259,7 +266,7 @@ main {
 #philosophy {
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
   padding-top: 1rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid white;
   text-align: center;
 }
 
@@ -302,27 +309,12 @@ main {
 }
 
 .sidebar-panel {
-  border: 1px solid var(--border);
-  padding: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid white;
   min-width: 0;
-}
-
-#oscilloscope-heading {
-  margin: 0 0 0.5rem;
-  background-color: green;
-  color: white;
-  text-align: center;
 }
 
 #osc-wrap img {
   width: 100%;
-}
-
-#calendar-heading {
-  margin: 0 0 0.5rem;
-  background-color: red;
-  color: white;
-  text-align: center;
 }
 
 #calendar-stack {
@@ -343,7 +335,7 @@ main {
 #site-footer {
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
   padding-top: 1rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid white;
 }
 
 #links {
