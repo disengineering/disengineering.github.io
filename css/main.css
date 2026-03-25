@@ -26,6 +26,9 @@ body {
   color: white;
   line-height: 1.5;
   letter-spacing: 0.15em;
+  max-width: 120rem;
+  margin: 0 auto;
+  border: 3px solid white;
 }
 
 
@@ -46,20 +49,23 @@ img {
   display: block;
 }
 
-body {
-  max-width: 120rem;
-  margin: 0 auto;
-  border: 3px solid white;
-}
-
 header {
   display: grid;
   align-items: end;
-  /* Mobile / narrow: wires (1) · logo (3) · hands (1); links on row 2 */
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid white;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
   grid-template-columns: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 1fr);
   grid-template-areas:
     "wires logo hands"
     "links links links";
+}
+
+.event__top,
+.event-card__top {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .site-header__wires,
@@ -110,7 +116,7 @@ header {
 }
 
 @media (min-width: 1100px) {
-  #site-header {
+  header {
     grid-template-columns:
       minmax(0, 1fr)
       minmax(0, 36rem)
