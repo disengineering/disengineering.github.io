@@ -300,6 +300,13 @@ main {
   min-width: 0;
 }
 
+#oscilloscope-heading {
+  margin: 1rem 0 0.5rem;
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
 #osc-wrap img {
   width: 100%;
   border: 1px solid var(--border);
@@ -307,8 +314,8 @@ main {
 
 #calendar-heading {
   margin: 1rem 0 0.5rem;
-  color: var(--accent-red);
-  font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+  background-color: red;
+  color: white;
   text-align: center;
 }
 
