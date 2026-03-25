@@ -317,17 +317,17 @@ a:hover, a:focus-visible {
   width: 100%;
 }
 
-#calendar-stack {
+#events-stack {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-#calendar-stack img {
+#events-stack img {
   width: 100%;
 }
 
-#calendar-actions {
+#events-actions {
   margin-top: 0.75rem;
   text-align: center;
 }
@@ -397,20 +397,20 @@ a:hover, a:focus-visible {
   }
 }
 
-/* Calendar — event detail (HI_RES-style) */
-.calendar-event-page {
+/* Event detail (HI_RES-style) */
+.event-page {
   padding: clamp(1rem, 3vw, 2rem);
   border: 1px solid white;
   min-width: 0;
 }
 
-.calendar-event {
+.event {
   max-width: 52rem;
   margin: 0 auto;
   color: #fff;
 }
 
-.calendar-event__top {
+.event__top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -418,13 +418,13 @@ a:hover, a:focus-visible {
   margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
 }
 
-.calendar-event__tags {
+.event__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.calendar-event__tag {
+.event__tag {
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
   font-size: 0.65rem;
   letter-spacing: 0.12em;
@@ -432,18 +432,18 @@ a:hover, a:focus-visible {
   text-transform: uppercase;
 }
 
-.calendar-event__tag--fill {
+.event__tag--fill {
   background: #fff;
   color: #000;
 }
 
-.calendar-event__tag--outline {
+.event__tag--outline {
   background: transparent;
   color: #fff;
   border: 1px solid #fff;
 }
 
-.calendar-event__radio {
+.event__radio {
   width: 1.25rem;
   height: 1.25rem;
   border: 2px solid #fff;
@@ -451,7 +451,7 @@ a:hover, a:focus-visible {
   flex-shrink: 0;
 }
 
-.calendar-event__grid {
+.event__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
   gap: clamp(1rem, 3vw, 2rem);
@@ -459,7 +459,7 @@ a:hover, a:focus-visible {
   margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
-.calendar-event__date-hand {
+.event__date-hand {
   border: 2px solid #fff;
   border-radius: 4px 12px 6px 8px;
   padding: 0.75rem 1rem;
@@ -470,19 +470,19 @@ a:hover, a:focus-visible {
   transform: rotate(-1deg);
 }
 
-.calendar-event__date-hand-inner {
+.event__date-hand-inner {
   font-family: "Caveat", cursive;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   line-height: 1.1;
   text-align: center;
 }
 
-.calendar-event__meta {
+.event__meta {
   font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
   letter-spacing: normal;
 }
 
-.calendar-event__title {
+.event__title {
   margin: 0 0 0.75rem;
   font-size: clamp(1.35rem, 3vw, 1.85rem);
   font-weight: 700;
@@ -490,16 +490,16 @@ a:hover, a:focus-visible {
   text-underline-offset: 4px;
 }
 
-.calendar-event__line {
+.event__line {
   margin: 0 0 0.4rem;
   font-size: clamp(0.95rem, 2vw, 1.1rem);
 }
 
-.calendar-event__location {
+.event__location {
   margin-top: 0.5rem;
 }
 
-.calendar-event__body {
+.event__body {
   font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
   letter-spacing: normal;
   font-size: clamp(0.9rem, 2vw, 1.05rem);
@@ -507,24 +507,24 @@ a:hover, a:focus-visible {
   padding-top: 1rem;
 }
 
-.calendar-event__description {
+.event__description {
   margin: 0 0 1rem;
   font-style: italic;
 }
 
-.calendar-event__body > *:last-child {
+.event__body > *:last-child {
   margin-bottom: 0;
 }
 
 @media (max-width: 640px) {
-  .calendar-event__grid {
+  .event__grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* Calendar — compact cards (sidebar + index) */
-.calendar-sidebar-section__label,
-.calendar-index-section__label {
+/* Event cards (sidebar + index) */
+.events-sidebar-section__label,
+.events-section__label {
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
@@ -535,24 +535,24 @@ a:hover, a:focus-visible {
   text-transform: uppercase;
 }
 
-.calendar-sidebar-section + .calendar-sidebar-section {
+.events-sidebar-section + .events-sidebar-section {
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid #fff;
 }
 
-.calendar-event-card {
+.event-card {
   padding: 0.75rem 0 1rem;
   border-bottom: 1px solid #fff;
   font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
   letter-spacing: normal;
 }
 
-.calendar-event-card:last-child {
+.event-card:last-child {
   border-bottom: none;
 }
 
-.calendar-event-card__top {
+.event-card__top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -560,13 +560,13 @@ a:hover, a:focus-visible {
   margin-bottom: 0.65rem;
 }
 
-.calendar-event-card__tags {
+.event-card__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
 }
 
-.calendar-event-card__tag {
+.event-card__tag {
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
   font-size: 0.55rem;
   letter-spacing: 0.1em;
@@ -575,18 +575,18 @@ a:hover, a:focus-visible {
   line-height: 1.2;
 }
 
-.calendar-event-card__tag--fill {
+.event-card__tag--fill {
   background: #fff;
   color: #000;
 }
 
-.calendar-event-card__tag--outline {
+.event-card__tag--outline {
   background: transparent;
   color: #fff;
   border: 1px solid #fff;
 }
 
-.calendar-event-card__radio {
+.event-card__radio {
   width: 0.85rem;
   height: 0.85rem;
   border: 1px solid #fff;
@@ -595,7 +595,7 @@ a:hover, a:focus-visible {
   margin-top: 0.15rem;
 }
 
-.calendar-event-card__main {
+.event-card__main {
   display: grid;
   grid-template-columns: minmax(4.5rem, 0.35fr) minmax(0, 1fr);
   gap: 0.65rem;
@@ -603,7 +603,7 @@ a:hover, a:focus-visible {
   margin-bottom: 0.65rem;
 }
 
-.calendar-event-card__date-block {
+.event-card__date-block {
   border: 1px solid #fff;
   padding: 0.35rem 0.4rem;
   text-align: center;
@@ -614,86 +614,86 @@ a:hover, a:focus-visible {
   line-height: 1.2;
 }
 
-.calendar-event-card__dow,
-.calendar-event-card__month {
+.event-card__dow,
+.event-card__month {
   font-family: "IBM Plex Serif", Georgia, serif;
 }
 
-.calendar-event-card__dom {
+.event-card__dom {
   font-family: "Retro Computer", ui-monospace, monospace;
   font-size: 0.7rem;
   margin-top: 0.15rem;
 }
 
-.calendar-event-card__title {
+.event-card__title {
   margin: 0 0 0.35rem;
   font-size: 0.85rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
-.calendar-event-card__title a {
+.event-card__title a {
   text-decoration: none;
 }
 
-.calendar-event-card__title a:hover,
-.calendar-event-card__title a:focus-visible {
+.event-card__title a:hover,
+.event-card__title a:focus-visible {
   text-decoration: underline;
 }
 
-.calendar-event-card__line {
+.event-card__line {
   margin: 0 0 0.2rem;
   font-size: 0.65rem;
   line-height: 1.35;
 }
 
-.calendar-event-card__desc {
+.event-card__desc {
   margin: 0 0 0.5rem;
   font-size: 0.65rem;
   line-height: 1.45;
 }
 
-.calendar-event-card__cta {
+.event-card__cta {
   margin: 0;
   font-size: 0.65rem;
   font-style: italic;
 }
 
-.calendar-event-card__cta a {
+.event-card__cta a {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.calendar-sidebar-empty,
-.calendar-index-empty {
+.events-sidebar-empty,
+.events-empty {
   margin: 0;
   font-size: 0.7rem;
   letter-spacing: normal;
   opacity: 0.85;
 }
 
-.calendar-index-page {
+.events-page {
   padding: clamp(1rem, 3vw, 2rem);
   border: 1px solid white;
   min-width: 0;
 }
 
-.calendar-index-page__header {
+.events-page__header {
   margin-bottom: 1.25rem;
 }
 
-.calendar-index-section + .calendar-index-section {
+.events-section + .events-section {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid #fff;
 }
 
 @media (max-width: 640px) {
-  .calendar-event-card__main {
+  .event-card__main {
     grid-template-columns: 1fr;
   }
 
-  .calendar-event-card__date-block {
+  .event-card__date-block {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;

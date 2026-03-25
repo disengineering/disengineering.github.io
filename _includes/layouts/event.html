@@ -1,0 +1,35 @@
+---
+layout: layouts/base.html
+---
+{% assign tz = timezone | default: "America/New_York" %}
+{% assign end_iso = end | default: date %}
+<main class="event-page" id="main-content">
+  <article class="event" aria-labelledby="event-title">
+    <header class="event__top">
+      <div class="event__tags">
+        {% for tag in eventTags %}
+          <span class="event__tag {% if forloop.first %}event__tag--fill{% else %}event__tag--outline{% endif %}">{{ tag | upcase }}</span>
+        {% endfor %}
+      </div>
+      <span class="event__radio" aria-hidden="true"></span>
+    </header>
+
+    <div class="event__grid">
+      <div class="event__date-hand" aria-hidden="true">
+        <span class="event__date-hand-inner">{{ date | formatEventDateHand: tz }}</span>
+      </div>
+
+      <div class="event__meta">
+        <h1 id="event-title" class="event__title">{{ title }}</h1>
+        <p class="event__line">{{ date | formatEventDateLong: tz }}</p>
+        <p class="event__line">{{ date | formatEventTimeRange: end_iso, tz }}</p>
+        <p class="event__line event__location">@ {{ location }}</p>
+      </div>
+    </div>
+
+    <div class="event__body">
+      <p class="event__description">{{ description }}</p>
+      {{ content }}
+    </div>
+  </article>
+</main>

@@ -112,7 +112,7 @@
           </section>
         </main>
 
-        <aside id="sidebar" aria-label="Oscilloscope and calendar">
+        <aside id="sidebar" aria-label="Oscilloscope and events">
           <section class="sidebar-panel" id="oscilloscope" aria-labelledby="oscilloscope-heading">
             <div class="header-wrapper">
               <h2 id="oscilloscope-heading" class="section-heading" style="background-color: green">
@@ -130,13 +130,13 @@
               />
             </div>
           </section>
-          <section class="sidebar-panel" id="calendar" aria-labelledby="calendar-heading">
+          <section class="sidebar-panel" id="events" aria-labelledby="events-heading">
             <div class="header-wrapper">
-              <h2 id="calendar-heading" class="section-heading" style="background-color: red">CALENDAR</h2>
+              <h2 id="events-heading" class="section-heading" style="background-color: red">EVENTS</h2>
             </div>
-            {% include "partials/calendar-sidebar.html" %}
-            <div id="calendar-actions">
-              <a class="btn" href="/calendar/">SEE FULL CALENDAR</a>
+            {% include "partials/events-sidebar.html" %}
+            <div id="events-actions">
+              <a class="btn" href="/events/">SEE FULL CALENDAR</a>
             </div>
           </section>
         </aside>
