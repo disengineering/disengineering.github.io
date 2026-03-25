@@ -182,40 +182,44 @@
           </section>
         </main>
 
-        <aside id="calendar" aria-label="Oscilloscope and calendar">
-          <h2 id="oscilloscope-heading">OSCILLOSCOPE</h2>
-          <div id="osc-wrap">
-            <img
-              src="/assets/sidebar/oscilloscope.png"
-              alt="Oscilloscope graphic with waveform"
-              width="800"
-              height="600"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <h2 id="calendar-heading">CALENDAR</h2>
-          <div id="calendar-stack">
-            <img
-              src="/assets/sidebar/calendar1.png"
-              alt="Upcoming events: The Beep Phone on March 14 and Screambox Distortion Amp on March 27 in NYC"
-              width="600"
-              height="400"
-              loading="lazy"
-              decoding="async"
-            />
-            <img
-              src="/assets/sidebar/calendar2.png"
-              alt="Past events: Vape Mic, Pot and Switch, and The Beep Phone workshops"
-              width="600"
-              height="400"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div id="calendar-actions">
-            <a class="btn" href="#calendar">SEE FULL CALENDAR</a>
-          </div>
+        <aside id="sidebar" aria-label="Oscilloscope and calendar">
+          <section class="sidebar-panel" id="oscilloscope" aria-labelledby="oscilloscope-heading">
+            <h2 id="oscilloscope-heading">OSCILLOSCOPE</h2>
+            <div id="osc-wrap">
+              <img
+                src="/assets/sidebar/oscilloscope.png"
+                alt="Oscilloscope graphic with waveform"
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </section>
+          <section class="sidebar-panel" id="calendar" aria-labelledby="calendar-heading">
+            <h2 id="calendar-heading">CALENDAR</h2>
+            <div id="calendar-stack">
+              <img
+                src="/assets/sidebar/calendar1.png"
+                alt="Upcoming events: The Beep Phone on March 14 and Screambox Distortion Amp on March 27 in NYC"
+                width="600"
+                height="400"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="/assets/sidebar/calendar2.png"
+                alt="Past events: Vape Mic, Pot and Switch, and The Beep Phone workshops"
+                width="600"
+                height="400"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div id="calendar-actions">
+              <a class="btn" href="#calendar">SEE FULL CALENDAR</a>
+            </div>
+          </section>
         </aside>
       </div>
 

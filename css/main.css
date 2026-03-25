@@ -294,14 +294,21 @@ main {
   opacity: 0.95;
 }
 
-#calendar {
+#sidebar {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.25rem);
+}
+
+.sidebar-panel {
   border: 1px solid var(--border);
   padding: clamp(0.75rem, 2vw, 1rem);
   min-width: 0;
 }
 
 #oscilloscope-heading {
-  margin: 1rem 0 0.5rem;
+  margin: 0 0 0.5rem;
   background-color: green;
   color: white;
   text-align: center;
@@ -309,11 +316,10 @@ main {
 
 #osc-wrap img {
   width: 100%;
-  border: 1px solid var(--border);
 }
 
 #calendar-heading {
-  margin: 1rem 0 0.5rem;
+  margin: 0 0 0.5rem;
   background-color: red;
   color: white;
   text-align: center;
@@ -327,7 +333,6 @@ main {
 
 #calendar-stack img {
   width: 100%;
-  border: 1px solid var(--border);
 }
 
 #calendar-actions {
