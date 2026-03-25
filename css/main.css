@@ -133,7 +133,6 @@ img {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.12s ease;
 }
 
 #primary-nav a:hover .nav-img-wrap img:last-child,
@@ -148,7 +147,6 @@ img {
 
 .nav-img-wrap img:first-child {
   position: relative;
-  transition: opacity 0.12s ease;
 }
 
 #layout {
