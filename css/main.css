@@ -45,15 +45,11 @@ a {
   color: inherit;
 }
 
-.page {
+#page {
   max-width: 120rem;
   margin: 0 auto;
-  padding: clamp(0.75rem, 2vw, 1.5rem);
-}
-
-.binary-frame {
-  border: 3px solid var(--border);
   padding: clamp(0.5rem, 1.5vw, 1rem);
+  border: 3px solid var(--border);
   background:
     linear-gradient(var(--bg), var(--bg)) padding-box,
     repeating-linear-gradient(
@@ -66,7 +62,7 @@ a {
       border-box;
 }
 
-.site-header {
+#site-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: end;
@@ -76,25 +72,27 @@ a {
   border-bottom: 1px solid var(--border);
 }
 
-.banner-side {
+#banner-side-left,
+#banner-side-right {
   display: flex;
   align-items: flex-end;
 }
 
-.banner-side--left {
+#banner-side-left {
   justify-content: flex-start;
 }
 
-.banner-side--right {
+#banner-side-right {
   justify-content: flex-end;
 }
 
-.banner-side img {
+#banner-side-left img,
+#banner-side-right img {
   width: min(100%, 12rem);
   object-fit: contain;
 }
 
-.header-center {
+#header-center {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,16 +100,16 @@ a {
   min-width: 0;
 }
 
-.logo {
+#site-logo {
   width: min(100%, 36rem);
 }
 
-.logo img {
+#site-logo img {
   width: 100%;
   margin: 0 auto;
 }
 
-.nav {
+#primary-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -121,13 +119,13 @@ a {
   padding: 0;
 }
 
-.nav a {
+#primary-nav a {
   display: block;
   text-decoration: none;
   line-height: 0;
 }
 
-.nav a:focus-visible {
+#primary-nav a:focus-visible {
   outline: 2px solid var(--accent-blue);
   outline-offset: 2px;
 }
@@ -144,13 +142,13 @@ a {
   transition: opacity 0.12s ease;
 }
 
-.nav a:hover .nav-img-wrap img:last-child,
-.nav a:focus-visible .nav-img-wrap img:last-child {
+#primary-nav a:hover .nav-img-wrap img:last-child,
+#primary-nav a:focus-visible .nav-img-wrap img:last-child {
   opacity: 1;
 }
 
-.nav a:hover .nav-img-wrap img:first-child,
-.nav a:focus-visible .nav-img-wrap img:first-child {
+#primary-nav a:hover .nav-img-wrap img:first-child,
+#primary-nav a:focus-visible .nav-img-wrap img:first-child {
   opacity: 0;
 }
 
@@ -159,7 +157,7 @@ a {
   transition: opacity 0.12s ease;
 }
 
-.layout {
+#layout {
   display: grid;
   grid-template-columns: 1fr min(var(--sidebar-width), 100%);
   gap: clamp(1rem, 2vw, 2rem);
@@ -167,28 +165,29 @@ a {
 }
 
 @media (max-width: 960px) {
-  .site-header {
+  #site-header {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .banner-side {
+  #banner-side-left,
+  #banner-side-right {
     justify-content: center;
   }
 
-  .banner-side--left {
+  #banner-side-left {
     order: 2;
   }
 
-  .header-center {
+  #header-center {
     order: 1;
   }
 
-  .banner-side--right {
+  #banner-side-right {
     order: 3;
   }
 
-  .layout {
+  #layout {
     grid-template-columns: 1fr;
   }
 }
@@ -199,7 +198,7 @@ main {
   min-width: 0;
 }
 
-.section-title {
+#section-title {
   margin: 0 0 1.25rem;
   color: var(--accent-blue);
   font-size: clamp(0.9rem, 2.5vw, 1.15rem);
@@ -262,14 +261,14 @@ main {
   color: var(--bg);
 }
 
-.philosophy {
+#philosophy {
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
   padding-top: 1rem;
   border-top: 1px solid var(--border);
   text-align: center;
 }
 
-.philosophy__row {
+#philosophy-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -277,20 +276,20 @@ main {
   gap: clamp(0.75rem, 2vw, 1.5rem);
 }
 
-.philosophy p {
+#philosophy p {
   margin: 0 0 1rem;
   max-width: 52ch;
   margin-left: auto;
   margin-right: auto;
 }
 
-.philosophy__pots {
+#philosophy-pots {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.philosophy__pots img {
+#philosophy-pots img {
   width: min(8rem, 28vw);
   border: none;
 }
@@ -300,47 +299,47 @@ main {
   opacity: 0.95;
 }
 
-aside {
+#calendar {
   border: 1px solid var(--border);
   padding: clamp(0.75rem, 2vw, 1rem);
   min-width: 0;
 }
 
-.osc-wrap img {
+#osc-wrap img {
   width: 100%;
   border: 1px solid var(--border);
 }
 
-.calendar-heading {
+#calendar-heading {
   margin: 1rem 0 0.5rem;
   color: var(--accent-red);
   font-size: clamp(0.85rem, 2.2vw, 1.05rem);
   text-align: center;
 }
 
-.calendar-stack {
+#calendar-stack {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.calendar-stack img {
+#calendar-stack img {
   width: 100%;
   border: 1px solid var(--border);
 }
 
-.calendar-actions {
+#calendar-actions {
   margin-top: 0.75rem;
   text-align: center;
 }
 
-.site-footer {
+#site-footer {
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
   padding-top: 1rem;
   border-top: 1px solid var(--border);
 }
 
-.footer-links {
+#links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -350,12 +349,12 @@ aside {
   padding: 0;
 }
 
-.footer-links a {
+#links a {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.footer-brand {
+#footer-brand {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -363,19 +362,19 @@ aside {
   gap: clamp(1rem, 4vw, 3rem);
 }
 
-.footer-brand__logo img {
+#footer-brand-logo img {
   max-height: 4rem;
   width: auto;
   margin: 0 auto;
 }
 
-.footer-brand__est {
+#footer-brand-est {
   font-size: 0.9em;
   align-self: flex-end;
   padding-bottom: 0.25rem;
 }
 
-.footer-ground {
+#footer-ground {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -384,7 +383,7 @@ aside {
   margin-top: 1rem;
 }
 
-.footer-ground img {
+#footer-ground img {
   width: min(6rem, 40vw);
 }
 
