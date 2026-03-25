@@ -1,85 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Disengineering — a hardware hacking collective focused on electronic musical instruments, workshops, zines, and sustainable design."
-    />
-    <title>Disengineering</title>
-    <link rel="stylesheet" href="/css/main.css" />
-  </head>
-  <body>
-    <div id="page">
-            <header id="site-header">
-        <div id="banner-side-left">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Disengineering — a hardware hacking collective focused on electronic musical instruments, workshops, zines, and sustainable design." />
+  <title>Disengineering</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+        <header>
+        <div class="site-header__wires">
           <img
-            src="/assets/header/hands_banner.png"
+            src="/assets/header/wires_banner.png"
             alt=""
             width="400"
             height="200"
             decoding="async"
           />
         </div>
-        <div id="header-center">
-          <a id="site-logo" href="/" aria-label="Disengineering home">
-            <img
-              src="/assets/header/DIS_LOGO.png"
-              alt="Disengineering"
-              width="800"
-              height="200"
-              decoding="async"
-            />
-          </a>
-          <nav aria-label="Primary">
-            <ul id="primary-nav">
-              <li>
-                <a href="/#zines">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/zines/zines.png" alt="Zines" width="200" height="60" />
-                    <img src="/assets/header/nav/zines/zines_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="/#workshops">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/workshops/workshops.png" alt="Workshops" width="200" height="60" />
-                    <img src="/assets/header/nav/workshops/workshops_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="/#links">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/links/links.png" alt="Links" width="200" height="60" />
-                    <img src="/assets/header/nav/links/links_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="/#archive">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/archive/archive.png" alt="Archive" width="200" height="60" />
-                    <img src="/assets/header/nav/archive/archive_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="/#about">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/about/about.png" alt="About" width="200" height="60" />
-                    <img src="/assets/header/nav/about/about_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div id="banner-side-right">
+        <a id="site-logo" class="site-header__logo" href="/" aria-label="Disengineering home">
           <img
-            src="/assets/header/wires_banner.png"
+            src="/assets/header/DIS_LOGO.png"
+            alt="Disengineering"
+            width="800"
+            height="200"
+            decoding="async"
+          />
+        </a>
+        <nav class="site-header__nav" aria-label="Primary">
+          <ul id="primary-nav">
+            <li>
+              <a href="/#zines">
+                <span class="nav-img-wrap">
+                  <img src="/assets/header/nav/zines/zines.png" alt="Zines" width="200" height="60" />
+                  <img src="/assets/header/nav/zines/zines_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/#workshops">
+                <span class="nav-img-wrap">
+                  <img src="/assets/header/nav/workshops/workshops.png" alt="Workshops" width="200" height="60" />
+                  <img src="/assets/header/nav/workshops/workshops_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/#links">
+                <span class="nav-img-wrap">
+                  <img src="/assets/header/nav/links/links.png" alt="Links" width="200" height="60" />
+                  <img src="/assets/header/nav/links/links_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/#archive">
+                <span class="nav-img-wrap">
+                  <img src="/assets/header/nav/archive/archive.png" alt="Archive" width="200" height="60" />
+                  <img src="/assets/header/nav/archive/archive_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/#about">
+                <span class="nav-img-wrap">
+                  <img src="/assets/header/nav/about/about.png" alt="About" width="200" height="60" />
+                  <img src="/assets/header/nav/about/about_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="site-header__hands">
+          <img
+            src="/assets/header/hands_banner.png"
             alt=""
             width="400"
             height="200"
@@ -89,129 +86,139 @@
       </header>
 
 
-      <div id="layout">
-        <main>
-          <div class="header-wrapper">
-            <h2 class="section-heading" style="background-color: blue">
-              WHAT IS DISENGINEERING?
-            </h2>
+  <div id="layout">
+    <main>
+      <div class="header-wrapper">
+        <h2 class="section-heading" style="background-color: blue">
+          WHAT IS DISENGINEERING?
+        </h2>
+      </div>
+
+      <section class="content-block" id="about" aria-labelledby="about-heading">
+        <div class="content-block__media">
+          <img src="/assets/body/about_image.png" alt="Hands adjusting knobs on a wooden electronic instrument"
+            width="1200" height="900" loading="eager" decoding="async" />
+        </div>
+        <div class="content-block__body">
+          <p id="about-heading">
+            The Disengineering Society is a &ldquo;hardware hacking&rdquo; collective.
+          </p>
+          <a class="btn" href="#about">ABOUT</a>
+        </div>
+      </section>
+
+      <section class="content-block content-block--reverse" id="workshops" aria-labelledby="workshops-heading">
+        <div class="content-block__body">
+          <p id="workshops-heading">
+            We run workshops teaching people how to build electronic musical instruments using salvaged electronic
+            waste.
+          </p>
+          <a class="btn" href="#workshops">WORKSHOPS</a>
+        </div>
+        <div class="content-block__media">
+          <img src="/assets/body/workshop_image.png" alt="Workshop participants building electronics at a table"
+            width="1200" height="900" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <section class="content-block" id="zines" aria-labelledby="zines-heading">
+        <div class="content-block__media">
+          <img src="/assets/body/zine_photo.png" alt="Illustrated zine cover: Happy Fun Musical Play Thing" width="1200"
+            height="900" loading="lazy" decoding="async" />
+        </div>
+        <div class="content-block__body">
+          <p id="zines-heading">
+            We also create, publish, and exhibit illustrated educational materials.
+          </p>
+          <a class="btn" href="#zines">SEE OUR ZINES</a>
+        </div>
+      </section>
+
+      <section class="content-block content-block--reverse" id="concerts" aria-labelledby="concerts-heading">
+        <div class="content-block__body">
+          <p id="concerts-heading">And host the occasional concert.</p>
+          <a class="btn" href="#concerts">CHECK IT OUT</a>
+        </div>
+        <div class="content-block__media">
+          <img src="/assets/body/concerts_photo.png" alt="Concert with electronic gear on stage" width="1200"
+            height="900" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <section id="philosophy" aria-labelledby="philosophy-heading">
+        <p id="philosophy-heading">
+          Disengineering is committed to sustainable design practices by combatting planned obsolescence and advocating
+          for Right-to-Repair.
+        </p>
+        <div id="philosophy-row">
+          <img class="bug" src="/assets/body/bug1.png" alt="" width="200" height="200" loading="lazy" />
+          <div id="philosophy-pots">
+            <img src="/assets/body/pot1.png" alt="" width="300" height="200" loading="lazy" />
+            <a class="btn" href="#philosophy">LEARN MORE</a>
+            <img src="/assets/body/pot2.png" alt="" width="300" height="200" loading="lazy" />
           </div>
+          <img class="bug" src="/assets/body/bug3.png" alt="" width="200" height="200" loading="lazy" />
+        </div>
+      </section>
+    </main>
 
-          <section class="content-block" id="about" aria-labelledby="about-heading">
-            <div class="content-block__media">
-              <img
-                src="/assets/body/about_image.png"
-                alt="Hands adjusting knobs on a wooden electronic instrument"
-                width="1200"
-                height="900"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-            <div class="content-block__body">
-              <p id="about-heading">
-                The Disengineering Society is a &ldquo;hardware hacking&rdquo; collective.
-              </p>
-              <a class="btn" href="#about">ABOUT</a>
-            </div>
-          </section>
-
-          <section class="content-block content-block--reverse" id="workshops" aria-labelledby="workshops-heading">
-            <div class="content-block__body">
-              <p id="workshops-heading">
-                We run workshops teaching people how to build electronic musical instruments using salvaged electronic waste.
-              </p>
-              <a class="btn" href="#workshops">WORKSHOPS</a>
-            </div>
-            <div class="content-block__media">
-              <img
-                src="/assets/body/workshop_image.png"
-                alt="Workshop participants building electronics at a table"
-                width="1200"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </section>
-
-          <section class="content-block" id="zines" aria-labelledby="zines-heading">
-            <div class="content-block__media">
-              <img
-                src="/assets/body/zine_photo.png"
-                alt="Illustrated zine cover: Happy Fun Musical Play Thing"
-                width="1200"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="content-block__body">
-              <p id="zines-heading">
-                We also create, publish, and exhibit illustrated educational materials.
-              </p>
-              <a class="btn" href="#zines">SEE OUR ZINES</a>
-            </div>
-          </section>
-
-          <section class="content-block content-block--reverse" id="concerts" aria-labelledby="concerts-heading">
-            <div class="content-block__body">
-              <p id="concerts-heading">And host the occasional concert.</p>
-              <a class="btn" href="#concerts">CHECK IT OUT</a>
-            </div>
-            <div class="content-block__media">
-              <img
-                src="/assets/body/concerts_photo.png"
-                alt="Concert with electronic gear on stage"
-                width="1200"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </section>
-
-          <section id="philosophy" aria-labelledby="philosophy-heading">
-            <p id="philosophy-heading">
-              Disengineering is committed to sustainable design practices by combatting planned obsolescence and advocating for Right-to-Repair.
-            </p>
-            <div id="philosophy-row">
-              <img class="bug" src="/assets/body/bug1.png" alt="" width="200" height="200" loading="lazy" />
-              <div id="philosophy-pots">
-                <img src="/assets/body/pot1.png" alt="" width="300" height="200" loading="lazy" />
-                <a class="btn" href="#philosophy">LEARN MORE</a>
-                <img src="/assets/body/pot2.png" alt="" width="300" height="200" loading="lazy" />
-              </div>
-              <img class="bug" src="/assets/body/bug3.png" alt="" width="200" height="200" loading="lazy" />
-            </div>
-          </section>
-        </main>
-
-        <aside id="sidebar" aria-label="Oscilloscope and events">
-          <section class="sidebar-panel" id="oscilloscope" aria-labelledby="oscilloscope-heading">
-            <div class="header-wrapper">
-              <h2 id="oscilloscope-heading" class="section-heading" style="background-color: green">
-                OSCILLISCOPE
-              </h2>
-            </div>
-            <div id="osc-wrap">
-              <img
-                src="/assets/sidebar/oscilloscope.png"
-                alt="Oscilloscope graphic with waveform"
-                width="800"
-                height="600"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </section>
-          <section class="sidebar-panel" id="events" aria-labelledby="events-heading">
-            <div class="header-wrapper">
-              <h2 id="events-heading" class="section-heading" style="background-color: red">EVENTS</h2>
-            </div>
-                        <div id="events-stack">
+    <aside id="sidebar" aria-label="Oscilloscope and events">
+      <section class="sidebar-panel" id="oscilloscope" aria-labelledby="oscilloscope-heading">
+        <div class="header-wrapper">
+          <h2 id="oscilloscope-heading" class="section-heading" style="background-color: green">
+            OSCILLISCOPE
+          </h2>
+        </div>
+        <div id="osc-wrap">
+          <img src="/assets/sidebar/oscilloscope.png" alt="Oscilloscope graphic with waveform" width="800" height="600"
+            loading="lazy" decoding="async" />
+        </div>
+      </section>
+      <section class="sidebar-panel" id="events" aria-labelledby="events-heading">
+        <div class="header-wrapper">
+          <h2 id="events-heading" class="section-heading" style="background-color: red">EVENTS</h2>
+        </div>
+                    <div id="events-stack">
               <div class="events-sidebar-section">
                 <h2 class="events-sidebar-section__label">UPCOMING</h2>
+                
+                  
+
+
+<article class="event-card">
+  <header class="event-card__top">
+    <div class="event-card__tags">
+      
+        <span class="event-card__tag event-card__tag--fill">WORKSHOP</span>
+      
+        <span class="event-card__tag event-card__tag--outline">NYC</span>
+      
+    </div>
+    <span class="event-card__radio" aria-hidden="true"></span>
+  </header>
+
+  <div class="event-card__main">
+    <div class="event-card__date-block" aria-hidden="true">
+      <span class="event-card__dow">Tuesday</span>
+      <span class="event-card__month">April</span>
+      <span class="event-card__dom">14th</span>
+    </div>
+    <div class="event-card__details">
+      <h3 class="event-card__title">
+        <a href="/calendar/the-beep-phone/">The Beep Phone</a>
+      </h3>
+      <p class="event-card__line">Tuesday, 14 April 2026</p>
+      <p class="event-card__line">14:00 – 18:00 (GMT-4)</p>
+      <p class="event-card__line event-card__location">@ Under Computer 610 Manhattan Ave.</p>
+    </div>
+  </div>
+
+  <p class="event-card__desc">Practice creative reuse by turning an old phone into a microphone and its keypad sounds back into a synthesizer in this beginner-friendly Disengineering workshop.</p>
+  <p class="event-card__cta">
+    <a href="/calendar/the-beep-phone/">LEARN MORE</a>
+  </p>
+</article>
+
                 
                   
 
@@ -278,6 +285,44 @@
     </div>
     <div class="event-card__details">
       <h3 class="event-card__title">
+        <a href="/calendar/screambox-distortion-amp/">Screambox Distortion Amp</a>
+      </h3>
+      <p class="event-card__line">Wednesday, 25 March 2026</p>
+      <p class="event-card__line">14:00 – 17:00 (GMT-4)</p>
+      <p class="event-card__line event-card__location">@ P.I.T. 411 S 5th Street, Brooklyn</p>
+    </div>
+  </div>
+
+  <p class="event-card__desc">Build a gnarly distortion box from salvaged parts in this hands-on session. No prior electronics experience required.</p>
+  <p class="event-card__cta">
+    <a href="/calendar/screambox-distortion-amp/">LEARN MORE</a>
+  </p>
+</article>
+
+                
+                  
+
+
+<article class="event-card">
+  <header class="event-card__top">
+    <div class="event-card__tags">
+      
+        <span class="event-card__tag event-card__tag--fill">WORKSHOP</span>
+      
+        <span class="event-card__tag event-card__tag--outline">NYC</span>
+      
+    </div>
+    <span class="event-card__radio" aria-hidden="true"></span>
+  </header>
+
+  <div class="event-card__main">
+    <div class="event-card__date-block" aria-hidden="true">
+      <span class="event-card__dow">Wednesday</span>
+      <span class="event-card__month">March</span>
+      <span class="event-card__dom">25th</span>
+    </div>
+    <div class="event-card__details">
+      <h3 class="event-card__title">
         <a href="/events/screambox-distortion-amp/">Screambox Distortion Amp</a>
       </h3>
       <p class="event-card__line">Wednesday, 25 March 2026</p>
@@ -289,6 +334,44 @@
   <p class="event-card__desc">Build a gnarly distortion box from salvaged parts in this hands-on session. No prior electronics experience required.</p>
   <p class="event-card__cta">
     <a href="/events/screambox-distortion-amp/">LEARN MORE</a>
+  </p>
+</article>
+
+                
+                  
+
+
+<article class="event-card">
+  <header class="event-card__top">
+    <div class="event-card__tags">
+      
+        <span class="event-card__tag event-card__tag--fill">WORKSHOP</span>
+      
+        <span class="event-card__tag event-card__tag--outline">NYC</span>
+      
+    </div>
+    <span class="event-card__radio" aria-hidden="true"></span>
+  </header>
+
+  <div class="event-card__main">
+    <div class="event-card__date-block" aria-hidden="true">
+      <span class="event-card__dow">Tuesday</span>
+      <span class="event-card__month">June</span>
+      <span class="event-card__dom">10th</span>
+    </div>
+    <div class="event-card__details">
+      <h3 class="event-card__title">
+        <a href="/calendar/vape-mic/">Vape Mic</a>
+      </h3>
+      <p class="event-card__line">Tuesday, 10 June 2025</p>
+      <p class="event-card__line">15:00 – 18:00 (GMT-4)</p>
+      <p class="event-card__line event-card__location">@ Index Greenpoint 698 Manhattan Ave.</p>
+    </div>
+  </div>
+
+  <p class="event-card__desc">A past workshop on repurposing small electronics into playable microphones.</p>
+  <p class="event-card__cta">
+    <a href="/calendar/vape-mic/">LEARN MORE</a>
   </p>
 </article>
 
@@ -334,14 +417,14 @@
               </div>
             </div>
 
-            <div id="events-actions">
-              <a class="btn" href="/events/">SEE FULL CALENDAR</a>
-            </div>
-          </section>
-        </aside>
-      </div>
+        <div id="events-actions">
+          <a class="btn" href="/events/">SEE FULL CALENDAR</a>
+        </div>
+      </section>
+    </aside>
+  </div>
 
-            <footer id="site-footer">
+        <footer id="site-footer">
         <ul id="links">
           <li><a href="https://instagram.com/">INSTAGRAM</a></li>
           <li><a href="mailto:hello@example.com">EMAIL</a></li>
@@ -365,6 +448,6 @@
         </div>
       </footer>
 
-    </div>
-  </body>
+</body>
+
 </html>

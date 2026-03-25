@@ -12,10 +12,8 @@
     {% if extraHead %}{{ extraHead }}{% endif %}
   </head>
   <body>
-    <div id="page">
-      {% include "site-header.html" %}
-      {{ content }}
-      {% include "site-footer.html" %}
-    </div>
+    {% include "site-header.html" %}
+    {{ content }}
+    {% include "site-footer.html" %}
   </body>
 </html>
