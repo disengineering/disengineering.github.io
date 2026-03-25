@@ -1,10 +1,11 @@
-{% set tz = event.data.timezone | default("America/New_York") %}
-{% set parts = event.data.date | calendarDateParts(tz) %}
+{% assign tz = event.data.timezone | default: "America/New_York" %}
+{% assign parts = event.data.date | calendarDateParts: tz %}
+{% assign end_iso = event.data.end | default: event.data.date %}
 <article class="calendar-event-card">
   <header class="calendar-event-card__top">
     <div class="calendar-event-card__tags">
       {% for tag in event.data.eventTags %}
-        <span class="calendar-event-card__tag {% if loop.index0 == 0 %}calendar-event-card__tag--fill{% else %}calendar-event-card__tag--outline{% endif %}">{{ tag | upper }}</span>
+        <span class="calendar-event-card__tag {% if forloop.first %}calendar-event-card__tag--fill{% else %}calendar-event-card__tag--outline{% endif %}">{{ tag | upcase }}</span>
       {% endfor %}
     </div>
     <span class="calendar-event-card__radio" aria-hidden="true"></span>
@@ -20,8 +21,8 @@
       <h3 class="calendar-event-card__title">
         <a href="{{ event.url }}">{{ event.data.title }}</a>
       </h3>
-      <p class="calendar-event-card__line">{{ event.data.date | formatEventDateLong(tz) }}</p>
-      <p class="calendar-event-card__line">{{ event.data.date | formatEventTimeRange(event.data.end | default(event.data.date), tz) }}</p>
+      <p class="calendar-event-card__line">{{ event.data.date | formatEventDateLong: tz }}</p>
+      <p class="calendar-event-card__line">{{ event.data.date | formatEventTimeRange: end_iso, tz }}</p>
       <p class="calendar-event-card__line calendar-event-card__location">@ {{ event.data.location }}</p>
     </div>
   </div>

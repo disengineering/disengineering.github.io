@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="{{ description | default('Disengineering — a hardware hacking collective focused on electronic musical instruments, workshops, zines, and sustainable design.') }}"
+      content="{{ description | default: 'Disengineering — a hardware hacking collective focused on electronic musical instruments, workshops, zines, and sustainable design.' }}"
     />
     <title>{% if title %}{{ title }} — Disengineering{% else %}Disengineering{% endif %}</title>
     <link rel="stylesheet" href="/css/main.css" />
-    {% if extraHead %}{{ extraHead | safe }}{% endif %}
+    {% if extraHead %}{{ extraHead }}{% endif %}
   </head>
   <body>
     <div id="page">
-      {% include "site-header.njk" %}
-      {{ content | safe }}
-      {% include "site-footer.njk" %}
+      {% include "site-header.html" %}
+      {{ content }}
+      {% include "site-footer.html" %}
     </div>
   </body>
 </html>

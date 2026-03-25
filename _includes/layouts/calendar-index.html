@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/base.html
 ---
 <main class="calendar-index-page" id="main-content">
   <div class="calendar-index-page__header header-wrapper">
@@ -9,26 +9,22 @@ layout: layouts/base.njk
   <section class="calendar-index-section" aria-labelledby="upcoming-heading">
     <h2 id="upcoming-heading" class="calendar-index-section__label">UPCOMING</h2>
     <div class="calendar-index-section__list">
-      {% if collections.calendarUpcoming.length %}
-        {% for event in collections.calendarUpcoming %}
-          {% include "partials/calendar-event-card.njk" %}
-        {% endfor %}
+      {% for event in collections.calendarUpcoming %}
+        {% include "partials/calendar-event-card.html" %}
       {% else %}
         <p class="calendar-index-empty">No upcoming events.</p>
-      {% endif %}
+      {% endfor %}
     </div>
   </section>
 
   <section class="calendar-index-section" aria-labelledby="past-heading">
     <h2 id="past-heading" class="calendar-index-section__label">PAST EVENTS</h2>
     <div class="calendar-index-section__list">
-      {% if collections.calendarPast.length %}
-        {% for event in collections.calendarPast %}
-          {% include "partials/calendar-event-card.njk" %}
-        {% endfor %}
+      {% for event in collections.calendarPast %}
+        {% include "partials/calendar-event-card.html" %}
       {% else %}
         <p class="calendar-index-empty">No past events.</p>
-      {% endif %}
+      {% endfor %}
     </div>
   </section>
 </main>

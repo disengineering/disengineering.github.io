@@ -1,22 +1,18 @@
             <div id="calendar-stack">
               <div class="calendar-sidebar-section">
                 <h2 class="calendar-sidebar-section__label">UPCOMING</h2>
-                {% if collections.calendarUpcoming.length %}
-                  {% for event in collections.calendarUpcoming %}
-                    {% include "partials/calendar-event-card.njk" %}
-                  {% endfor %}
+                {% for event in collections.calendarUpcoming %}
+                  {% include "partials/calendar-event-card.html" %}
                 {% else %}
                   <p class="calendar-sidebar-empty">No upcoming events.</p>
-                {% endif %}
+                {% endfor %}
               </div>
               <div class="calendar-sidebar-section">
                 <h2 class="calendar-sidebar-section__label">PAST EVENTS</h2>
-                {% if collections.calendarPast.length %}
-                  {% for event in collections.calendarPast %}
-                    {% include "partials/calendar-event-card.njk" %}
-                  {% endfor %}
+                {% for event in collections.calendarPast %}
+                  {% include "partials/calendar-event-card.html" %}
                 {% else %}
                   <p class="calendar-sidebar-empty">No past events.</p>
-                {% endif %}
+                {% endfor %}
               </div>
             </div>

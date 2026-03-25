@@ -12,7 +12,7 @@
   </head>
   <body>
     <div id="page">
-      {% include "site-header.njk" %}
+      {% include "site-header.html" %}
 
       <div id="layout">
         <main>
@@ -134,7 +134,7 @@
             <div class="header-wrapper">
               <h2 id="calendar-heading" class="section-heading" style="background-color: red">CALENDAR</h2>
             </div>
-            {% include "partials/calendar-sidebar.njk" %}
+            {% include "partials/calendar-sidebar.html" %}
             <div id="calendar-actions">
               <a class="btn" href="/calendar/">SEE FULL CALENDAR</a>
             </div>
@@ -142,7 +142,7 @@
         </aside>
       </div>
 
-      {% include "site-footer.njk" %}
+      {% include "site-footer.html" %}
     </div>
   </body>
 </html>
