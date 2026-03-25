@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+---
+<main class="calendar-event-page" id="main-content">
+  {% set tz = timezone | default("America/New_York") %}
+  <article class="calendar-event" aria-labelledby="event-title">
+    <header class="calendar-event__top">
+      <div class="calendar-event__tags">
+        {% for tag in eventTags %}
+          <span class="calendar-event__tag {% if loop.index0 == 0 %}calendar-event__tag--fill{% else %}calendar-event__tag--outline{% endif %}">{{ tag | upper }}</span>
+        {% endfor %}
+      </div>
+      <span class="calendar-event__radio" aria-hidden="true"></span>
+    </header>
+
+    <div class="calendar-event__grid">
+      <div class="calendar-event__date-hand" aria-hidden="true">
+        <span class="calendar-event__date-hand-inner">{{ date | formatEventDateHand(tz) }}</span>
+      </div>
+
+      <div class="calendar-event__meta">
+        <h1 id="event-title" class="calendar-event__title">{{ title }}</h1>
+        <p class="calendar-event__line">{{ date | formatEventDateLong(tz) }}</p>
+        <p class="calendar-event__line">{{ date | formatEventTimeRange(end | default(date), tz) }}</p>
+        <p class="calendar-event__line calendar-event__location">@ {{ location }}</p>
+      </div>
+    </div>
+
+    <div class="calendar-event__body">
+      <p class="calendar-event__description">{{ description }}</p>
+      {{ content | safe }}
+    </div>
+  </article>
+</main>

@@ -12,81 +12,7 @@
   </head>
   <body>
     <div id="page">
-      <header id="site-header">
-        <div id="banner-side-left">
-          <img
-            src="/assets/header/hands_banner.png"
-            alt=""
-            width="400"
-            height="200"
-            decoding="async"
-          />
-        </div>
-        <div id="header-center">
-          <a id="site-logo" href="/" aria-label="Disengineering home">
-            <img
-              src="/assets/header/DIS_LOGO.png"
-              alt="Disengineering"
-              width="800"
-              height="200"
-              decoding="async"
-            />
-          </a>
-          <nav aria-label="Primary">
-            <ul id="primary-nav">
-              <li>
-                <a href="#zines">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/zines/zines.png" alt="Zines" width="200" height="60" />
-                    <img src="/assets/header/nav/zines/zines_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#workshops">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/workshops/workshops.png" alt="Workshops" width="200" height="60" />
-                    <img src="/assets/header/nav/workshops/workshops_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#links">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/links/links.png" alt="Links" width="200" height="60" />
-                    <img src="/assets/header/nav/links/links_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#archive">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/archive/archive.png" alt="Archive" width="200" height="60" />
-                    <img src="/assets/header/nav/archive/archive_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#about">
-                  <span class="nav-img-wrap">
-                    <img src="/assets/header/nav/about/about.png" alt="About" width="200" height="60" />
-                    <img src="/assets/header/nav/about/about_hover.png" alt="" width="200" height="60" aria-hidden="true" />
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div id="banner-side-right">
-          <img
-            src="/assets/header/wires_banner.png"
-            alt=""
-            width="400"
-            height="200"
-            decoding="async"
-          />
-        </div>
-      </header>
+      {% include "site-header.njk" %}
 
       <div id="layout">
         <main>
@@ -208,55 +134,15 @@
             <div class="header-wrapper">
               <h2 id="calendar-heading" class="section-heading" style="background-color: red">CALENDAR</h2>
             </div>
-            <div id="calendar-stack">
-              <img
-                src="/assets/sidebar/calendar1.png"
-                alt="Upcoming events: The Beep Phone on March 14 and Screambox Distortion Amp on March 27 in NYC"
-                width="600"
-                height="400"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="/assets/sidebar/calendar2.png"
-                alt="Past events: Vape Mic, Pot and Switch, and The Beep Phone workshops"
-                width="600"
-                height="400"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+            {% include "partials/calendar-sidebar.njk" %}
             <div id="calendar-actions">
-              <a class="btn" href="#calendar">SEE FULL CALENDAR</a>
+              <a class="btn" href="/calendar/">SEE FULL CALENDAR</a>
             </div>
           </section>
         </aside>
       </div>
 
-      <footer id="site-footer">
-        <ul id="links">
-          <li><a href="https://instagram.com/">INSTAGRAM</a></li>
-          <li><a href="mailto:hello@example.com">EMAIL</a></li>
-          <li><a href="https://discord.com/">DISCORD</a></li>
-        </ul>
-        <div id="footer-brand">
-          <div id="footer-brand-logo">
-            <img
-              src="/assets/footer/footer_logo.png"
-              alt="Disengineering"
-              width="400"
-              height="120"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <span id="footer-brand-est">EST. 2022</span>
-        </div>
-        <div id="footer-ground">
-          <img src="/assets/footer/in_ground.png" alt="In ground we trust" width="200" height="200" loading="lazy" />
-          <img src="/assets/footer/in_ground.png" alt="" width="200" height="200" loading="lazy" aria-hidden="true" />
-        </div>
-      </footer>
+      {% include "site-footer.njk" %}
     </div>
   </body>
 </html>
