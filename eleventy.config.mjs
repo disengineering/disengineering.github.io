@@ -2,9 +2,6 @@
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("favicon-32x32.png");
-  eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
 
   eleventyConfig.ignores.add("AGENTS.md");
   eleventyConfig.ignores.add("BOOTSTRAP.md");
