@@ -1,3 +1,7 @@
+/* =============================================================================
+   FONTS
+   ============================================================================= */
+
 @font-face {
   font-family: "Retro Computer";
   src: url("/assets/fonts/retro_computer_personal_use.ttf") format("truetype");
@@ -6,9 +10,19 @@
   font-display: swap;
 }
 
+
+/* =============================================================================
+   DESIGN TOKENS
+   ============================================================================= */
+
 :root {
   --wide-spacing: 0.15em;
 }
+
+
+/* =============================================================================
+   RESET & DOCUMENT BASE
+   ============================================================================= */
 
 *,
 *::before,
@@ -23,7 +37,7 @@ html {
 
 body {
   --page-padding: 1em;
-  /* https://maxbittker.github.io/broider/  c*/
+  /* https://maxbittker.github.io/broider/ */
   border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABX0lEQVR4AdTXO3KEQAwEUO/e/852wiNoakozeBcQSZf+rR4lvH/i+90+7s08gDiUkDY/FF/FA9HVBlfl70SrjV/bl8TO1mWftLPvTjQTn2bvRDfBXqsEz9aZQ7nEjO9EBZ6KtxP1IhXeTnT2BaeJuqHZxvKqOvEKp4kafBceiLoVhNiJ4lA8bX4oniieKO9AVOBpuEy0uqXZeAoxqpO3TFTh1fgebZL+JJa3NGuf7dNHURuOFBG/Gr2ouf0UtUGijb6FOY9tHruPoqPbTL8NP405Z2T3UdQNVPhpJfWr5or3UdRN2JAduPwvpd8s5jy2+j6KYpwb8F+FbjHR/D6K5gYj22ZwlFf51UMvWWEfRavNxGG1+Wxcv1nsp+jotkYbV/niWc+fKI+fDfso+t+bUm/zWVyt66Oom6hwVqlv5fVRNG+FnXhWKS+1Wp91fRS1KQXZs5ibZ92o72pdG0X/AAAA//8WoGLJAAAABklEQVQDAAiu4DNBnqERAAAAAElFTkSuQmCC") 14 /  14px / 0 round;
   border-width:  14px;
   border-style:  solid;
@@ -39,12 +53,6 @@ body {
   letter-spacing: var(--wide-spacing);
   max-width: 70em;
   margin: 0 auto;
-}
-
-.body-layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -63,6 +71,52 @@ img {
   height: auto;
   display: block;
 }
+
+
+/* =============================================================================
+   PAGE LAYOUT (shell, main + aside, sticky footer)
+   ============================================================================= */
+
+.body-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 1em;
+}
+
+/* Sticky footer: grow page content so #site-footer sits at the bottom on short pages */
+#content > :not(#site-footer) {
+  flex: 1 1 auto;
+}
+
+#main-and-aside {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  #main-and-aside {
+    grid-template-columns: 1fr;
+  }
+}
+
+main {
+  border: 1px solid white;
+}
+
+
+/* =============================================================================
+   SITE HEADER
+   ============================================================================= */
 
 header#site-header {
   --header-side-max: 12rem;
@@ -270,35 +324,10 @@ header#site-header {
   display: block;
 }
 
-#content {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  padding: 1em;
-}
 
-/* Sticky footer: grow page content so #site-footer sits at the bottom on short pages */
-#content > :not(#site-footer) {
-  flex: 1 1 auto;
-}
-
-#main-and-aside {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: clamp(1rem, 2vw, 2rem);
-  align-items: start;
-}
-
-@media (max-width: 960px) {
-  #main-and-aside {
-    grid-template-columns: 1fr;
-  }
-}
-
-main {
-  border: 1px solid white;
-}
+/* =============================================================================
+   CONTENT BLOCKS & SECTION CHROME
+   ============================================================================= */
 
 .header-wrapper {
   padding: 8px;
@@ -366,6 +395,22 @@ main {
   align-self: center;
 }
 
+@media (max-width: 640px) {
+  .content-block,
+  .content-block--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .content-block--reverse .content-block__media {
+    order: -1;
+  }
+}
+
+
+/* =============================================================================
+   LINKS & BUTTONS
+   ============================================================================= */
+
 a {
   color: inherit;
 }
@@ -392,6 +437,11 @@ a:hover, a:focus-visible {
   background: black;
   color: white;
 }
+
+
+/* =============================================================================
+   PHILOSOPHY (HOME)
+   ============================================================================= */
 
 #philosophy {
   margin-top: 2ch;
@@ -430,6 +480,11 @@ a:hover, a:focus-visible {
   opacity: 0.95;
 }
 
+
+/* =============================================================================
+   SIDEBAR & EVENTS WIDGET
+   ============================================================================= */
+
 #sidebar {
   min-width: 0;
   display: flex;
@@ -461,6 +516,11 @@ a:hover, a:focus-visible {
   text-align: center;
 }
 
+
+/* =============================================================================
+   SITE FOOTER
+   ============================================================================= */
+
 #site-footer {
   flex-shrink: 0;
   display: grid;
@@ -473,7 +533,7 @@ a:hover, a:focus-visible {
   border: 1px solid white;
 }
 
-/* min-width:0 lets grid columns shrink; do not set max-width:100% here — it
+/* min-width:0 lets grid columns shrink; do not set max-width:100% here —
    overrides .footer-ground and blows images up to full column width. */
 #site-footer > * {
   min-width: 0;
@@ -530,16 +590,10 @@ a:hover, a:focus-visible {
   object-fit: contain;
 }
 
-@media (max-width: 640px) {
-  .content-block,
-  .content-block--reverse {
-    grid-template-columns: 1fr;
-  }
 
-  .content-block--reverse .content-block__media {
-    order: -1;
-  }
-}
+/* =============================================================================
+   EVENT DETAIL PAGE
+   ============================================================================= */
 
 /* Event detail (HI_RES-style) */
 .event-page {
@@ -630,6 +684,11 @@ a:hover, a:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =============================================================================
+   EVENT CARDS & LISTINGS (SIDEBAR, INDEX, EVENTS PAGE)
+   ============================================================================= */
 
 /* Event cards (sidebar + index) */
 .events-sidebar-section__label,
