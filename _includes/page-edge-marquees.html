@@ -1,8 +1,0 @@
-{% capture edge_binary_h %}{% for i in (1..500) %}01{% endfor %}{% endcapture %}
-{% capture edge_binary_v %}{% for i in (1..160) %}0<br>1<br>{% endfor %}{% endcapture %}
-<div class="page-edge-marquees" aria-hidden="true">
-  <marquee class="page-edge-marquee page-edge-marquee--top" scrollamount="3">{{ edge_binary_h }}</marquee>
-  <marquee class="page-edge-marquee page-edge-marquee--bottom" direction="right" scrollamount="3">{{ edge_binary_h }}</marquee>
-  <marquee class="page-edge-marquee page-edge-marquee--left" direction="up" scrollamount="3">{{ edge_binary_v }}</marquee>
-  <marquee class="page-edge-marquee page-edge-marquee--right" direction="down" scrollamount="3">{{ edge_binary_v }}</marquee>
-</div>
