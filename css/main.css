@@ -20,6 +20,7 @@ html {
 }
 
 body {
+  --page-padding: 1em;
   /* https://maxbittker.github.io/broider/  c*/
   border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABX0lEQVR4AdTXO3KEQAwEUO/e/852wiNoakozeBcQSZf+rR4lvH/i+90+7s08gDiUkDY/FF/FA9HVBlfl70SrjV/bl8TO1mWftLPvTjQTn2bvRDfBXqsEz9aZQ7nEjO9EBZ6KtxP1IhXeTnT2BaeJuqHZxvKqOvEKp4kafBceiLoVhNiJ4lA8bX4oniieKO9AVOBpuEy0uqXZeAoxqpO3TFTh1fgebZL+JJa3NGuf7dNHURuOFBG/Gr2ouf0UtUGijb6FOY9tHruPoqPbTL8NP405Z2T3UdQNVPhpJfWr5or3UdRN2JAduPwvpd8s5jy2+j6KYpwb8F+FbjHR/D6K5gYj22ZwlFf51UMvWWEfRavNxGG1+Wxcv1nsp+jotkYbV/niWc+fKI+fDfso+t+bUm/zWVyt66Oom6hwVqlv5fVRNG+FnXhWKS+1Wp91fRS1KQXZs5ibZ92o72pdG0X/AAAA//8WoGLJAAAABklEQVQDAAiu4DNBnqERAAAAAElFTkSuQmCC") 14 /  14px / 0 round;
   border-width:  14px;
@@ -256,8 +257,11 @@ header#site-header {
   display: block;
 }
 
-#layout {
+#non-header-content {
   padding: 1em;
+}
+
+#main-and-aside {
   display: grid;
   grid-template-columns: 1fr min(28rem, 100%);
   gap: clamp(1rem, 2vw, 2rem);
@@ -265,7 +269,7 @@ header#site-header {
 }
 
 @media (max-width: 960px) {
-  #layout {
+  #main-and-aside {
     grid-template-columns: 1fr;
   }
 }
@@ -433,19 +437,25 @@ a:hover, a:focus-visible {
 }
 
 #site-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+  flex-wrap: wrap;
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
-  padding-top: 1rem;
-  border-top: 1px solid white;
+  padding: var(--page-padding);
+  border: 1px solid white;
 }
 
 #links {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(0.75rem, 3vw, 2rem);
-  margin-bottom: 1rem;
+  flex-direction: column;
+  gap: 0.15em;
   list-style: none;
   padding: 0;
+  margin: 0;
+  text-align: left;
 }
 
 #links a {
@@ -454,36 +464,22 @@ a:hover, a:focus-visible {
 }
 
 #footer-brand {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: center;
-  gap: clamp(1rem, 4vw, 3rem);
+  flex: 0 1 auto;
 }
 
 #footer-brand-logo img {
   max-height: 4rem;
   width: auto;
-  margin: 0 auto;
 }
 
 #footer-brand-est {
   font-size: 0.9em;
-  align-self: flex-end;
-  padding-bottom: 0.25rem;
+  white-space: nowrap;
 }
 
-#footer-ground {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-#footer-ground img {
-  width: min(6rem, 40vw);
+.footer-ground {
+  width: min(6rem, 22vw);
+  flex-shrink: 0;
 }
 
 @media (max-width: 640px) {
