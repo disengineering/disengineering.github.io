@@ -71,16 +71,22 @@ header#site-header {
 
 .site-header__wires,
 .site-header__hands {
-  display: flex;
-  align-items: center;
+  display: block;
+  box-sizing: border-box;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  max-height: clamp(4.5rem, min(18vw, 20vh), 10rem);
+  object-fit: contain;
 }
 
 .site-header__wires {
   grid-column: 1;
   grid-row: 1;
-  justify-content: flex-start;
+  justify-self: start;
   align-self: center;
+  object-position: center left;
 }
 
 .site-header__logo {
@@ -95,8 +101,9 @@ header#site-header {
 .site-header__hands {
   grid-column: 5;
   grid-row: 1;
-  justify-content: flex-end;
+  justify-self: end;
   align-self: center;
+  object-position: center right;
 }
 
 #site-header nav > a:nth-child(1) {
@@ -122,24 +129,6 @@ header#site-header {
 #site-header nav > a:nth-child(5) {
   grid-column: 5;
   grid-row: 2;
-}
-
-.site-header__wires img,
-.site-header__hands img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: clamp(4.5rem, min(18vw, 20vh), 10rem);
-  object-fit: contain;
-}
-
-.site-header__wires img {
-  object-position: center left;
-}
-
-.site-header__hands img {
-  object-position: center right;
 }
 
 .site-header__logo img {
