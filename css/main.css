@@ -35,7 +35,7 @@ body {
   color: white;
   line-height: 1.5;
   letter-spacing: 0.15em;
-  max-width: 120rem;
+  max-width: 70em;
   margin: 0 auto;
 }
 
@@ -257,7 +257,7 @@ header#site-header {
   display: block;
 }
 
-#non-header-content {
+#content {
   padding: 1em;
 }
 
