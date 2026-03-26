@@ -1,5 +1,5 @@
 {% assign tz = event.data.timezone | default: "America/New_York" %}
-{% assign parts = event.data.date | calendarDateParts: tz %}
+{% assign parts = event.data.date | eventDateParts: tz %}
 {% assign end_iso = event.data.end | default: event.data.date %}
 <article class="event-card">
   <header class="event-card__top">

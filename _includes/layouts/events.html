@@ -9,7 +9,7 @@ layout: layouts/base.html
   <section class="events-section" aria-labelledby="upcoming-heading">
     <h2 id="upcoming-heading" class="events-section__label">UPCOMING</h2>
     <div class="events-section__list">
-      {% for event in collections.calendarUpcoming %}
+      {% for event in collections.eventsUpcoming %}
         {% include "partials/event-card.html" %}
       {% else %}
         <p class="events-empty">No upcoming events.</p>
@@ -20,7 +20,7 @@ layout: layouts/base.html
   <section class="events-section" aria-labelledby="past-heading">
     <h2 id="past-heading" class="events-section__label">PAST EVENTS</h2>
     <div class="events-section__list">
-      {% for event in collections.calendarPast %}
+      {% for event in collections.eventsPast %}
         {% include "partials/event-card.html" %}
       {% else %}
         <p class="events-empty">No past events.</p>

@@ -63,7 +63,7 @@ export default function (eleventyConfig) {
     return `${weekday} ${month} ${ordinalDay(dayNum)}`;
   });
 
-  eleventyConfig.addFilter("calendarDateParts", (iso, timezone = "America/New_York") => {
+  eleventyConfig.addFilter("eventDateParts", (iso, timezone = "America/New_York") => {
     if (!iso) return { weekday: "", month: "", dayOrdinal: "" };
     const d = new Date(iso);
     const weekday = new Intl.DateTimeFormat("en-US", { weekday: "long", timeZone: timezone }).format(d);
@@ -75,18 +75,18 @@ export default function (eleventyConfig) {
     return { weekday, month, dayOrdinal: ordinalDay(dayNum) };
   });
 
-  eleventyConfig.addCollection("calendarUpcoming", (collectionApi) => {
+  eleventyConfig.addCollection("eventsUpcoming", (collectionApi) => {
     const now = new Date();
     return collectionApi
-      .getFilteredByTag("calendar")
+      .getFilteredByTag("event")
       .filter((item) => new Date(item.data.date) >= now)
       .sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
   });
 
-  eleventyConfig.addCollection("calendarPast", (collectionApi) => {
+  eleventyConfig.addCollection("eventsPast", (collectionApi) => {
     const now = new Date();
     return collectionApi
-      .getFilteredByTag("calendar")
+      .getFilteredByTag("event")
       .filter((item) => new Date(item.data.date) < now)
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
   });
