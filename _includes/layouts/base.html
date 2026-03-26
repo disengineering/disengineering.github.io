@@ -7,7 +7,10 @@
       name="description"
       content="{{ description | default: 'Disengineering — a hardware hacking collective focused on electronic musical instruments, workshops, zines, and sustainable design.' }}"
     />
-    <title>{% if title %}{{ title }} — Disengineering{% else %}Disengineering{% endif %}</title>
+    <title>{% if title %}{{ title }} — disengineering{% else %}disengineering{% endif %}</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/css/main.css" />
     {% if extraHead %}{{ extraHead }}{% endif %}
   </head>
