@@ -140,6 +140,12 @@ header#site-header {
   margin: 0 auto;
 }
 
+.site-header__logo:hover img,
+.site-header__logo:focus-visible img {
+  /* Flat yellow fill (no outer glow) */
+  filter: brightness(0) saturate(100%) invert(1) sepia(1) saturate(10000%) hue-rotate(0deg);
+}
+
 @media (min-width: 960px) {
   header#site-header {
     grid-template-columns: repeat(10, minmax(0, 1fr));
