@@ -695,12 +695,15 @@ a:hover, a:focus-visible {
 }
 
 input-knob.osc-knob {
-  --knob-w: min(4.5rem, 22vw);
+  /* Outer size shows the full bezel art; padding shrinks the rotator so the dial doesn’t cover it. */
+  --knob-w: min(5.35rem, 27vw);
   width: var(--knob-w);
   height: calc(var(--knob-w) * 1.065);
-  padding: 0;
+  /* Asymmetric padding: less left / more right shunts the rotator left; more top / less bottom nudges it down. */
+  padding: 24% 44% 4% 0.5%;
   border: none;
   background: transparent center / contain no-repeat;
+  background-origin: padding-box;
   box-sizing: border-box;
   display: block;
 }
@@ -720,6 +723,7 @@ input-knob.osc-knob::part(rotator) {
   border: none;
   border-radius: 50%;
   background: transparent center / contain no-repeat;
+  background-size: contain;
 }
 
 input-knob.osc-knob--top::part(rotator) {
