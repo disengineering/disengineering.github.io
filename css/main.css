@@ -532,7 +532,6 @@ a:hover, a:focus-visible {
 .event__top {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 1rem;
   margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
 }
@@ -562,14 +561,6 @@ a:hover, a:focus-visible {
   border: 1px solid #fff;
 }
 
-.event__radio {
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
 .event__grid {
   display: grid;
   grid-template-columns: minmax(4.5rem, auto) minmax(0, 1.35fr);
@@ -578,6 +569,10 @@ a:hover, a:focus-visible {
   margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
+.event__meta {
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: normal;
+}
 
 .event__title {
   margin: 0 0 0.75rem;
@@ -585,6 +580,15 @@ a:hover, a:focus-visible {
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.event__line {
+  margin: 0 0 0.4rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+}
+
+.event__location {
+  margin-top: 0.5rem;
 }
 
 .event__body {
@@ -595,12 +599,28 @@ a:hover, a:focus-visible {
   padding-top: 1rem;
 }
 
+.event__description {
+  margin: 0 0 1rem;
+  font-style: italic;
+}
+
+.event__body > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .event__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Event cards (sidebar + index) */
 .events-sidebar-section__label,
 .events-section__label {
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: normal;
   font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.4em;
   text-align: center;
   margin: 0 0 0.75rem;
   padding: 0.35rem 0.5rem;
@@ -627,7 +647,6 @@ a:hover, a:focus-visible {
 .event-card__top {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 0.75rem;
   margin-bottom: 0.65rem;
 }
@@ -658,15 +677,6 @@ a:hover, a:focus-visible {
   border: 1px solid #fff;
 }
 
-.event-card__radio {
-  width: 0.85rem;
-  height: 0.85rem;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-}
-
 .event-card__main {
   display: grid;
   grid-template-columns: minmax(4.5rem, 0.35fr) minmax(0, 1fr);
@@ -686,6 +696,10 @@ a:hover, a:focus-visible {
   line-height: 1.2;
 }
 
+.event-card__dow,
+.event-card__month {
+  font-family: "Times New Roman", Times, serif;
+}
 
 .event-card__dom {
   font-family: "Retro Computer", ui-monospace, monospace;
@@ -743,19 +757,31 @@ a:hover, a:focus-visible {
   margin-bottom: 1.25rem;
 }
 
-.events-page .event-card__main {
-  grid-template-columns: minmax(5.75rem, 0.42fr) minmax(0, 1fr);
-}
-
-.events-page .event-card__date-block {
-  font-size: clamp(0.72rem, 1.85vw, 0.95rem);
+/* Events listing: forked from .event-card__date-block, larger scale */
+.events-page__date-block {
+  border: 1px solid #fff;
   padding: 0.5rem 0.55rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   gap: 0.14rem;
+  font-size: clamp(0.72rem, 1.85vw, 0.95rem);
+  line-height: 1.2;
 }
 
-.events-page .event-card__dom {
+.events-page__date-dow,
+.events-page__date-month {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.events-page__date-dom {
+  font-family: "Retro Computer", ui-monospace, monospace;
   font-size: clamp(0.9rem, 2.35vw, 1.2rem);
   margin-top: 0.2rem;
+}
+
+.events-page .event-card__main {
+  grid-template-columns: minmax(5.75rem, 0.42fr) minmax(0, 1fr);
 }
 
 .events-section + .events-section {
@@ -769,7 +795,8 @@ a:hover, a:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .event-card__date-block {
+  .event-card__date-block,
+  .events-page__date-block {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
