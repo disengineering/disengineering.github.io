@@ -310,13 +310,17 @@ main {
 
 .content-block__body {
   display: flex;
-  text-align: justify;
+  text-align: center;
   flex-direction: column;
   gap: 0.75rem;
 }
 
 .content-block p {
   margin: 0;
+}
+
+.content-block__body .btn {
+  align-self: center;
 }
 
 a {
