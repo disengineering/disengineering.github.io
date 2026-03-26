@@ -6,6 +6,10 @@
   font-display: swap;
 }
 
+:root {
+  --wide-spacing: 0.15em;
+}
+
 *,
 *::before,
 *::after {
@@ -33,14 +37,13 @@ body {
   color: white;
   font-family: "Times New Roman", Times, serif;
   line-height: 1.5;
-  letter-spacing: 0.15em;
+  letter-spacing: var(--wide-spacing);
   max-width: 70em;
   margin: 0 auto;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-weight: normal;
 }
 
 h1 { font-size: 1.75em; }
@@ -288,6 +291,7 @@ main {
   padding: 0;
   color: white;
   text-align: center;
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
 }
 
 .content-block {
@@ -575,11 +579,7 @@ a:hover, a:focus-visible {
 }
 
 .event__title {
-  margin: 0 0 0.75rem;
-  font-size: clamp(1.35rem, 3vw, 1.85rem);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  letter-spacing: var(--wide-spacing);
 }
 
 .event__line {
@@ -592,11 +592,7 @@ a:hover, a:focus-visible {
 }
 
 .event__body {
-  font-family: "Times New Roman", Times, serif;
   letter-spacing: normal;
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
-  border-top: 1px solid #fff;
-  padding-top: 1rem;
 }
 
 .event__description {
@@ -619,19 +615,13 @@ a:hover, a:focus-visible {
 .events-section__label {
   font-family: "Times New Roman", Times, serif;
   font-weight: normal;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   letter-spacing: 0.4em;
   text-align: center;
   margin: 0 0 0.75rem;
   padding: 0.35rem 0.5rem;
   border: 1px solid #fff;
   text-transform: uppercase;
-}
-
-.events-sidebar-section + .events-sidebar-section {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #fff;
 }
 
 .event-card {
@@ -659,11 +649,10 @@ a:hover, a:focus-visible {
 
 .event-card__tag {
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
-  font-size: 0.55rem;
+  font-size: 0.4em;
   letter-spacing: 0.1em;
   padding: 0.2rem 0.45rem;
   text-transform: uppercase;
-  line-height: 1.2;
 }
 
 .event-card__tag--fill {
@@ -692,7 +681,7 @@ a:hover, a:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
-  font-size: 0.55rem;
+  font-size: 0.68em;
   line-height: 1.2;
 }
 
@@ -702,35 +691,34 @@ a:hover, a:focus-visible {
 }
 
 .event-card__dom {
-  font-family: "Retro Computer", ui-monospace, monospace;
-  font-size: 0.7rem;
+  font-size: 2em;
   margin-top: 0.15rem;
 }
 
 .event-card__title {
   font-family: "Times New Roman", Times, serif;
   margin: 0 0 0.35rem;
-  letter-spacing: 0.15em;
-  font-size: 0.85rem;
+  letter-spacing: var(--wide-spacing);
   font-weight: normal;
   line-height: 1.25;
 }
 
 .event-card__line {
   margin: 0 0 0.2rem;
-  font-size: 0.65rem;
+  font-size: 0.79em;
   line-height: 1.35;
 }
 
 .event-card__desc {
   margin: 0 0 0.5rem;
-  font-size: 0.65rem;
+  font-size: 0.79em;
+  font-style: italic;
   line-height: 1.45;
 }
 
 .event-card__cta {
   margin: 0;
-  font-size: 0.65rem;
+  font-size: 0.79em;
   font-style: italic;
 }
 
@@ -742,7 +730,7 @@ a:hover, a:focus-visible {
 .events-sidebar-empty,
 .events-empty {
   margin: 0;
-  font-size: 0.7rem;
+  font-size: 0.86rem;
   letter-spacing: normal;
   opacity: 0.85;
 }
@@ -765,7 +753,7 @@ a:hover, a:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 0.14rem;
-  font-size: clamp(0.72rem, 1.85vw, 0.95rem);
+  font-size: clamp(0.88em, 1.85vw, 1.15em);
   line-height: 1.2;
 }
 
@@ -776,7 +764,7 @@ a:hover, a:focus-visible {
 
 .events-page__date-dom {
   font-family: "Retro Computer", ui-monospace, monospace;
-  font-size: clamp(0.9rem, 2.35vw, 1.2rem);
+  font-size: clamp(1.1em, 2.35vw, 1.45em);
   margin-top: 0.2rem;
 }
 
