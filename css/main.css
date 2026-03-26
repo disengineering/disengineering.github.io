@@ -595,87 +595,32 @@ a:hover, a:focus-visible {
    EVENT DETAIL PAGE
    ============================================================================= */
 
-/* Event detail (HI_RES-style) */
 .event-page {
   padding: clamp(1rem, 3vw, 2rem);
   border: 1px solid white;
   min-width: 0;
 }
 
-.event {
+.event-card--detail {
   max-width: 52rem;
   margin: 0 auto;
   color: #fff;
 }
 
-.event__top {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
-}
-
-.event__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.event__tag {
-  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  padding: 0.35rem 0.6rem;
-  text-transform: uppercase;
-}
-
-.event__tag--fill {
-  background: #fff;
-  color: #000;
-}
-
-.event__tag--outline {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #fff;
-}
-
-.event__grid {
-  display: grid;
-  grid-template-columns: minmax(4.5rem, auto) minmax(0, 1.35fr);
-  gap: clamp(1rem, 3vw, 2rem);
-  align-items: start;
-  margin-bottom: clamp(1.25rem, 3vw, 2rem);
-}
-
-.event__meta {
-  font-family: "Times New Roman", Times, serif;
+.event-card__body {
   letter-spacing: normal;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
 }
 
-.event__title {
-  letter-spacing: var(--wide-spacing);
-}
-
-.event__line {
-  margin: 0 0 0.4rem;
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
-}
-
-.event__location {
-  margin-top: 0.5rem;
-}
-
-.event__body {
-  letter-spacing: normal;
-}
-
-.event__description {
+.event-card__description {
   margin: 0 0 1rem;
   font-style: italic;
+  font-size: 0.79em;
+  line-height: 1.45;
 }
 
-.event__body > *:last-child {
+.event-card__body > *:last-child {
   margin-bottom: 0;
 }
 
@@ -817,33 +762,6 @@ a:hover, a:focus-visible {
 
 .events-page__header {
   margin-bottom: 1.25rem;
-}
-
-/* Events listing: forked from .event-card__date-block, larger scale */
-.events-page__date-block {
-  border: 1px solid #fff;
-  padding: 0.5rem 0.55rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.14rem;
-  font-size: clamp(0.88em, 1.85vw, 1.15em);
-  line-height: 1.2;
-}
-
-.events-page__date-dow,
-.events-page__date-month {
-  font-family: "Times New Roman", Times, serif;
-}
-
-.events-page__date-dom {
-  font-family: "Retro Computer", ui-monospace, monospace;
-  font-size: clamp(1.1em, 2.35vw, 1.45em);
-  margin-top: 0.2rem;
-}
-
-.events-page .event-card__main {
-  grid-template-columns: minmax(5.75rem, 0.42fr) minmax(0, 1fr);
 }
 
 .events-section + .events-section {
