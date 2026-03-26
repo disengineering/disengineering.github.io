@@ -679,12 +679,6 @@ a:hover, a:focus-visible {
   margin-bottom: 0;
 }
 
-@media (max-width: 640px) {
-  .event__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 
 /* =============================================================================
    EVENT CARDS & LISTINGS (SIDEBAR, INDEX, EVENTS PAGE)
@@ -856,18 +850,4 @@ a:hover, a:focus-visible {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid #fff;
-}
-
-@media (max-width: 640px) {
-  .event-card__main {
-    grid-template-columns: 1fr;
-  }
-
-  .event-card__date-block,
-  .events-page__date-block {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.35rem;
-  }
 }
