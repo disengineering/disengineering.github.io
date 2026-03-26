@@ -3,6 +3,7 @@ layout: layouts/base.html
 ---
 {% assign tz = timezone | default: "America/New_York" %}
 {% assign end_iso = end | default: date %}
+{% assign parts = date | eventDateParts: tz %}
 <main class="event-page" id="main-content">
   <article class="event" aria-labelledby="event-title">
     <header class="event__top">
@@ -15,8 +16,10 @@ layout: layouts/base.html
     </header>
 
     <div class="event__grid">
-      <div class="event__date-hand" aria-hidden="true">
-        <span class="event__date-hand-inner">{{ date | formatEventDateHand: tz }}</span>
+      <div class="event-card__date-block" aria-hidden="true">
+        <span class="event-card__dow">{{ parts.weekday }}</span>
+        <span class="event-card__month">{{ parts.month }}</span>
+        <span class="event-card__dom">{{ parts.dayOrdinal }}</span>
       </div>
 
       <div class="event__meta">

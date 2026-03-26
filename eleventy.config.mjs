@@ -54,18 +54,6 @@ export default function (eleventyConfig) {
     return `${tf.format(d1)} – ${tf.format(d2)} (${tz})`;
   });
 
-  eleventyConfig.addFilter("formatEventDateHand", (iso, timezone = "America/New_York") => {
-    if (!iso) return "";
-    const d = new Date(iso);
-    const weekday = new Intl.DateTimeFormat("en-US", { weekday: "long", timeZone: timezone }).format(d);
-    const month = new Intl.DateTimeFormat("en-US", { month: "long", timeZone: timezone }).format(d);
-    const dayNum = parseInt(
-      new Intl.DateTimeFormat("en-US", { day: "numeric", timeZone: timezone }).format(d),
-      10,
-    );
-    return `${weekday} ${month} ${ordinalDay(dayNum)}`;
-  });
-
   eleventyConfig.addFilter("eventDateParts", (iso, timezone = "America/New_York") => {
     if (!iso) return { weekday: "", month: "", dayOrdinal: "" };
     const d = new Date(iso);
