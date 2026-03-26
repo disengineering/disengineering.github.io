@@ -19,14 +19,13 @@ const ASSETS = {
 const root = document.getElementById("oscilloscope-root");
 const canvas = document.getElementById("oscilloscope-canvas");
 const faderEl = document.getElementById("osc-fader");
-const faderThumb = document.getElementById("osc-fader-thumb");
 const muteBtn = document.getElementById("osc-mute");
 const powerBtn = document.getElementById("osc-power");
 
 const knobFreq = document.getElementById("osc-knob-freq");
 const knobTime = document.getElementById("osc-knob-time");
 
-if (!root || !canvas || !faderEl || !faderThumb || !knobFreq || !knobTime || !muteBtn || !powerBtn) {
+if (!root || !canvas || !faderEl || !knobFreq || !knobTime || !muteBtn || !powerBtn) {
   throw new Error("Oscilloscope markup missing required elements");
 }
 
@@ -40,7 +39,7 @@ let oscillator = null;
 let gainNode = null;
 let analyser = null;
 let rafId = 0;
-let faderValue = 0.65;
+let faderValue = Number(faderEl.value) / 100;
 /** When true: no output to speakers (gain 0). Scope still shows waveform after audio has started. */
 let muted = true;
 /** Audio engine off until Power ON (user gesture unlocks AudioContext.resume). */
@@ -244,8 +243,7 @@ function drawLoop() {
 }
 
 function setFaderUi() {
-  faderThumb.style.left = `${faderValue * 100}%`;
-  faderThumb.setAttribute("aria-valuenow", String(Math.round(faderValue * 100)));
+  faderEl.value = String(Math.round(faderValue * 100));
 }
 
 function applyGainFromFader() {
@@ -253,53 +251,12 @@ function applyGainFromFader() {
   gainNode.gain.setValueAtTime(faderValue, audioCtx.currentTime);
 }
 
-function onFaderPointer(e) {
-  const track = faderEl.getBoundingClientRect();
-  const x = (e.clientX - track.left) / track.width;
-  faderValue = Math.max(0, Math.min(1, x));
-  setFaderUi();
+function readFaderFromInput() {
+  faderValue = Number(faderEl.value) / 100;
   applyGainFromFader();
 }
 
-let dragging = false;
-
-faderEl.addEventListener("pointerdown", (e) => {
-  if (e.button !== 0) return;
-  dragging = true;
-  faderEl.setPointerCapture(e.pointerId);
-  onFaderPointer(e);
-});
-
-faderEl.addEventListener("pointermove", (e) => {
-  if (!dragging) return;
-  onFaderPointer(e);
-});
-
-faderEl.addEventListener("pointerup", (e) => {
-  dragging = false;
-  try {
-    faderEl.releasePointerCapture(e.pointerId);
-  } catch {
-    /* ignore */
-  }
-});
-
-faderEl.addEventListener("pointercancel", () => {
-  dragging = false;
-});
-
-faderEl.addEventListener("keydown", (e) => {
-  let next = faderValue;
-  if (e.key === "ArrowLeft" || e.key === "ArrowDown") next = Math.max(0, faderValue - 0.04);
-  else if (e.key === "ArrowRight" || e.key === "ArrowUp") next = Math.min(1, faderValue + 0.04);
-  else if (e.key === "Home") next = 0;
-  else if (e.key === "End") next = 1;
-  else return;
-  e.preventDefault();
-  faderValue = next;
-  setFaderUi();
-  applyGainFromFader();
-});
+faderEl.addEventListener("input", readFaderFromInput);
 
 function onKnobInteraction() {
   if (oscillator) syncKnobsToAudio();
