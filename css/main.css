@@ -437,25 +437,33 @@ a:hover, a:focus-visible {
 }
 
 #site-footer {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(0.5rem, 2vw, 1.25rem);
-  flex-wrap: wrap;
+  justify-items: center;
+  gap: clamp(0.35rem, 1.5vw, 1rem);
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
   padding: var(--page-padding);
   border: 1px solid white;
 }
 
+/* min-width:0 lets grid columns shrink; do not set max-width:100% here — it
+   overrides .footer-ground and blows images up to full column width. */
+#site-footer > * {
+  min-width: 0;
+}
+
 #links {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.15em;
   list-style: none;
   padding: 0;
   margin: 0;
   text-align: left;
+  font-size: clamp(0.45rem, 1.65vw, 1em);
+  width: 100%;
 }
 
 #links a {
@@ -464,22 +472,36 @@ a:hover, a:focus-visible {
 }
 
 #footer-brand {
-  flex: 0 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-#footer-brand-logo img {
-  max-height: 4rem;
+#footer-brand-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#site-footer #footer-brand-logo img {
   width: auto;
+  height: auto;
+  max-width: min(100%, 15rem);
+  max-height: 3rem;
 }
 
 #footer-brand-est {
-  font-size: 0.9em;
-  white-space: nowrap;
+  font-size: clamp(0.45rem, 1.65vw, 0.9em);
+  text-align: center;
+  line-height: 1.2;
 }
 
-.footer-ground {
-  width: min(6rem, 22vw);
-  flex-shrink: 0;
+#site-footer .footer-ground {
+  display: block;
+  width: 4rem;
+  max-width: 4rem;
+  height: auto;
+  object-fit: contain;
 }
 
 @media (max-width: 640px) {
