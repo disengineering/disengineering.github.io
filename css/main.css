@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  /* https://maxbittker.github.io/broider/  */
+  /* https://maxbittker.github.io/broider/  c*/
   border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABX0lEQVR4AdTXO3KEQAwEUO/e/852wiNoakozeBcQSZf+rR4lvH/i+90+7s08gDiUkDY/FF/FA9HVBlfl70SrjV/bl8TO1mWftLPvTjQTn2bvRDfBXqsEz9aZQ7nEjO9EBZ6KtxP1IhXeTnT2BaeJuqHZxvKqOvEKp4kafBceiLoVhNiJ4lA8bX4oniieKO9AVOBpuEy0uqXZeAoxqpO3TFTh1fgebZL+JJa3NGuf7dNHURuOFBG/Gr2ouf0UtUGijb6FOY9tHruPoqPbTL8NP405Z2T3UdQNVPhpJfWr5or3UdRN2JAduPwvpd8s5jy2+j6KYpwb8F+FbjHR/D6K5gYj22ZwlFf51UMvWWEfRavNxGG1+Wxcv1nsp+jotkYbV/niWc+fKI+fDfso+t+bUm/zWVyt66Oom6hwVqlv5fVRNG+FnXhWKS+1Wp91fRS1KQXZs5ibZ92o72pdG0X/AAAA//8WoGLJAAAABklEQVQDAAiu4DNBnqERAAAAAElFTkSuQmCC") 14 /  14px / 0 round;
   border-width:  14px;
   border-style:  solid;
@@ -59,10 +59,7 @@ header#site-header {
   --header-side-max: 12rem;
   --header-link-min: 2.25rem;
   display: grid;
-  margin-bottom: clamp(1rem, 3vw, 2rem);
-  padding-bottom: 0.5rem;
   column-gap: clamp(0.35rem, 1.5vw, 1rem);
-  row-gap: clamp(0.5rem, 2vw, 1.5rem);
   grid-template-columns: repeat(5, minmax(var(--header-link-min), 1fr));
   grid-template-rows: auto auto;
   align-items: stretch;
@@ -274,7 +271,6 @@ header#site-header {
 
 main {
   border: 1px solid white;
-  min-width: 0;
 }
 
 .header-wrapper {
@@ -291,12 +287,9 @@ main {
 }
 
 .content-block {
-  padding: 1rem;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: clamp(0.75rem, 2vw, 1.25rem);
   align-items: center;
-  margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
 .content-block:last-of-type {
@@ -371,9 +364,8 @@ a:hover, a:focus-visible {
 }
 
 #philosophy {
-  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  margin-top: 2ch;
   padding-top: 1rem;
-  border-top: 1px solid white;
   text-align: center;
 }
 
