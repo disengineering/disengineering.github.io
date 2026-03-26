@@ -32,7 +32,6 @@ body {
   border-style:  solid; */
   font-size: 1.25rem;
   margin: 0;
-  min-height: 100vh;
   background: black;
   color: white;
   font-family: "Times New Roman", Times, serif;
@@ -40,6 +39,12 @@ body {
   letter-spacing: var(--wide-spacing);
   max-width: 70em;
   margin: 0 auto;
+}
+
+.body-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -266,7 +271,16 @@ header#site-header {
 }
 
 #content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   padding: 1em;
+}
+
+/* Sticky footer: grow page content so #site-footer sits at the bottom on short pages */
+#content > :not(#site-footer) {
+  flex: 1 1 auto;
 }
 
 #main-and-aside {
@@ -448,6 +462,7 @@ a:hover, a:focus-visible {
 }
 
 #site-footer {
+  flex-shrink: 0;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   align-items: center;
