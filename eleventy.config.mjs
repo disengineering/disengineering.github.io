@@ -2,10 +2,10 @@
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("js");
 
   eleventyConfig.ignores.add("AGENTS.md");
   eleventyConfig.ignores.add("BOOTSTRAP.md");
-  eleventyConfig.ignores.add("SPEC/**");
 
   function ordinalDay(n) {
     const j = n % 10;

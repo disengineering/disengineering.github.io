@@ -87,8 +87,96 @@ description: Disengineering — a hardware hacking collective focused on electro
         </h2>
       </div>
       <div id="osc-wrap">
-        <img src="/assets/sidebar/oscilloscope.png" alt="Oscilloscope graphic with waveform" width="800" height="600"
-          loading="lazy" decoding="async" />
+        <div class="oscilloscope" id="oscilloscope-root">
+          <div class="oscilloscope__grid">
+            <div class="oscilloscope__screen-wrap">
+              <canvas
+                id="oscilloscope-canvas"
+                class="oscilloscope__canvas"
+                width="800"
+                height="360"
+                role="img"
+                aria-label="Oscilloscope waveform display"
+              ></canvas>
+            </div>
+            <div class="oscilloscope__pads" role="group" aria-label="Waveform">
+              <span id="osc-lbl-pads" class="visually-hidden">Waveform shape</span>
+              <button type="button" class="osc-btn osc-btn--pad" data-wave="sine" aria-pressed="true" aria-labelledby="osc-lbl-pads" title="Sine"></button>
+              <button type="button" class="osc-btn osc-btn--pad" data-wave="square" aria-pressed="false" aria-labelledby="osc-lbl-pads" title="Square"></button>
+              <button type="button" class="osc-btn osc-btn--pad" data-wave="triangle" aria-pressed="false" aria-labelledby="osc-lbl-pads" title="Triangle"></button>
+              <button type="button" class="osc-btn osc-btn--pad" data-wave="sawtooth" aria-pressed="false" aria-labelledby="osc-lbl-pads" title="Sawtooth"></button>
+            </div>
+            <div class="oscilloscope__knobs">
+              <span id="osc-lbl-freq" class="visually-hidden">Frequency</span>
+              <input-knob
+                id="osc-knob-freq"
+                class="osc-knob osc-knob--top"
+                min="0"
+                max="100"
+                value="55"
+                scale="8"
+                aria-labelledby="osc-lbl-freq"
+              ></input-knob>
+              <span id="osc-lbl-time" class="visually-hidden">Time scale</span>
+              <input-knob
+                id="osc-knob-time"
+                class="osc-knob osc-knob--bottom"
+                min="0"
+                max="100"
+                value="72"
+                scale="8"
+                aria-labelledby="osc-lbl-time"
+              ></input-knob>
+            </div>
+            <div class="oscilloscope__fader">
+              <span id="osc-lbl-vol" class="visually-hidden">Level</span>
+              <div
+                id="osc-fader"
+                class="osc-fader"
+                role="slider"
+                aria-labelledby="osc-lbl-vol"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="65"
+                tabindex="0"
+              >
+                <div class="osc-fader__track" aria-hidden="true"></div>
+                <div id="osc-fader-thumb" class="osc-fader__thumb" aria-hidden="true"></div>
+              </div>
+            </div>
+            <div class="oscilloscope__bottom-spacer" aria-hidden="true"></div>
+            <div class="oscilloscope__bottom-right">
+              <div class="osc-toggle-row">
+                <span class="osc-toggle-row__label" id="osc-power-lbl">PWR</span>
+                <button
+                  type="button"
+                  id="osc-power"
+                  class="osc-toggle"
+                  role="switch"
+                  aria-checked="false"
+                  aria-labelledby="osc-power-lbl"
+                >
+                  <span class="osc-toggle__thumb" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="osc-toggle-row">
+                <span class="osc-toggle-row__label" id="osc-mute-lbl">MUTE</span>
+                <button
+                  type="button"
+                  id="osc-mute"
+                  class="osc-toggle"
+                  role="switch"
+                  aria-checked="true"
+                  aria-labelledby="osc-mute-lbl"
+                  disabled
+                >
+                  <span class="osc-toggle__thumb" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script type="module" src="/js/oscilloscope.mjs"></script>
       </div>
     </section>
     <section class="sidebar-panel" id="events" aria-labelledby="events-heading">
