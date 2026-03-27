@@ -343,6 +343,18 @@ header#site-header {
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
 }
 
+.section-heading--accent-blue {
+  background-color: blue;
+}
+
+.section-heading--accent-red {
+  background-color: red;
+}
+
+.section-heading--accent-green {
+  background-color: green;
+}
+
 .content-block {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
@@ -911,9 +923,234 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 
 
 /* =============================================================================
+   ZINE PAGE (/zine)
+   ============================================================================= */
+
+.zine-page__hero {
+  margin-bottom: 1rem;
+}
+
+.zine-section + .zine-section {
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+  border-top: 1px solid #fff;
+}
+
+.zine-subheading {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.95em;
+  margin: 0 0 0.35rem;
+}
+
+.zine-subheading--center {
+  text-align: center;
+}
+
+.zine-subheading--inline {
+  margin-bottom: 0.5rem;
+}
+
+.content-block__body--zine-intro {
+  text-align: left;
+  align-items: stretch;
+}
+
+.content-block__body--zine-intro .zine-subheading {
+  text-align: center;
+  align-self: center;
+  width: 100%;
+}
+
+.zine-intro__main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.zine-intro__text {
+  flex: 1 1 16rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.zine-intro__aside {
+  flex: 0 0 auto;
+  max-width: min(10rem, 32vw);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  overflow: hidden;
+  align-self: center;
+}
+
+.zine-intro__aside img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.content-block__body--zine-intro .btn {
+  align-self: center;
+}
+
+.zine-banner {
+  margin: 0;
+  text-align: center;
+}
+
+.zine-banner img {
+  width: min(100%, 48rem);
+  margin-inline: auto;
+}
+
+.zine-banner--freepress img {
+  width: min(100%, 36rem);
+}
+
+.zine-hero-photo {
+  margin-top: 0.75rem;
+  border: 1px solid #fff;
+}
+
+.zine-hero-photo img {
+  width: 100%;
+  height: auto;
+}
+
+.textbook-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+  align-items: stretch;
+}
+
+.textbook-stats img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 960px) {
+  .textbook-stats {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+
+  .textbook-stats img {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.zine-prose-box {
+  margin-top: 1rem;
+}
+
+.zine-prose-box__text {
+  margin: 0;
+  font-size: 0.95em;
+  max-width: 52ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.zine-carousel {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  border: none;
+}
+
+.zine-carousel > img {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid #fff;
+}
+
+.zine-carousel__arrow {
+  flex: 0 0 auto;
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  text-decoration: none;
+  color: #fff;
+  padding: 0.25rem 0.4rem;
+  border: 2px solid #fff;
+  background: #111;
+}
+
+.zine-carousel__arrow:hover,
+.zine-carousel__arrow:focus-visible {
+  color: yellow;
+  outline: 2px solid yellow;
+  outline-offset: 2px;
+}
+
+.zine-volume-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 0.75rem;
+  align-items: start;
+}
+
+.zine-volume-detail__col p {
+  margin: 0;
+}
+
+.zine-volume-detail__list-title {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.65rem;
+  margin: 0 0 0.4rem;
+}
+
+.zine-chapter-list {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: 0.9em;
+}
+
+.zine-freepress-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin: 0.75rem 0 0;
+  border: 1px solid #fff;
+}
+
+.zine-freepress-photos img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.zine-matchbooks__media {
+  margin-top: 0.75rem;
+  border: 1px solid #fff;
+}
+
+@media (max-width: 640px) {
+  .zine-volume-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .zine-freepress-photos {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =============================================================================
    EVENT DETAIL PAGE
    ============================================================================= */
 
+.page-shell,
 .event-page {
   padding: clamp(1rem, 3vw, 2rem);
   border: 1px solid white;
@@ -1064,12 +1301,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   font-size: 0.86rem;
   letter-spacing: normal;
   opacity: 0.85;
-}
-
-.events-page {
-  padding: clamp(1rem, 3vw, 2rem);
-  border: 1px solid white;
-  min-width: 0;
 }
 
 .events-page__header {
