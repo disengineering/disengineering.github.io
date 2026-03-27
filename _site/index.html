@@ -163,12 +163,51 @@
                 aria-label="Oscilloscope waveform display"
               ></canvas>
             </div>
-            <div class="oscilloscope__pads" role="group" aria-label="Waveform">
-              <span id="osc-lbl-pads" class="visually-hidden">Waveform shape</span>
-              <button type="button" class="osc-btn osc-btn--pad" data-wave="sine" aria-pressed="true" aria-labelledby="osc-lbl-pads" title="Sine"></button>
-              <button type="button" class="osc-btn osc-btn--pad" data-wave="square" aria-pressed="false" aria-labelledby="osc-lbl-pads" title="Square"></button>
-              <button type="button" class="osc-btn osc-btn--pad" data-wave="triangle" aria-pressed="false" aria-labelledby="osc-lbl-pads" title="Triangle"></button>
-              <button type="button" class="osc-btn osc-btn--pad" data-wave="sawtooth" aria-pressed="false" aria-labelledby="osc-lbl-pads" title="Sawtooth"></button>
+            <div class="oscilloscope__pads" role="group" aria-label="Waveform shape">
+              <div class="osc-pad">
+                <span class="osc-pad__label" id="osc-pad-lbl-sine">SINE</span>
+                <button
+                  type="button"
+                  class="osc-btn osc-btn--pad"
+                  data-wave="sine"
+                  aria-pressed="true"
+                  aria-labelledby="osc-pad-lbl-sine"
+                  title="Sine"
+                ></button>
+              </div>
+              <div class="osc-pad">
+                <span class="osc-pad__label" id="osc-pad-lbl-square">SQR</span>
+                <button
+                  type="button"
+                  class="osc-btn osc-btn--pad"
+                  data-wave="square"
+                  aria-pressed="false"
+                  aria-labelledby="osc-pad-lbl-square"
+                  title="Square"
+                ></button>
+              </div>
+              <div class="osc-pad">
+                <span class="osc-pad__label" id="osc-pad-lbl-triangle">TRI</span>
+                <button
+                  type="button"
+                  class="osc-btn osc-btn--pad"
+                  data-wave="triangle"
+                  aria-pressed="false"
+                  aria-labelledby="osc-pad-lbl-triangle"
+                  title="Triangle"
+                ></button>
+              </div>
+              <div class="osc-pad">
+                <span class="osc-pad__label" id="osc-pad-lbl-sawtooth">SAW</span>
+                <button
+                  type="button"
+                  class="osc-btn osc-btn--pad"
+                  data-wave="sawtooth"
+                  aria-pressed="false"
+                  aria-labelledby="osc-pad-lbl-sawtooth"
+                  title="Sawtooth"
+                ></button>
+              </div>
             </div>
             <div class="oscilloscope__knobs">
               <span id="osc-lbl-freq" class="visually-hidden">Frequency</span>
@@ -227,7 +266,7 @@
                   id="osc-mute"
                   class="osc-toggle"
                   role="switch"
-                  aria-checked="true"
+                  aria-checked="false"
                   aria-labelledby="osc-mute-lbl"
                   disabled
                 >

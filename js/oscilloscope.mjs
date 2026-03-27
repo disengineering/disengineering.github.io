@@ -2,7 +2,7 @@
  * Sidebar oscilloscope: Web Audio demo oscillator + analyser-driven canvas trace.
  * Knobs via <input-knob> (https://github.com/GoogleChromeLabs/input-knob).
  * Defaults to power off. Browsers require a user gesture to run AudioContext — the Power button provides that.
- * When on: scope runs (muted by default); Unmute enables speakers.
+ * When on: scope runs with sound enabled by default; Mute silences speakers.
  * Display: triggered timebase (rising-edge sync + fixed cycles across the graticule), not a rolling trace.
  */
 import "https://unpkg.com/input-knob@0.0.11/dist/input-knob.esm.js";
@@ -41,7 +41,7 @@ let analyser = null;
 let rafId = 0;
 let faderValue = Number(faderEl.value) / 100;
 /** When true: no output to speakers (gain 0). Scope still shows waveform after audio has started. */
-let muted = true;
+let muted = false;
 /** Audio engine off until Power ON (user gesture unlocks AudioContext.resume). */
 let powerOn = false;
 
@@ -117,7 +117,7 @@ function turnPowerOff() {
     audioCtx.close();
     audioCtx = null;
   }
-  muted = true;
+  muted = false;
   powerOn = false;
   updatePowerUi();
   updateMuteUi();
