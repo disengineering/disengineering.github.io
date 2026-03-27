@@ -3,7 +3,7 @@
  * Knobs via <input-knob> (https://github.com/GoogleChromeLabs/input-knob).
  * Defaults to power off. Browsers require a user gesture to run AudioContext — the Power button provides that.
  * When on: scope runs with sound enabled by default; Mute silences speakers.
- * Display: triggered timebase (rising-edge sync + fixed cycles across the graticule), not a rolling trace.
+ * Display: triggered timebase (rising-edge sync). Time knob sets seconds across the graticule; frequency changes how many cycles fit in that window.
  */
 import "https://unpkg.com/input-knob@0.0.11/dist/input-knob.esm.js";
 
@@ -190,16 +190,18 @@ function drawFrame() {
 
   const px = window.devicePixelRatio || 1;
   const sampleRate = audioCtx.sampleRate;
-  const freqHz = Math.max(1, hzFromFreqKnob());
-  const periodSamples = sampleRate / freqHz;
 
-  /* Time knob = horizontal timebase: how many cycles of the fundamental fit across the graticule. */
+  /* Time knob = horizontal timebase: how many *seconds* of signal span the full width.
+     Window is fixed in time (not in cycles), so changing frequency changes cycles on screen
+     (wavelength compresses / stretches). */
   const tMin = Number(knobTime.min);
   const tMax = Number(knobTime.max);
   const tNorm = (Number(knobTime.value) - tMin) / (tMax - tMin);
-  const cyclesVisible = 0.35 + tNorm * 7.65;
-  let spanSamples = periodSamples * cyclesVisible;
-  spanSamples = Math.max(periodSamples * 0.25, Math.min(spanSamples, buf.length - 2));
+  const minWindowSec = 0.0004;
+  const maxWindowSec = 0.04;
+  const windowSec = minWindowSec * (maxWindowSec / minWindowSec) ** tNorm;
+  let spanSamples = windowSec * sampleRate;
+  spanSamples = Math.max(64, Math.min(spanSamples, buf.length - 2));
 
   const trigger = findRisingZeroCross(buf);
   const maxStart = Math.max(0, buf.length - 1 - spanSamples);
