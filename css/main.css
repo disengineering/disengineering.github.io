@@ -31,15 +31,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-
-}
-
 body {
   font-size: 1.25rem;
   margin: 0;
-  background: blue;
+  background: black;
   color: white;
   font-family: "Times New Roman", Times, serif;
   line-height: 1.5;
@@ -951,6 +946,17 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   margin-bottom: 0.5rem;
 }
 
+.zine-lead-heading {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: clamp(1.2rem, 1.35vw + 0.85rem, 1.75rem);
+  line-height: 1.2;
+  margin: 0 0 0.35rem;
+}
+
+.zine-matchbooks .zine-lead-heading {
+  text-align: center;
+}
+
 /* “So, what are they?” — one row: photo | copy | train; stacks on narrow viewports */
 #zine-intro-what {
   display: flex;
@@ -958,10 +964,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   gap: clamp(0.75rem, 2vw, 1.25rem);
   margin: 0.5em;
   align-items: stretch;
-}
-
-#zine-intro-what-text .zine-subheading {
-  margin: 0 0 0.35rem;
 }
 
 #zine-intro-what-row {
