@@ -10,41 +10,39 @@ description: Disengineering zines and educational materials — the textbook ser
     <h1 class="section-heading section-heading--accent-blue">ZINES + EDUCATIONAL MATERIALS</h1>
   </header>
 
-  <section class="zine-section content-block" aria-labelledby="what-heading">
-    <div class="content-block__media">
-      <img
-        src="/assets/zine/introduction/zine_photo.png"
-        alt="Illustrated zine cover: Happy Fun Musical Play Thing"
-        width="1200"
-        height="900"
-        loading="eager"
-        decoding="async"
-      />
-    </div>
-    <div class="content-block__body content-block__body--zine-intro">
-      <h2 id="what-heading" class="zine-subheading">SO, WHAT ARE THEY?</h2>
-      <div class="zine-intro__main">
-        <div class="zine-intro__text">
-          <p>
-            Our zines and educational materials are designed to demystify the world of audio electronics and promote repair culture.
-          </p>
-          <p>
-            From illustrated guides on building electronic instruments, to essays on sustainable design, to handmade “Resistor Matchbooks”, Disengineering&rsquo;s publications put creative reuse front and center of our educational approach.
-          </p>
-        </div>
-        <div class="zine-intro__aside">
-          <img
-            src="/assets/zine/introduction/train_guy_speech.png"
-            alt=""
-            width="280"
-            height="280"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+  <section class="zine-section zine-intro-what" aria-labelledby="what-heading">
+    <div class="zine-intro-what__row">
+      <div class="zine-intro-what__photo">
+        <img
+          src="/assets/zine/introduction/zine_photo.png"
+          alt="Illustrated zine cover: Happy Fun Musical Play Thing"
+          width="1200"
+          height="900"
+          loading="eager"
+          decoding="async"
+        />
       </div>
-      <a class="btn" href="#textbook-series">JUMP TO CATALOG</a>
+      <div class="zine-intro-what__text">
+        <h2 id="what-heading" class="zine-subheading">SO, WHAT ARE THEY?</h2>
+        <p>
+          Our zines and educational materials are designed to demystify the world of audio electronics and promote repair culture.
+        </p>
+        <p>
+          From illustrated guides on building electronic instruments, to essays on sustainable design, to handmade “Resistor Matchbooks”, Disengineering&rsquo;s publications put creative reuse front and center of our educational approach.
+        </p>
+      </div>
+      <div class="zine-intro-what__train">
+        <img
+          src="/assets/zine/introduction/train_guy_speech.png"
+          alt=""
+          width="280"
+          height="280"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </div>
+    <a class="btn" href="#textbook-series">JUMP TO CATALOG</a>
   </section>
 
   <section class="zine-section" id="textbook-series" aria-labelledby="textbook-banner-heading">
@@ -114,14 +112,25 @@ description: Disengineering zines and educational materials — the textbook ser
         A &ldquo;zine&rdquo;, shortened from &ldquo;magazine&rdquo;, is an independently circulated publication, taking roots in the DIY punk scenes of the 70s and 80s. Zines are most often made by hand and are pronounced like &ldquo;queen&rdquo;.
       </p>
     </div>
-    <div class="content-block__media">
+    <div class="content-block__media zine-open-media">
       <img
+        class="zine-open-img zine-open-img--base"
         src="/assets/zine/textbook/zine-open/zine_open.png"
         alt="Open zine showing a large fold-out technical illustration"
         width="1200"
         height="900"
         loading="lazy"
         decoding="async"
+      />
+      <img
+        class="zine-open-img zine-open-img--hover"
+        src="/assets/zine/textbook/zine-open/zine_open_hover.png"
+        alt=""
+        width="1200"
+        height="900"
+        loading="lazy"
+        decoding="async"
+        aria-hidden="true"
       />
     </div>
   </section>
