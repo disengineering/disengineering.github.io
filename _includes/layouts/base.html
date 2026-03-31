@@ -7,6 +7,17 @@
       name="description"
       content="{{ description | default: 'Disengineering — a hardware hacking collective focused on electronic musical instruments, workshops, zines, and sustainable design.' }}"
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="disengineering" />
+    <meta property="og:title" content="{% if title %}{{ title }} — disengineering{% else %}disengineering{% endif %}" />
+    <meta
+      property="og:description"
+      content="{{ description | default: 'Disengineering — a hardware hacking collective focused on electronic musical instruments, workshops, zines, and sustainable design.' }}"
+    />
+    <meta property="og:image" content="https://disengineering.github.io/assets/footer/footer_logo.png" />
+    <meta property="og:url" content="https://disengineering.github.io{{ page.url }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://disengineering.github.io/assets/footer/footer_logo.png" />
     <title>{% if title %}{{ title }} — disengineering{% else %}disengineering{% endif %}</title>
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
