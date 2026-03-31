@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "eleventy",
+    "build-ghpages": "eleventy",
     "serve": "eleventy --serve"
   },
   "devDependencies": {
