@@ -5,3 +5,15 @@ We are using a static site generator called Eleventy. The docs are available at 
 ## CSS selectors
 
 Use `id` selectors when the markup should have at most one instance of that element on the page (or in a given scope where the id is unique). Use `class` when you could reasonably expect multiple instances of the same pattern (repeated cards, list items, shared components, etc.).
+
+## Images and `eleventy:ignore`
+
+The site uses [@11ty/eleventy-img](https://www.11ty.dev/docs/plugins/image/) with the HTML transform: raster images in `<img src="…">` are built to WebP by default.
+
+Add `eleventy:ignore` on the `<img>` when the asset should stay as the original file (no WebP), for example:
+
+- Header, footer, and navigation graphics (logos, banners, hover swaps).
+- Illustrations, UI art, typography graphics, and brand marks where you want lossless or pixel-stable output.
+- Pairs of images used together (e.g. base + hover) if you need identical encoding between them.
+
+Omit `eleventy:ignore` for photographs and similar content where WebP compression is desired. See the [Image plugin docs](https://www.11ty.dev/docs/plugins/image/) for `eleventy:ignore` and other attributes.

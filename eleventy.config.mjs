@@ -1,5 +1,18 @@
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["webp"],
+    widths: ["auto"],
+    htmlOptions: {
+      imgAttributes: {
+        loading: "lazy",
+        decoding: "async",
+      },
+    },
+  });
+
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
