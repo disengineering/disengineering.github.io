@@ -17,6 +17,7 @@
 
 :root {
   --wide-spacing: 0.15em;
+  --page-padding: 1em;
 }
 
 
@@ -36,14 +37,6 @@ html {
 }
 
 body {
-  --page-padding: 1em;
-  /* https://maxbittker.github.io/broider/ */
-  border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABX0lEQVR4AdTXO3KEQAwEUO/e/852wiNoakozeBcQSZf+rR4lvH/i+90+7s08gDiUkDY/FF/FA9HVBlfl70SrjV/bl8TO1mWftLPvTjQTn2bvRDfBXqsEz9aZQ7nEjO9EBZ6KtxP1IhXeTnT2BaeJuqHZxvKqOvEKp4kafBceiLoVhNiJ4lA8bX4oniieKO9AVOBpuEy0uqXZeAoxqpO3TFTh1fgebZL+JJa3NGuf7dNHURuOFBG/Gr2ouf0UtUGijb6FOY9tHruPoqPbTL8NP405Z2T3UdQNVPhpJfWr5or3UdRN2JAduPwvpd8s5jy2+j6KYpwb8F+FbjHR/D6K5gYj22ZwlFf51UMvWWEfRavNxGG1+Wxcv1nsp+jotkYbV/niWc+fKI+fDfso+t+bUm/zWVyt66Oom6hwVqlv5fVRNG+FnXhWKS+1Wp91fRS1KQXZs5ibZ92o72pdG0X/AAAA//8WoGLJAAAABklEQVQDAAiu4DNBnqERAAAAAElFTkSuQmCC") 14 /  14px / 0 round;
-  border-width:  14px;
-  border-style:  solid;
-  /* border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAACmUlEQVR4AeyZSXbDMAxDk9z/zu2mG3/WxoNJOROy6UMIDv5SFaV93MTrBy/aEZaS+dQsoOL0UzN/tZZAVw/wafUDdHhFA3Q10O4ZdMdLzXt1PzWPiqt5s0MVQTMeoCYwZQ9QRciMF6A4Au9mPdt+dT8OyDNRaZVfgDIh2iMQoB4v6Q5QicgznAHqdXhxN8/wrv56oNPrHaDDRAP01YHyHjc8bynX7cf8rs4OLUvUeyNAe/xKdoAWJL03JFDey9iOcaWZT818FaefmvlKM19p1pNAmRB9TCBAj/nY0QC1kR0nLAf6d697mR/HOG43d1DWWw6UDT9dB+jwCgfoNFD3zFB+NZ+6103Hr54nO1QRN+MBagJT9gBVhMx4AeqeYWa/t7fzM4QPVIDSEO0RCFCPl3QHqETkGQpQnhFKe+0s9yVm9XyMcyjGC1AmRHsEAtTjJd0BKhF5hod771R+r/3z3ep53Hh26PCaBmiADhMYLvfgPaqrh+dbXq77vMzPr/zwkgVogA4TGC5X7qGs797DmH+xbrfrPm9+5dtLsC0QoFsebRWgbYTbAgUoz5Ct/fMV75VKk0gBSkO0RyBAPV7SHaASkWe4/Lu8OpOm4woHPzO6OjtUETfjAWoCU/YAVYTMeAHqniGqn1tvtf+feUffKkBHq39hsQAdXvQAXQ3UvQe683TrM1/1p19p1qOfcersUBJp6gBtAmR6gJJIU5f/KXXvge487Ofmu/7V/bJD3RUR/gAVgNxwgLrEhP/yv4eKed4lvDtndugumnOBAD3HbTcrQHfRnAuUeyjL8N6mNPNXa/e7dnce1S87tEsY+QEKIF0ZoF2CyC9AeUbCPy7VmaQauvOu7leAqgdI/JhAgB7zsaMBaiM7TvgFAAD//yJwIVQAAAAGSURBVAMAWkLAdP1ev20AAAAASUVORK5CYII=") 28 /  28px / 0 round;
-  border-width:  28px;
-  border-style:  solid; */
   font-size: 1.25rem;
   margin: 0;
   background: black;
@@ -81,6 +74,15 @@ img {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* 0 below 70em viewport; ramps up toward 2em on wider viewports */
+  margin-top: clamp(0em, calc((100vw - 70em) * 0.1), 2em);
+  /* https://maxbittker.github.io/broider/ */
+  border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABX0lEQVR4AdTXO3KEQAwEUO/e/852wiNoakozeBcQSZf+rR4lvH/i+90+7s08gDiUkDY/FF/FA9HVBlfl70SrjV/bl8TO1mWftLPvTjQTn2bvRDfBXqsEz9aZQ7nEjO9EBZ6KtxP1IhXeTnT2BaeJuqHZxvKqOvEKp4kafBceiLoVhNiJ4lA8bX4oniieKO9AVOBpuEy0uqXZeAoxqpO3TFTh1fgebZL+JJa3NGuf7dNHURuOFBG/Gr2ouf0UtUGijb6FOY9tHruPoqPbTL8NP405Z2T3UdQNVPhpJfWr5or3UdRN2JAduPwvpd8s5jy2+j6KYpwb8F+FbjHR/D6K5gYj22ZwlFf51UMvWWEfRavNxGG1+Wxcv1nsp+jotkYbV/niWc+fKI+fDfso+t+bUm/zWVyt66Oom6hwVqlv5fVRNG+FnXhWKS+1Wp91fRS1KQXZs5ibZ92o72pdG0X/AAAA//8WoGLJAAAABklEQVQDAAiu4DNBnqERAAAAAElFTkSuQmCC") 14 /  14px / 0 round;
+  border-width:  14px;
+  border-style:  solid;
+  /* border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAACmUlEQVR4AeyZSXbDMAxDk9z/zu2mG3/WxoNJOROy6UMIDv5SFaV93MTrBy/aEZaS+dQsoOL0UzN/tZZAVw/wafUDdHhFA3Q10O4ZdMdLzXt1PzWPiqt5s0MVQTMeoCYwZQ9QRciMF6A4Au9mPdt+dT8OyDNRaZVfgDIh2iMQoB4v6Q5QicgznAHqdXhxN8/wrv56oNPrHaDDRAP01YHyHjc8bynX7cf8rs4OLUvUeyNAe/xKdoAWJL03JFDey9iOcaWZT818FaefmvlKM19p1pNAmRB9TCBAj/nY0QC1kR0nLAf6d697mR/HOG43d1DWWw6UDT9dB+jwCgfoNFD3zFB+NZ+6103Hr54nO1QRN+MBagJT9gBVhMx4AeqeYWa/t7fzM4QPVIDSEO0RCFCPl3QHqETkGQpQnhFKe+0s9yVm9XyMcyjGC1AmRHsEAtTjJd0BKhF5hod771R+r/3z3ep53Hh26PCaBmiADhMYLvfgPaqrh+dbXq77vMzPr/zwkgVogA4TGC5X7qGs797DmH+xbrfrPm9+5dtLsC0QoFsebRWgbYTbAgUoz5Ct/fMV75VKk0gBSkO0RyBAPV7SHaASkWe4/Lu8OpOm4woHPzO6OjtUETfjAWoCU/YAVYTMeAHqniGqn1tvtf+feUffKkBHq39hsQAdXvQAXQ3UvQe683TrM1/1p19p1qOfcersUBJp6gBtAmR6gJJIU5f/KXXvge487Ofmu/7V/bJD3RUR/gAVgNxwgLrEhP/yv4eKed4lvDtndugumnOBAD3HbTcrQHfRnAuUeyjL8N6mNPNXa/e7dnce1S87tEsY+QEKIF0ZoF2CyC9AeUbCPy7VmaQauvOu7leAqgdI/JhAgB7zsaMBaiM7TvgFAAD//yJwIVQAAAAGSURBVAMAWkLAdP1ev20AAAAASUVORK5CYII=") 28 /  28px / 0 round;
+  border-width:  28px;
+  border-style:  solid; */
 }
 
 #content {
