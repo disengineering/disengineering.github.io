@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="{{ description | default: 'Disengineering — a hardware hacking collective focused on electronic musical instruments, workshops, zines, and sustainable design.' }}"
+    />
+    <title>{% if title %}{{ title }} — disengineering{% else %}disengineering{% endif %}</title>
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/css/main.css" />
+    {% if extraHead %}{{ extraHead }}{% endif %}
+  </head>
+  <body>
+    <div id="body-layout">
+      <header id="site-header">
+        <img
+          id="site-header-wires"
+          src="/assets/header/wires_banner.png"
+          alt=""
+          width="400"
+          height="200"
+          decoding="async"
+        />
+        <a id="site-logo" href="/" aria-label="Disengineering home">
+          <img
+            src="/assets/header/DIS_LOGO.png"
+            alt="Disengineering"
+            width="800"
+            height="200"
+            decoding="async"
+          />
+        </a>
+        <nav aria-label="Primary">
+          <a href="/zines/">
+            <img src="/assets/header/nav/zines/zines.png" alt="Zines" width="200" height="60" />
+            <img src="/assets/header/nav/zines/zines_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          </a>
+          <a href="/#workshops">
+            <img src="/assets/header/nav/workshops/workshops.png" alt="Workshops" width="200" height="60" />
+            <img src="/assets/header/nav/workshops/workshops_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          </a>
+          <a href="/#links">
+            <img src="/assets/header/nav/links/links.png" alt="Links" width="200" height="60" />
+            <img src="/assets/header/nav/links/links_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          </a>
+          <a href="/#archive">
+            <img src="/assets/header/nav/archive/archive.png" alt="Archive" width="200" height="60" />
+            <img src="/assets/header/nav/archive/archive_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          </a>
+          <a href="/#about">
+            <img src="/assets/header/nav/about/about.png" alt="About" width="200" height="60" />
+            <img src="/assets/header/nav/about/about_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          </a>
+        </nav>
+        <img
+          id="site-header-hands"
+          src="/assets/header/hands_banner.png"
+          alt=""
+          width="400"
+          height="200"
+          decoding="async"
+        />
+      </header>
+      <div id="content">
+        {{ content }}
+        <footer id="site-footer">
+          <img
+            class="footer-ground"
+            src="/assets/footer/in_ground.png"
+            alt="In ground we trust"
+            width="200"
+            height="200"
+            loading="lazy"
+          />
+          <ul id="links">
+            <li><a href="https://instagram.com/">INSTAGRAM</a></li>
+            <li><a href="mailto:hello@example.com">EMAIL</a></li>
+            <li><a href="https://discord.com/">DISCORD</a></li>
+          </ul>
+          <div id="footer-brand">
+            <div id="footer-brand-logo">
+              <img
+                src="/assets/footer/footer_logo.png"
+                alt="Disengineering"
+                width="400"
+                height="120"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <span id="footer-brand-est">EST. 2022</span>
+          <img
+            class="footer-ground"
+            src="/assets/footer/in_ground.png"
+            alt=""
+            width="200"
+            height="200"
+            loading="lazy"
+            aria-hidden="true"
+          />
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

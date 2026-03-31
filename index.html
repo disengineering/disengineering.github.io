@@ -1,0 +1,227 @@
+---
+layout: layouts/base.html
+description: Disengineering — a hardware hacking collective focused on electronic musical instruments, workshops, zines, and sustainable design.
+---
+<div id="main-and-aside">
+  <main id="main-content">
+    <div class="header-wrapper">
+      <h1 class="section-heading" style="background-color: blue">
+        WHAT IS DISENGINEERING?
+      </h1>
+    </div>
+
+    <section class="content-block" id="about" aria-labelledby="about-heading">
+      <div class="content-block__media">
+        <img src="/assets/body/about_image.png" alt="Hands adjusting knobs on a wooden electronic instrument"
+          width="1200" height="900" loading="eager" decoding="async" />
+      </div>
+      <div class="content-block__body">
+        <p id="about-heading">
+          The Disengineering Society is a &ldquo;hardware hacking&rdquo; collective.
+        </p>
+        <a class="btn" href="#about">ABOUT</a>
+      </div>
+    </section>
+
+    <section class="content-block content-block--reverse" id="workshops" aria-labelledby="workshops-heading">
+      <div class="content-block__body">
+        <p id="workshops-heading">
+          We run workshops teaching people how to build electronic musical instruments using salvaged electronic
+          waste.
+        </p>
+        <a class="btn" href="#workshops">WORKSHOPS</a>
+      </div>
+      <div class="content-block__media">
+        <img src="/assets/body/workshop_image.png" alt="Workshop participants building electronics at a table"
+          width="1200" height="900" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section class="content-block" id="zines" aria-labelledby="zines-heading">
+      <div class="content-block__media">
+        <img src="/assets/body/zine_photo.png" alt="Illustrated zine cover: Happy Fun Musical Play Thing" width="1200"
+          height="900" loading="lazy" decoding="async" />
+      </div>
+      <div class="content-block__body">
+        <p id="zines-heading">
+          We also create, publish, and exhibit illustrated educational materials.
+        </p>
+        <a class="btn" href="/zines/">SEE OUR ZINES</a>
+      </div>
+    </section>
+
+    <section class="content-block content-block--stack" id="concerts" aria-labelledby="concerts-heading">
+      <div class="content-block__media">
+        <img src="/assets/body/concerts_photo.png" alt="Concert with electronic gear on stage" width="1200" height="900"
+          loading="lazy" decoding="async" />
+      </div>
+      <div class="content-block__body">
+        <p id="concerts-heading">And host the occasional concert.</p>
+        <a class="btn" href="#concerts">CHECK IT OUT</a>
+      </div>
+    </section>
+
+    <section id="philosophy" aria-labelledby="philosophy-heading">
+      <p id="philosophy-heading">
+        Disengineering is committed to sustainable design practices by combatting planned obsolescence and
+        advocating
+        for Right-to-Repair.
+      </p>
+      <div id="philosophy-row">
+        <img class="bug" src="/assets/body/bug1.png" alt="" width="200" height="200" loading="lazy" />
+        <div id="philosophy-pots">
+          <img src="/assets/body/pot1.png" alt="" width="300" height="200" loading="lazy" />
+          <a class="btn" href="#philosophy">LEARN MORE</a>
+          <img src="/assets/body/pot2.png" alt="" width="300" height="200" loading="lazy" />
+        </div>
+        <img class="bug" src="/assets/body/bug3.png" alt="" width="200" height="200" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <aside id="sidebar" aria-label="Oscilloscope and events">
+    <section class="sidebar-panel" id="oscilloscope" aria-labelledby="oscilloscope-heading">
+      <div class="header-wrapper">
+        <h2 id="oscilloscope-heading" class="section-heading" style="background-color: green">
+          OSCILLISCOPE
+        </h2>
+      </div>
+      <div id="osc-wrap">
+        <div id="oscilloscope-root">
+          <div id="oscilloscope-grid">
+            <div id="oscilloscope-screen-wrap">
+              <canvas
+                id="oscilloscope-canvas"
+                width="800"
+                height="360"
+                role="img"
+                aria-label="Oscilloscope waveform display"
+              ></canvas>
+            </div>
+            <div id="oscilloscope-pads" role="group" aria-label="Waveform shape">
+              <div class="osc-pad">
+                <span class="osc-pad__label" id="osc-pad-lbl-sine">SINE</span>
+                <button
+                  type="button"
+                  class="osc-btn osc-btn--pad"
+                  data-wave="sine"
+                  aria-pressed="true"
+                  aria-labelledby="osc-pad-lbl-sine"
+                  title="Sine"
+                ></button>
+              </div>
+              <div class="osc-pad">
+                <span class="osc-pad__label" id="osc-pad-lbl-square">SQR</span>
+                <button
+                  type="button"
+                  class="osc-btn osc-btn--pad"
+                  data-wave="square"
+                  aria-pressed="false"
+                  aria-labelledby="osc-pad-lbl-square"
+                  title="Square"
+                ></button>
+              </div>
+              <div class="osc-pad">
+                <span class="osc-pad__label" id="osc-pad-lbl-triangle">TRI</span>
+                <button
+                  type="button"
+                  class="osc-btn osc-btn--pad"
+                  data-wave="triangle"
+                  aria-pressed="false"
+                  aria-labelledby="osc-pad-lbl-triangle"
+                  title="Triangle"
+                ></button>
+              </div>
+              <div class="osc-pad">
+                <span class="osc-pad__label" id="osc-pad-lbl-sawtooth">SAW</span>
+                <button
+                  type="button"
+                  class="osc-btn osc-btn--pad"
+                  data-wave="sawtooth"
+                  aria-pressed="false"
+                  aria-labelledby="osc-pad-lbl-sawtooth"
+                  title="Sawtooth"
+                ></button>
+              </div>
+            </div>
+            <div id="oscilloscope-knobs">
+              <span id="osc-lbl-freq" class="visually-hidden">Frequency</span>
+              <input-knob
+                id="osc-knob-freq"
+                class="osc-knob osc-knob--top"
+                min="0"
+                max="100"
+                value="55"
+                scale="8"
+                aria-labelledby="osc-lbl-freq"
+              ></input-knob>
+              <span id="osc-lbl-time" class="visually-hidden">Time scale</span>
+              <input-knob
+                id="osc-knob-time"
+                class="osc-knob osc-knob--bottom"
+                min="0"
+                max="100"
+                value="72"
+                scale="8"
+                aria-labelledby="osc-lbl-time"
+              ></input-knob>
+            </div>
+            <div id="oscilloscope-fader">
+              <span id="osc-lbl-vol" class="visually-hidden">Level</span>
+              <input
+                id="osc-fader"
+                class="osc-fader"
+                type="range"
+                min="0"
+                max="100"
+                value="65"
+                step="1"
+                aria-labelledby="osc-lbl-vol"
+              />
+            </div>
+            <div id="oscilloscope-bottom-spacer" aria-hidden="true"></div>
+            <div id="oscilloscope-bottom-right">
+              <div class="osc-toggle-row">
+                <span class="osc-toggle-row__label" id="osc-power-lbl">PWR</span>
+                <button
+                  type="button"
+                  id="osc-power"
+                  class="osc-toggle"
+                  role="switch"
+                  aria-checked="false"
+                  aria-labelledby="osc-power-lbl"
+                >
+                  <span class="osc-toggle__thumb" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="osc-toggle-row">
+                <span class="osc-toggle-row__label" id="osc-mute-lbl">MUTE</span>
+                <button
+                  type="button"
+                  id="osc-mute"
+                  class="osc-toggle"
+                  role="switch"
+                  aria-checked="false"
+                  aria-labelledby="osc-mute-lbl"
+                  disabled
+                >
+                  <span class="osc-toggle__thumb" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script type="module" src="/js/oscilloscope.mjs"></script>
+      </div>
+    </section>
+    <section class="sidebar-panel" id="events" aria-labelledby="events-heading">
+      <div class="header-wrapper">
+        <h2 id="events-heading" class="section-heading" style="background-color: red">EVENTS</h2>
+      </div>
+      {% include "partials/events-sidebar.html" %}
+      <div id="events-actions">
+        <a class="btn" href="/events/">SEE FULL CALENDAR</a>
+      </div>
+    </section>
+  </aside>
+</div>

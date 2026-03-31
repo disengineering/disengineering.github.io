@@ -1,0 +1,18 @@
+            <div id="events-stack">
+              <div class="events-sidebar-section">
+                <h3 class="events-sidebar-section__label">UPCOMING</h3>
+                {% for event in collections.eventsUpcoming %}
+                  {% include "partials/event-card.html" %}
+                {% else %}
+                  <p class="events-sidebar-empty">No upcoming events.</p>
+                {% endfor %}
+              </div>
+              <div class="events-sidebar-section">
+                <h3 class="events-sidebar-section__label">PAST EVENTS</h3>
+                {% for event in collections.eventsPast %}
+                  {% include "partials/event-card.html" %}
+                {% else %}
+                  <p class="events-sidebar-empty">No past events.</p>
+                {% endfor %}
+              </div>
+            </div>

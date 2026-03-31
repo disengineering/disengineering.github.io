@@ -1,0 +1,1541 @@
+/* =============================================================================
+   FONTS
+   ============================================================================= */
+
+@font-face {
+  font-family: "Retro Computer";
+  src: url("/assets/fonts/retro_computer_personal_use.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =============================================================================
+   DESIGN TOKENS
+   ============================================================================= */
+
+:root {
+  --wide-spacing: 0.15em;
+  --page-padding: 1em;
+}
+
+
+/* =============================================================================
+   RESET & DOCUMENT BASE
+   ============================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.25rem;
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.5;
+  letter-spacing: var(--wide-spacing);
+  max-width: 70em;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h1 { font-size: 1.75em; }
+h2 { font-size: 1.2em; }
+h3 { font-size: 1em; }
+h4 { font-size: 0.9em; }
+h5 { font-size: 0.75em; }
+h6 { font-size: 0.6em; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* =============================================================================
+   PAGE LAYOUT (shell, main + aside, sticky footer)
+   ============================================================================= */
+
+#body-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* 0 below 70em viewport; ramps up toward 2em on wider viewports */
+  margin-top: clamp(0em, calc((100vw - 70em) * 0.1), 2em);
+  /* https://maxbittker.github.io/broider/ */
+  border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABX0lEQVR4AdTXO3KEQAwEUO/e/852wiNoakozeBcQSZf+rR4lvH/i+90+7s08gDiUkDY/FF/FA9HVBlfl70SrjV/bl8TO1mWftLPvTjQTn2bvRDfBXqsEz9aZQ7nEjO9EBZ6KtxP1IhXeTnT2BaeJuqHZxvKqOvEKp4kafBceiLoVhNiJ4lA8bX4oniieKO9AVOBpuEy0uqXZeAoxqpO3TFTh1fgebZL+JJa3NGuf7dNHURuOFBG/Gr2ouf0UtUGijb6FOY9tHruPoqPbTL8NP405Z2T3UdQNVPhpJfWr5or3UdRN2JAduPwvpd8s5jy2+j6KYpwb8F+FbjHR/D6K5gYj22ZwlFf51UMvWWEfRavNxGG1+Wxcv1nsp+jotkYbV/niWc+fKI+fDfso+t+bUm/zWVyt66Oom6hwVqlv5fVRNG+FnXhWKS+1Wp91fRS1KQXZs5ibZ92o72pdG0X/AAAA//8WoGLJAAAABklEQVQDAAiu4DNBnqERAAAAAElFTkSuQmCC") 14 /  14px / 0 round;
+  border-width:  14px;
+  border-style:  solid;
+  /* border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAACmUlEQVR4AeyZSXbDMAxDk9z/zu2mG3/WxoNJOROy6UMIDv5SFaV93MTrBy/aEZaS+dQsoOL0UzN/tZZAVw/wafUDdHhFA3Q10O4ZdMdLzXt1PzWPiqt5s0MVQTMeoCYwZQ9QRciMF6A4Au9mPdt+dT8OyDNRaZVfgDIh2iMQoB4v6Q5QicgznAHqdXhxN8/wrv56oNPrHaDDRAP01YHyHjc8bynX7cf8rs4OLUvUeyNAe/xKdoAWJL03JFDey9iOcaWZT818FaefmvlKM19p1pNAmRB9TCBAj/nY0QC1kR0nLAf6d697mR/HOG43d1DWWw6UDT9dB+jwCgfoNFD3zFB+NZ+6103Hr54nO1QRN+MBagJT9gBVhMx4AeqeYWa/t7fzM4QPVIDSEO0RCFCPl3QHqETkGQpQnhFKe+0s9yVm9XyMcyjGC1AmRHsEAtTjJd0BKhF5hod771R+r/3z3ep53Hh26PCaBmiADhMYLvfgPaqrh+dbXq77vMzPr/zwkgVogA4TGC5X7qGs797DmH+xbrfrPm9+5dtLsC0QoFsebRWgbYTbAgUoz5Ct/fMV75VKk0gBSkO0RyBAPV7SHaASkWe4/Lu8OpOm4woHPzO6OjtUETfjAWoCU/YAVYTMeAHqniGqn1tvtf+feUffKkBHq39hsQAdXvQAXQ3UvQe683TrM1/1p19p1qOfcersUBJp6gBtAmR6gJJIU5f/KXXvge487Ofmu/7V/bJD3RUR/gAVgNxwgLrEhP/yv4eKed4lvDtndugumnOBAD3HbTcrQHfRnAuUeyjL8N6mNPNXa/e7dnce1S87tEsY+QEKIF0ZoF2CyC9AeUbCPy7VmaQauvOu7leAqgdI/JhAgB7zsaMBaiM7TvgFAAD//yJwIVQAAAAGSURBVAMAWkLAdP1ev20AAAAASUVORK5CYII=") 28 /  28px / 0 round;
+  border-width:  28px;
+  border-style:  solid; */
+}
+
+#content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 1em;
+}
+
+/* Sticky footer: grow page content so #site-footer sits at the bottom on short pages */
+#content > :not(#site-footer) {
+  flex: 1 1 auto;
+}
+
+#main-and-aside {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  #main-and-aside {
+    grid-template-columns: 1fr;
+  }
+}
+
+#main-content {
+  border: 1px solid white;
+}
+
+
+/* =============================================================================
+   SITE HEADER
+   ============================================================================= */
+
+header#site-header {
+  --header-side-max: 12rem;
+  --header-link-min: 2.25rem;
+  display: grid;
+  column-gap: clamp(0.35rem, 1.5vw, 1rem);
+  grid-template-columns: repeat(5, minmax(var(--header-link-min), 1fr));
+  grid-template-rows: auto auto;
+  align-items: stretch;
+}
+
+#site-header > nav {
+  display: contents;
+}
+
+#site-header-wires,
+#site-header-hands {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  max-height: clamp(4.5rem, min(18vw, 20vh), 10rem);
+  object-fit: contain;
+}
+
+#site-header-wires {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  align-self: center;
+  object-position: center left;
+}
+
+#site-logo {
+  grid-column: 2 / 5;
+  grid-row: 1;
+  align-self: end;
+  min-width: 0;
+  justify-self: center;
+  width: min(100%, 36rem);
+}
+
+#site-header-hands {
+  grid-column: 5;
+  grid-row: 1;
+  justify-self: end;
+  align-self: center;
+  object-position: center right;
+}
+
+#site-header nav > a:nth-child(1) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#site-header nav > a:nth-child(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#site-header nav > a:nth-child(3) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+#site-header nav > a:nth-child(4) {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+#site-header nav > a:nth-child(5) {
+  grid-column: 5;
+  grid-row: 2;
+}
+
+#site-logo img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#site-logo:hover img,
+#site-logo:focus-visible img {
+  /* Flat yellow fill (no outer glow) */
+  filter: brightness(0) saturate(100%) invert(1) sepia(1) saturate(10000%) hue-rotate(0deg);
+}
+
+@media (min-width: 960px) {
+  header#site-header {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-template-rows: auto;
+    align-items: stretch;
+  }
+
+  #site-header-wires,
+  #site-header-hands {
+    max-width: var(--header-side-max);
+  }
+
+  #site-header-wires {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #site-logo {
+    grid-column: 2 / 5;
+    grid-row: 1;
+  }
+
+  #site-header nav > a:nth-child(1) {
+    grid-column: 5;
+    grid-row: 1;
+  }
+
+  #site-header nav > a:nth-child(2) {
+    grid-column: 6;
+    grid-row: 1;
+  }
+
+  #site-header nav > a:nth-child(3) {
+    grid-column: 7;
+    grid-row: 1;
+  }
+
+  #site-header nav > a:nth-child(4) {
+    grid-column: 8;
+    grid-row: 1;
+  }
+
+  #site-header nav > a:nth-child(5) {
+    grid-column: 9;
+    grid-row: 1;
+  }
+
+  #site-header-hands {
+    grid-column: 10;
+    grid-row: 1;
+  }
+
+  #site-header-wires,
+  #site-header-hands {
+    align-self: center;
+  }
+
+  #site-logo {
+    align-self: end;
+  }
+
+  #site-header nav > a {
+    align-self: stretch;
+  }
+
+  #site-header nav > a > img:first-child {
+    height: 100%;
+    width: auto;
+  }
+}
+
+#site-header nav > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  text-decoration: none;
+  line-height: 0;
+}
+
+#site-header nav > a:focus-visible {
+  outline: 2px solid #4a8cff;
+  outline-offset: 2px;
+}
+
+#site-header nav > a > img:last-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+}
+
+#site-header nav a:hover > img:last-child,
+#site-header nav a:focus-visible > img:last-child {
+  opacity: 1;
+}
+
+#site-header nav a:hover > img:first-child,
+#site-header nav a:focus-visible > img:first-child {
+  opacity: 0;
+}
+
+#site-header nav > a > img:first-child {
+  position: relative;
+  flex: 1 1 auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* =============================================================================
+   CONTENT BLOCKS & SECTION CHROME
+   ============================================================================= */
+
+.header-wrapper {
+  padding: 8px;
+  border: 1px solid white;
+  margin: 0;
+}
+
+.section-heading {
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-align: center;
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+}
+
+.section-heading--accent-blue {
+  background-color: blue;
+}
+
+.section-heading--accent-red {
+  background-color: red;
+}
+
+.section-heading--accent-green {
+  background-color: green;
+}
+
+.content-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: center;
+}
+
+.content-block:last-of-type {
+  margin-bottom: 0;
+}
+
+.content-block--reverse {
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+}
+
+/* Full-width image, copy + CTA stacked below (concerts) */
+.content-block--stack {
+  margin: 0.5em;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.content-block--stack .content-block__body {
+  padding-inline: 1rem;
+}
+
+.content-block--stack .content-block__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.content-block__media {
+  position: relative;
+}
+
+.content-block__body {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 0.5em;
+  margin: 0.5em;
+}
+
+.content-block p {
+  margin: 0;
+}
+
+.content-block__body .btn {
+  align-self: center;
+}
+
+@media (max-width: 640px) {
+  .content-block,
+  .content-block--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .content-block--reverse .content-block__media {
+    order: -1;
+  }
+}
+
+
+/* =============================================================================
+   LINKS & BUTTONS
+   ============================================================================= */
+
+a {
+  color: inherit;
+}
+
+a:hover, a:focus-visible {
+  color: yellow;
+}
+
+.btn {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: medium;
+  align-self: flex-start;
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border: 2px solid white;
+  background: transparent;
+  text-decoration: none;
+  background-color: white;
+  color: black
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: black;
+  color: white;
+}
+
+
+/* =============================================================================
+   PHILOSOPHY (HOME)
+   ============================================================================= */
+
+#philosophy {
+  margin-top: 2ch;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+#philosophy-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+#philosophy p {
+  margin: 0 0 1rem;
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#philosophy-pots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#philosophy-pots img {
+  width: min(8rem, 28vw);
+  border: none;
+}
+
+.bug {
+  width: min(5rem, 22vw) !important;
+  opacity: 0.95;
+}
+
+
+/* =============================================================================
+   SIDEBAR & EVENTS WIDGET
+   ============================================================================= */
+
+#sidebar {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.25rem);
+}
+
+.sidebar-panel {
+  border: 1px solid white;
+  min-width: 0;
+}
+
+#osc-wrap img {
+  width: 100%;
+}
+
+/* Oscilloscope widget (Web Audio + canvas; see /js/oscilloscope.mjs)
+   Layout matches reference art assets/sidebar/oscilloscope.png (2051×1236). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#oscilloscope-root {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 2051 / 1236;
+  margin-inline: auto;
+  box-sizing: border-box;
+  padding: clamp(0.2rem, 1.2vw, 0.45rem);
+  background: #000;
+}
+
+#oscilloscope-grid {
+  display: grid;
+  height: 100%;
+  grid-template-columns: minmax(0, 5.35fr) minmax(0, 0.52fr) minmax(0, 1.38fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: clamp(0.2rem, 1vw, 0.4rem) clamp(0.25rem, 1.2vw, 0.5rem);
+  align-items: stretch;
+  min-height: 0;
+}
+
+#oscilloscope-screen-wrap {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#oscilloscope-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  background: #060806;
+  border: 3px double #fff;
+  box-sizing: border-box;
+}
+
+#oscilloscope-pads {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(0.08rem, 0.6vw, 0.2rem);
+  min-width: 0;
+  min-height: 0;
+  align-self: stretch;
+}
+
+.osc-pad {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: clamp(0.04rem, 0.35vw, 0.1rem);
+  min-height: 0;
+  min-width: 0;
+}
+
+.osc-pad__label {
+  flex: 0 0 auto;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(0.32rem, 1.05vw, 0.48rem);
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  text-align: center;
+  user-select: none;
+}
+
+.osc-btn--pad {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 2px solid #fff;
+  background: #0a0a0a;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.osc-btn--pad:hover,
+.osc-btn--pad:focus-visible {
+  background: #1a1a1a;
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.osc-btn--pad[aria-pressed="true"] {
+  background: #252525;
+}
+
+#oscilloscope-knobs {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.15rem, 1vw, 0.35rem);
+  min-width: 0;
+  min-height: 0;
+}
+
+#oscilloscope-fader {
+  grid-column: 1;
+  grid-row: 2;
+  min-width: 0;
+  align-self: end;
+}
+
+#oscilloscope-bottom-spacer {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#oscilloscope-bottom-right {
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  min-width: 0;
+  align-self: end;
+  flex-wrap: wrap;
+}
+
+.osc-toggle-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.osc-toggle-row__label {
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(0.38rem, 1.25vw, 0.55rem);
+  letter-spacing: 0.12em;
+  color: #aaa;
+  user-select: none;
+}
+
+.osc-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: clamp(2rem, 7vw, 2.35rem);
+  height: clamp(0.95rem, 3.5vw, 1.15rem);
+  margin: 0;
+  padding: 0.12rem 0.18rem;
+  border: 2px solid #666;
+  border-radius: 999px;
+  background: #141414;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.osc-toggle:hover:not(:disabled),
+.osc-toggle:focus-visible {
+  border-color: #999;
+  outline: none;
+}
+
+.osc-toggle[aria-checked="true"] {
+  justify-content: flex-end;
+}
+
+#osc-power[aria-checked="true"] {
+  border-color: #5a8f5a;
+  background: #0a1f0a;
+}
+
+#osc-mute[aria-checked="true"] {
+  border-color: #888;
+  background: #1c1c1c;
+}
+
+.osc-toggle__thumb {
+  flex: 0 0 auto;
+  width: 42%;
+  aspect-ratio: 1;
+  max-height: 100%;
+  border-radius: 50%;
+  background: #e8e8e8;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.osc-toggle:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+input-knob.osc-knob {
+  /* Outer size shows the full bezel art; padding shrinks the rotator so the dial doesn’t cover it. */
+  --knob-w: min(5.35rem, 27vw);
+  width: var(--knob-w);
+  height: calc(var(--knob-w) * 1.065);
+  /* Asymmetric padding: less left / more right shunts the rotator left; more top / less bottom nudges it down. */
+  padding: 24% 44% 4% 0.5%;
+  border: none;
+  background: transparent center / contain no-repeat;
+  background-origin: padding-box;
+  box-sizing: border-box;
+  display: block;
+}
+
+input-knob.osc-knob--top {
+  background-image: var(--osc-knob-top);
+}
+
+input-knob.osc-knob--bottom {
+  background-image: var(--osc-knob-bottom);
+}
+
+input-knob.osc-knob::part(rotator) {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 50%;
+  background: transparent center / contain no-repeat;
+  background-size: contain;
+}
+
+input-knob.osc-knob--top::part(rotator) {
+  background-image: var(--osc-knob-top-move);
+}
+
+input-knob.osc-knob--bottom::part(rotator) {
+  background-image: var(--osc-knob-bottom-move);
+}
+
+/* Native range; track + thumb styled to match asset art (WebKit + Firefox). */
+input.osc-fader[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 1.85rem;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+input.osc-fader[type="range"]:focus {
+  outline: none;
+}
+
+input.osc-fader[type="range"]:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+input.osc-fader[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1.1rem;
+  margin-top: 0.35rem;
+  background: var(--osc-fader-track) center / 100% auto no-repeat;
+  border: none;
+}
+
+input.osc-fader[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: clamp(1.25rem, 12vw, 3.5rem);
+  height: 1.45rem;
+  margin-top: -0.2rem;
+  background: var(--osc-fader-knob) center / contain no-repeat;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+  border: none;
+  cursor: grab;
+}
+
+input.osc-fader[type="range"]:active::-webkit-slider-thumb {
+  cursor: grabbing;
+}
+
+input.osc-fader[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 1.1rem;
+  background: var(--osc-fader-track) center / 100% auto no-repeat;
+  border: none;
+}
+
+input.osc-fader[type="range"]::-moz-range-thumb {
+  width: clamp(1.25rem, 12vw, 3.5rem);
+  height: 1.45rem;
+  background: var(--osc-fader-knob) center / contain no-repeat;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+  border: none;
+  border-radius: 0;
+  cursor: grab;
+}
+
+#events-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#events-stack img {
+  width: 100%;
+}
+
+#events-actions {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+
+/* =============================================================================
+   SITE FOOTER
+   ============================================================================= */
+
+#site-footer {
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: clamp(0.35rem, 1.5vw, 1rem);
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding: var(--page-padding);
+  border: 1px solid white;
+}
+
+/* min-width:0 lets grid columns shrink; do not set max-width:100% here —
+   overrides .footer-ground and blows images up to full column width. */
+#site-footer > * {
+  min-width: 0;
+}
+
+#links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font-size: clamp(0.45rem, 1.65vw, 1em);
+  width: 100%;
+}
+
+#links a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+#footer-brand {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#footer-brand-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#site-footer #footer-brand-logo img {
+  width: auto;
+  height: auto;
+  max-width: min(100%, 15rem);
+  max-height: 3rem;
+}
+
+#footer-brand-est {
+  font-size: clamp(0.45rem, 1.65vw, 0.9em);
+  text-align: center;
+  line-height: 1.2;
+}
+
+#site-footer .footer-ground {
+  display: block;
+  width: 4rem;
+  max-width: 4rem;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* =============================================================================
+   ZINE PAGE (/zines)
+   ============================================================================= */
+
+#zine-page-hero {
+  margin-bottom: 1rem;
+}
+
+.zine-section + .zine-section {
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+}
+
+.zine-subheading {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.95em;
+  margin: 0 0 0.35rem;
+}
+
+.zine-subheading--center {
+  text-align: center;
+}
+
+.zine-subheading--inline {
+  margin-bottom: 0.5rem;
+}
+
+.zine-lead-heading {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: clamp(1.2rem, 1.35vw + 0.85rem, 1.75rem);
+  line-height: 1.2;
+  margin: 0 0 0.35rem;
+}
+
+.zine-matchbooks .zine-lead-heading {
+  text-align: center;
+}
+
+/* “So, what are they?” — one row: photo | copy | train; stacks on narrow viewports */
+#zine-intro-what {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  margin: 0.5em;
+  align-items: stretch;
+}
+
+#zine-intro-what-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+#zine-intro-what-photo,
+#zine-intro-what-train {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#zine-intro-what-text {
+  flex: 1.4 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  justify-content: center;
+  text-align: center;
+  min-width: 0;
+}
+
+#zine-intro-what-text p {
+  margin: 0;
+}
+
+#zine-intro-what-photo img,
+#zine-intro-what-train img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+#zine-intro-what .btn {
+  align-self: center;
+}
+
+@media (max-width: 840px) and (min-width: 641px) {
+  #zine-intro-what-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    grid-template-areas:
+      "photo text"
+      "train train";
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+    align-items: stretch;
+  }
+
+  #zine-intro-what-photo {
+    grid-area: photo;
+  }
+
+  #zine-intro-what-text {
+    grid-area: text;
+  }
+
+  #zine-intro-what-train {
+    grid-area: train;
+    min-height: 0;
+  }
+
+  #zine-intro-what-photo img {
+    max-height: none;
+    width: 100%;
+    height: auto;
+  }
+
+  #zine-intro-what-train img {
+    max-height: none;
+    width: auto;
+    max-width: min(14rem, 55vw);
+    height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  #zine-intro-what-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #zine-intro-what-photo,
+  #zine-intro-what-train {
+    flex: 0 1 auto;
+    min-height: 0;
+  }
+
+  #zine-intro-what-text {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+
+  #zine-intro-what-photo img,
+  #zine-intro-what-train img {
+    max-height: none;
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+}
+
+.zine-open-media .zine-open-img--base {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.zine-open-media .zine-open-img--hover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .zine-open-media:hover .zine-open-img--hover {
+    opacity: 1;
+  }
+}
+
+.zine-banner {
+  margin: 0;
+  text-align: center;
+}
+
+.zine-banner img {
+  width: min(100%, 48rem);
+  margin-inline: auto;
+}
+
+.zine-banner--freepress img {
+  width: min(100%, 36rem);
+}
+
+#zine-hero-photo {
+  margin-top: 0.75rem;
+  border: 1px solid #fff;
+}
+
+#zine-hero-photo img {
+  width: 100%;
+  height: auto;
+}
+
+#textbook-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+  align-items: stretch;
+}
+
+#textbook-stats img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 960px) {
+  #textbook-stats {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+
+  #textbook-stats img {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.zine-prose-box {
+  margin-top: 1rem;
+}
+
+.zine-prose-box p {
+  margin: 0;
+  font-size: 0.95em;
+  text-align: center;
+}
+
+/* Textbook series: dashed frame + roomy inset so copy sits inside the border */
+#textbook-series .zine-prose-box {
+  border: 2px dashed #fff;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: clamp(1rem, 2.5vw, 1.5rem) clamp(1.75rem, 8vw, 4rem);
+}
+
+#textbook-series .zine-prose-box p {
+  padding-inline: clamp(0.5rem, 3vw, 1.5rem);
+  box-sizing: border-box;
+}
+
+#free-press .zine-prose-box {
+  border: 2px dashed #fff;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: clamp(1rem, 2.5vw, 1.5rem) clamp(1.75rem, 8vw, 4rem);
+}
+
+#free-press .zine-prose-box p {
+  padding-inline: clamp(0.5rem, 3vw, 1.5rem);
+  box-sizing: border-box;
+}
+
+.zine-carousel {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  border: none;
+}
+
+.zine-carousel > img {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid #fff;
+}
+
+.zine-carousel__arrow {
+  flex: 0 0 auto;
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  text-decoration: none;
+  color: #fff;
+  padding: 0.25rem 0.4rem;
+  border: 2px solid #fff;
+  background: #111;
+}
+
+.zine-carousel__arrow:hover,
+.zine-carousel__arrow:focus-visible {
+  color: yellow;
+  outline: 2px solid yellow;
+  outline-offset: 2px;
+}
+
+/* Volume blocks: title row, image, then description | chapters; single column when narrow */
+.zine-volume-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "heading"
+    "media"
+    "description"
+    "chapters";
+  gap: 1px;
+  background: #fff;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.zine-volume-grid > * {
+  background: #000;
+  min-width: 0;
+}
+
+.zine-volume-grid > .header-wrapper {
+  grid-area: heading;
+  margin: 0;
+  border: none;
+}
+
+.zine-volume-grid > .zine-carousel {
+  grid-area: media;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.zine-volume-grid__description {
+  grid-area: description;
+  padding: clamp(0.65rem, 2vw, 1rem);
+}
+
+.zine-volume-grid__logo {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 4.5em;
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+#volume-2 .zine-volume-grid__logo {
+  max-height: 9em;
+}
+
+.zine-volume-grid__chapters {
+  grid-area: chapters;
+  padding: clamp(0.65rem, 2vw, 1rem);
+  text-align: center;
+}
+
+.zine-volume-grid .zine-carousel > img {
+  border: none;
+}
+
+@media (min-width: 641px) {
+  .zine-volume-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "heading heading"
+      "media media"
+      "description chapters";
+  }
+}
+
+.zine-volume-grid__description p {
+  margin: 0;
+}
+
+.zine-volume-detail__list-title {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: 1.5rem;
+  margin: 0 0 0.4rem;
+  text-align: center;
+}
+
+.zine-chapter-list {
+  list-style: none;
+  counter-reset: zine-chapter;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 0;
+  font-size: 0.9em;
+}
+
+.zine-chapter-list li {
+  counter-increment: zine-chapter;
+}
+
+.zine-chapter-list li + li {
+  margin-top: 0.35em;
+}
+
+.zine-chapter-list li::before {
+  content: "[" counter(zine-chapter) "] ";
+}
+
+#zine-freepress-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 0.75rem 0 0;
+  min-width: 0;
+}
+
+#zine-freepress-photos img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#zine-matchbooks-media {
+  margin-top: 0.75rem;
+  border: 1px solid #fff;
+}
+
+#whos-it-for-section {
+  gap: 0;
+  align-items: stretch;
+}
+
+#whos-it-for-section > .content-block__media,
+#whos-it-for-section > .content-block__body {
+  border: 1px solid #fff;
+  min-width: 0;
+}
+
+#whos-it-for-section > .content-block__body {
+  margin: 0;
+  padding: 0.5em;
+  justify-content: center;
+}
+
+@media (min-width: 641px) {
+  #whos-it-for-section > .content-block__body {
+    margin-left: -1px;
+  }
+}
+
+@media (max-width: 640px) {
+  #whos-it-for-section > .content-block__body {
+    margin-top: -1px;
+  }
+
+  #zine-freepress-photos {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =============================================================================
+   EVENT DETAIL PAGE
+   ============================================================================= */
+
+.page-shell,
+.event-page {
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid white;
+  min-width: 0;
+}
+
+.event-card--detail {
+  max-width: 52rem;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.event-card__body {
+  letter-spacing: normal;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+.event-card__body > *:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =============================================================================
+   EVENT CARDS & LISTINGS (SIDEBAR, INDEX, EVENTS PAGE)
+   ============================================================================= */
+
+/* Event cards (sidebar + index) */
+.events-sidebar-section__label,
+.events-section__label {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-align: center;
+  margin: 0 0 0.75rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+}
+
+.event-card {
+  padding: 1em;
+  border-bottom: 1px solid #fff;
+  letter-spacing: normal;
+}
+
+.event-card:last-child {
+  border-bottom: none;
+}
+
+.event-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.event-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.event-card__tag {
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.4em;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.45rem;
+  text-transform: uppercase;
+}
+
+.event-card__tag--fill {
+  background: #fff;
+  color: #000;
+}
+
+.event-card__tag--outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.event-card__main {
+  display: grid;
+  grid-template-columns: minmax(4.5rem, 0.35fr) minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: start;
+  margin-bottom: 0.65rem;
+}
+
+.event-card__date-block {
+  border: 1px solid #fff;
+  padding: 0.35rem 0.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-size: 0.68em;
+  line-height: 1.2;
+}
+
+.event-card__dow,
+.event-card__month {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.event-card__dom {
+  font-size: 2em;
+  margin-top: 0.15rem;
+}
+
+.event-card__title {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0 0 0.35rem;
+  letter-spacing: var(--wide-spacing);
+  font-weight: normal;
+  line-height: 1.25;
+}
+
+.event-card__line {
+  margin: 0 0 0.2rem;
+  font-size: 0.79em;
+  line-height: 1.35;
+}
+
+.event-card__desc {
+  margin: 0 0 1rem;
+  font-size: 0.79em;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.event-card__cta {
+  margin: 0;
+  font-size: 0.79em;
+  font-style: italic;
+}
+
+.event-card__cta a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.events-sidebar-empty,
+.events-empty {
+  margin: 0;
+  font-size: 0.86rem;
+  letter-spacing: normal;
+  opacity: 0.85;
+}
+
+#events-page-header {
+  margin-bottom: 1.25rem;
+}
+
+.events-section + .events-section {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #fff;
+}
