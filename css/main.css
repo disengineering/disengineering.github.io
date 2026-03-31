@@ -1170,6 +1170,18 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   box-sizing: border-box;
 }
 
+#free-press .zine-prose-box {
+  border: 2px dashed #fff;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: clamp(1rem, 2.5vw, 1.5rem) clamp(1.75rem, 8vw, 4rem);
+}
+
+#free-press .zine-prose-box p {
+  padding-inline: clamp(0.5rem, 3vw, 1.5rem);
+  box-sizing: border-box;
+}
+
 .zine-carousel {
   display: flex;
   align-items: center;
@@ -1241,6 +1253,19 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   padding: clamp(0.65rem, 2vw, 1rem);
 }
 
+.zine-volume-grid__logo {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 4.5em;
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+#volume-2 .zine-volume-grid__logo {
+  max-height: 9em;
+}
+
 .zine-volume-grid__chapters {
   grid-area: chapters;
   padding: clamp(0.65rem, 2vw, 1rem);
@@ -1279,9 +1304,9 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 #zine-freepress-photos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.35rem;
+  gap: 0;
   margin: 0.75rem 0 0;
-  border: 1px solid #fff;
+  min-width: 0;
 }
 
 #zine-freepress-photos img {
@@ -1309,6 +1334,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 #whos-it-for-section > .content-block__body {
   margin: 0;
   padding: 0.5em;
+  justify-content: center;
 }
 
 @media (min-width: 641px) {
