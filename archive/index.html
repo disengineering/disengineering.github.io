@@ -1,0 +1,46 @@
+---
+title: Archive
+permalink: /archive/index.html
+layout: layouts/base.html
+description: Documented projects and builds preserved in the Disengineering archive.
+---
+
+<main class="page-shell" id="main-content">
+  <header class="header-wrapper">
+    <h1 class="section-heading section-heading--accent-green">ARCHIVE</h1>
+  </header>
+
+  <p>
+    The archive collects project write-ups from the collective. To add a new entry, open the GitHub issue form below;
+    a maintainer will turn your answers into a Markdown page under
+    <code>archive/items/</code>.
+  </p>
+
+  <p>
+    <a
+      href="https://github.com/disengineering/disengineering.github.io/issues/new?template=submit-project-to-archive.yml"
+      >Submit project to archive (GitHub issue)</a
+    >
+  </p>
+
+  <section aria-labelledby="archive-list-heading">
+    <h2 id="archive-list-heading">Projects</h2>
+    {% if collections.archiveProjects.length %}
+      <ul>
+        {% for item in collections.archiveProjects %}
+          <li>
+            <a href="{{ item.url }}">{{ item.data.title }}</a>
+            {% if item.data.author %}
+              <span> — {{ item.data.author }}</span>
+            {% endif %}
+            {% if item.data.description %}
+              <p>{{ item.data.description }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No projects in the archive yet.</p>
+    {% endif %}
+  </section>
+</main>

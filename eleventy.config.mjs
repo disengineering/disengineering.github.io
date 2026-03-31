@@ -91,4 +91,12 @@ export default function (eleventyConfig) {
       .filter((item) => new Date(item.data.date) < now)
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
   });
+
+  eleventyConfig.addCollection("archiveProjects", (collectionApi) =>
+    collectionApi.getFilteredByTag("archive").sort((a, b) => {
+      const tA = a.data.title ?? "";
+      const tB = b.data.title ?? "";
+      return tA.localeCompare(tB, "en");
+    }),
+  );
 }

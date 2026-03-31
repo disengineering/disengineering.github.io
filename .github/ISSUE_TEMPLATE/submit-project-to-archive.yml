@@ -1,0 +1,44 @@
+name: Submit project to archive
+description: Propose a new project page for the site archive.
+title: "[Archive] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to suggest a new archive page. A maintainer will add a Markdown file under `archive/items/` using the **slug** as the filename (e.g. `my-synth` → `archive/items/my-synth.md` → `/archive/my-synth/`).
+  - type: input
+    id: slug
+    attributes:
+      label: Slug
+      description: URL segment — lowercase letters, numbers, and hyphens only (e.g. `tape-loop-granulator`).
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Display title for the project page and listings.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: One or two sentences for the archive index and meta description.
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author
+      description: Name or handle as it should appear on the site.
+    validations:
+      required: true
+  - type: textarea
+    id: body
+    attributes:
+      label: Page content (optional)
+      description: Draft Markdown for the project page (headings, lists, links). If empty, maintainers can follow up in the issue thread.
+    validations:
+      required: false
