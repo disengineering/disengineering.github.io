@@ -935,7 +935,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 .zine-section + .zine-section {
   margin-top: clamp(1.25rem, 3vw, 2rem);
   padding-top: clamp(1rem, 2vw, 1.5rem);
-  border-top: 1px solid #fff;
 }
 
 .zine-subheading {
@@ -1152,12 +1151,23 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   margin-top: 1rem;
 }
 
-.zine-prose-box__text {
+.zine-prose-box p {
   margin: 0;
   font-size: 0.95em;
-  max-width: 52ch;
-  margin-inline: auto;
   text-align: center;
+}
+
+/* Textbook series: dashed frame + roomy inset so copy sits inside the border */
+#textbook-series .zine-prose-box {
+  border: 2px dashed #fff;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: clamp(1rem, 2.5vw, 1.5rem) clamp(1.75rem, 8vw, 4rem);
+}
+
+#textbook-series .zine-prose-box p {
+  padding-inline: clamp(0.5rem, 3vw, 1.5rem);
+  box-sizing: border-box;
 }
 
 .zine-carousel {
@@ -1236,7 +1246,33 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   border: 1px solid #fff;
 }
 
+#whos-it-for-section {
+  gap: 0;
+  align-items: stretch;
+}
+
+#whos-it-for-section > .content-block__media,
+#whos-it-for-section > .content-block__body {
+  border: 1px solid #fff;
+  min-width: 0;
+}
+
+#whos-it-for-section > .content-block__body {
+  margin: 0;
+  padding: 0.5em;
+}
+
+@media (min-width: 641px) {
+  #whos-it-for-section > .content-block__body {
+    margin-left: -1px;
+  }
+}
+
 @media (max-width: 640px) {
+  #whos-it-for-section > .content-block__body {
+    margin-top: -1px;
+  }
+
   .zine-volume-detail {
     grid-template-columns: 1fr;
   }
