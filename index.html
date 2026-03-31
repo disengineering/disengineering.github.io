@@ -87,19 +87,18 @@ description: Disengineering — a hardware hacking collective focused on electro
         </h2>
       </div>
       <div id="osc-wrap">
-        <div class="oscilloscope" id="oscilloscope-root">
-          <div class="oscilloscope__grid">
-            <div class="oscilloscope__screen-wrap">
+        <div id="oscilloscope-root">
+          <div id="oscilloscope-grid">
+            <div id="oscilloscope-screen-wrap">
               <canvas
                 id="oscilloscope-canvas"
-                class="oscilloscope__canvas"
                 width="800"
                 height="360"
                 role="img"
                 aria-label="Oscilloscope waveform display"
               ></canvas>
             </div>
-            <div class="oscilloscope__pads" role="group" aria-label="Waveform shape">
+            <div id="oscilloscope-pads" role="group" aria-label="Waveform shape">
               <div class="osc-pad">
                 <span class="osc-pad__label" id="osc-pad-lbl-sine">SINE</span>
                 <button
@@ -145,7 +144,7 @@ description: Disengineering — a hardware hacking collective focused on electro
                 ></button>
               </div>
             </div>
-            <div class="oscilloscope__knobs">
+            <div id="oscilloscope-knobs">
               <span id="osc-lbl-freq" class="visually-hidden">Frequency</span>
               <input-knob
                 id="osc-knob-freq"
@@ -167,7 +166,7 @@ description: Disengineering — a hardware hacking collective focused on electro
                 aria-labelledby="osc-lbl-time"
               ></input-knob>
             </div>
-            <div class="oscilloscope__fader">
+            <div id="oscilloscope-fader">
               <span id="osc-lbl-vol" class="visually-hidden">Level</span>
               <input
                 id="osc-fader"
@@ -180,8 +179,8 @@ description: Disengineering — a hardware hacking collective focused on electro
                 aria-labelledby="osc-lbl-vol"
               />
             </div>
-            <div class="oscilloscope__bottom-spacer" aria-hidden="true"></div>
-            <div class="oscilloscope__bottom-right">
+            <div id="oscilloscope-bottom-spacer" aria-hidden="true"></div>
+            <div id="oscilloscope-bottom-right">
               <div class="osc-toggle-row">
                 <span class="osc-toggle-row__label" id="osc-power-lbl">PWR</span>
                 <button
