@@ -1203,15 +1203,64 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   outline-offset: 2px;
 }
 
-.zine-volume-detail {
+/* Volume blocks: title row, image, then description | chapters; single column when narrow */
+.zine-volume-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 1rem;
-  margin-top: 0.75rem;
-  align-items: start;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "heading"
+    "media"
+    "description"
+    "chapters";
+  gap: 1px;
+  background: #fff;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
-.zine-volume-detail__col p {
+.zine-volume-grid > * {
+  background: #000;
+  min-width: 0;
+}
+
+.zine-volume-grid > .header-wrapper {
+  grid-area: heading;
+  margin: 0;
+  border: none;
+}
+
+.zine-volume-grid > .zine-carousel {
+  grid-area: media;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.zine-volume-grid__description {
+  grid-area: description;
+  padding: clamp(0.65rem, 2vw, 1rem);
+}
+
+.zine-volume-grid__chapters {
+  grid-area: chapters;
+  padding: clamp(0.65rem, 2vw, 1rem);
+}
+
+.zine-volume-grid .zine-carousel > img {
+  border: none;
+}
+
+@media (min-width: 641px) {
+  .zine-volume-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "heading heading"
+      "media media"
+      "description chapters";
+  }
+}
+
+.zine-volume-grid__description p {
   margin: 0;
 }
 
@@ -1271,10 +1320,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 @media (max-width: 640px) {
   #whos-it-for-section > .content-block__body {
     margin-top: -1px;
-  }
-
-  .zine-volume-detail {
-    grid-template-columns: 1fr;
   }
 
   #zine-freepress-photos {
