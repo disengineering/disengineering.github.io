@@ -38,7 +38,6 @@ body {
   color: white;
   font-family: "Times New Roman", Times, serif;
   line-height: 1.5;
-  letter-spacing: var(--wide-spacing);
   max-width: 70em;
   margin: 0 auto;
 }
@@ -340,16 +339,12 @@ header#site-header {
    CONTENT BLOCKS & SECTION CHROME
    ============================================================================= */
 
-.header-wrapper {
-  padding: 8px;
-  border: 1px solid white;
-  margin: 0;
-  min-width: 0;
-}
-
 .section-heading {
   margin: 0;
-  padding: 0;
+  padding: 8px;
+  border: 1px solid white;
+  box-sizing: border-box;
+  background-clip: content-box;
   color: white;
   text-align: center;
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
@@ -450,6 +445,7 @@ a:hover, a:focus-visible {
 .btn {
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
   font-size: medium;
+  letter-spacing: var(--wide-spacing);
   align-self: flex-start;
   display: inline-block;
   padding: 0.35rem 0.85rem;
@@ -466,6 +462,10 @@ a:hover, a:focus-visible {
   color: white;
 }
 
+
+.home-intro {
+  letter-spacing: var(--wide-spacing);
+}
 
 /* =============================================================================
    PHILOSOPHY (HOME)
@@ -1170,6 +1170,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 
 .zine-prose-box {
   margin-top: 1rem;
+  min-width: 0;
 }
 
 .zine-prose-box p {
@@ -1257,7 +1258,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   min-width: 0;
 }
 
-.zine-volume-grid > .header-wrapper {
+.zine-volume-grid > .section-heading {
   grid-area: heading;
   margin: 0;
   border: none;
@@ -1544,6 +1545,7 @@ section[aria-label="Curated links"] p:has(a) {
   margin: 0;
   font-size: 0.79em;
   font-style: italic;
+  letter-spacing: var(--wide-spacing);
 }
 
 .event-card__cta a {

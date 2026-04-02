@@ -4,11 +4,9 @@ description: Disengineering — a hardware hacking collective focused on electro
 ---
 <div id="main-and-aside">
   <main id="main-content">
-    <div class="header-wrapper">
-      <h1 class="section-heading" style="background-color: blue">
-        WHAT IS DISENGINEERING?
-      </h1>
-    </div>
+    <h1 class="section-heading" style="background-color: blue">
+      WHAT IS DISENGINEERING?
+    </h1>
 
     <section class="content-block" id="about" aria-labelledby="about-heading">
       <div class="content-block__media">
@@ -16,7 +14,7 @@ description: Disengineering — a hardware hacking collective focused on electro
           width="1200" height="900" loading="eager" decoding="async" />
       </div>
       <div class="content-block__body">
-        <p id="about-heading">
+        <p id="about-heading" class="home-intro">
           The Disengineering Society is a &ldquo;hardware hacking&rdquo; collective.
         </p>
         <a class="btn" href="/about">ABOUT</a>
@@ -25,7 +23,7 @@ description: Disengineering — a hardware hacking collective focused on electro
 
     <section class="content-block content-block--reverse" id="workshops" aria-labelledby="workshops-heading">
       <div class="content-block__body">
-        <p id="workshops-heading">
+        <p id="workshops-heading" class="home-intro">
           We run workshops teaching people how to build electronic musical instruments using salvaged electronic
           waste.
         </p>
@@ -43,7 +41,7 @@ description: Disengineering — a hardware hacking collective focused on electro
           height="900" loading="lazy" decoding="async" />
       </div>
       <div class="content-block__body">
-        <p id="zines-heading">
+        <p id="zines-heading" class="home-intro">
           We also create, publish, and exhibit illustrated educational materials.
         </p>
         <a class="btn" href="/zines/">SEE OUR ZINES</a>
@@ -56,13 +54,13 @@ description: Disengineering — a hardware hacking collective focused on electro
           loading="lazy" decoding="async" />
       </div>
       <div class="content-block__body">
-        <p id="concerts-heading">And host the occasional concert.</p>
+        <p id="concerts-heading" class="home-intro">And host the occasional concert.</p>
         <a class="btn" href="/events">CHECK IT OUT</a>
       </div>
     </section>
 
     <section id="philosophy" aria-labelledby="philosophy-heading">
-      <p id="philosophy-heading">
+      <p id="philosophy-heading" class="home-intro">
         Disengineering is committed to sustainable design practices by combatting planned obsolescence and
         advocating
         for Right-to-Repair.
@@ -81,11 +79,9 @@ description: Disengineering — a hardware hacking collective focused on electro
 
   <aside id="sidebar" aria-label="Oscilloscope and events">
     <section class="sidebar-panel" id="oscilloscope" aria-labelledby="oscilloscope-heading">
-      <div class="header-wrapper">
-        <h2 id="oscilloscope-heading" class="section-heading" style="background-color: green">
-          OSCILLISCOPE
-        </h2>
-      </div>
+      <h2 id="oscilloscope-heading" class="section-heading" style="background-color: green">
+        OSCILLISCOPE
+      </h2>
       <div id="osc-wrap">
         <div id="oscilloscope-root">
           <div id="oscilloscope-grid">
@@ -215,9 +211,7 @@ description: Disengineering — a hardware hacking collective focused on electro
       </div>
     </section>
     <section class="sidebar-panel" id="events" aria-labelledby="events-heading">
-      <div class="header-wrapper">
-        <h2 id="events-heading" class="section-heading" style="background-color: red">EVENTS</h2>
-      </div>
+      <h2 id="events-heading" class="section-heading" style="background-color: red">EVENTS</h2>
       {% include "partials/events-sidebar.html" %}
       <div id="events-actions">
         <a class="btn" href="/events/">SEE FULL CALENDAR</a>
