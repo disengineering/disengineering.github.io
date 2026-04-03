@@ -352,15 +352,15 @@ header#site-header {
 }
 
 .section-heading--accent-blue {
-  background-color: blue;
+  background-color: blue !important;
 }
 
 .section-heading--accent-red {
-  background-color: red;
+  background-color: red !important;
 }
 
 .section-heading--accent-green {
-  background-color: green;
+  background-color: green !important;
 }
 
 .content-block {
@@ -895,7 +895,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   padding: 0;
   margin: 0;
   text-align: left;
-  font-size: clamp(0.45rem, 1.65vw, 1em);
   width: 100%;
 }
 
@@ -924,7 +923,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 }
 
 #footer-brand-est {
-  font-size: clamp(0.45rem, 1.65vw, 0.9em);
+  font-size: 0.8em;
   text-align: center;
   line-height: 1.2;
 }
@@ -1254,14 +1253,18 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 }
 
 .zine-volume-grid > * {
-  background: #000;
+  background-color: #000;
+}
+
+.zine-volume-grid > *:not(.section-heading) {
   min-width: 0;
 }
 
 .zine-volume-grid > .section-heading {
   grid-area: heading;
   margin: 0;
-  border: none;
+  width: 100%;
+  justify-self: stretch;
 }
 
 .zine-volume-grid > .zine-carousel {

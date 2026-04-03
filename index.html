@@ -8,7 +8,7 @@ description: Disengineering — a hardware hacking collective focused on electro
       WHAT IS DISENGINEERING?
     </h1>
 
-    <section class="content-block" id="about" aria-labelledby="about-heading">
+    <section class="content-block" aria-labelledby="about-heading">
       <div class="content-block__media">
         <img src="/assets/body/about_image.png" alt="Hands adjusting knobs on a wooden electronic instrument"
           width="1200" height="900" loading="eager" decoding="async" />
@@ -21,7 +21,7 @@ description: Disengineering — a hardware hacking collective focused on electro
       </div>
     </section>
 
-    <section class="content-block content-block--reverse" id="workshops" aria-labelledby="workshops-heading">
+    <section class="content-block content-block--reverse" aria-labelledby="workshops-heading">
       <div class="content-block__body">
         <p id="workshops-heading" class="home-intro">
           We run workshops teaching people how to build electronic musical instruments using salvaged electronic
@@ -35,7 +35,7 @@ description: Disengineering — a hardware hacking collective focused on electro
       </div>
     </section>
 
-    <section class="content-block" id="zines" aria-labelledby="zines-heading">
+    <section class="content-block" aria-labelledby="zines-heading">
       <div class="content-block__media">
         <img src="/assets/body/zine_photo.png" alt="Illustrated zine cover: Happy Fun Musical Play Thing" width="1200"
           height="900" loading="lazy" decoding="async" />
@@ -48,7 +48,7 @@ description: Disengineering — a hardware hacking collective focused on electro
       </div>
     </section>
 
-    <section class="content-block content-block--stack" id="concerts" aria-labelledby="concerts-heading">
+    <section class="content-block content-block--stack" aria-labelledby="concerts-heading">
       <div class="content-block__media">
         <img src="/assets/body/concerts_photo.png" alt="Concert with electronic gear on stage" width="1200" height="900"
           loading="lazy" decoding="async" />
@@ -78,7 +78,7 @@ description: Disengineering — a hardware hacking collective focused on electro
   </main>
 
   <aside id="sidebar" aria-label="Oscilloscope and events">
-    <section class="sidebar-panel" id="oscilloscope" aria-labelledby="oscilloscope-heading">
+    <section class="sidebar-panel" aria-labelledby="oscilloscope-heading">
       <h2 id="oscilloscope-heading" class="section-heading" style="background-color: green">
         OSCILLISCOPE
       </h2>
@@ -99,7 +99,7 @@ description: Disengineering — a hardware hacking collective focused on electro
                 <span class="osc-pad__label" id="osc-pad-lbl-sine">SINE</span>
                 <button
                   type="button"
-                  class="osc-btn osc-btn--pad"
+                  class="osc-btn--pad"
                   data-wave="sine"
                   aria-pressed="true"
                   aria-labelledby="osc-pad-lbl-sine"
@@ -110,7 +110,7 @@ description: Disengineering — a hardware hacking collective focused on electro
                 <span class="osc-pad__label" id="osc-pad-lbl-square">SQR</span>
                 <button
                   type="button"
-                  class="osc-btn osc-btn--pad"
+                  class="osc-btn--pad"
                   data-wave="square"
                   aria-pressed="false"
                   aria-labelledby="osc-pad-lbl-square"
@@ -121,7 +121,7 @@ description: Disengineering — a hardware hacking collective focused on electro
                 <span class="osc-pad__label" id="osc-pad-lbl-triangle">TRI</span>
                 <button
                   type="button"
-                  class="osc-btn osc-btn--pad"
+                  class="osc-btn--pad"
                   data-wave="triangle"
                   aria-pressed="false"
                   aria-labelledby="osc-pad-lbl-triangle"
@@ -132,7 +132,7 @@ description: Disengineering — a hardware hacking collective focused on electro
                 <span class="osc-pad__label" id="osc-pad-lbl-sawtooth">SAW</span>
                 <button
                   type="button"
-                  class="osc-btn osc-btn--pad"
+                  class="osc-btn--pad"
                   data-wave="sawtooth"
                   aria-pressed="false"
                   aria-labelledby="osc-pad-lbl-sawtooth"
@@ -210,7 +210,7 @@ description: Disengineering — a hardware hacking collective focused on electro
         <script type="module" src="/js/oscilloscope.mjs"></script>
       </div>
     </section>
-    <section class="sidebar-panel" id="events" aria-labelledby="events-heading">
+    <section class="sidebar-panel" aria-labelledby="events-heading">
       <h2 id="events-heading" class="section-heading" style="background-color: red">EVENTS</h2>
       {% include "partials/events-sidebar.html" %}
       <div id="events-actions">

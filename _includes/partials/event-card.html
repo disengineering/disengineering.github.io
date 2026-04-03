@@ -20,7 +20,7 @@
       <span class="event-card__month">{{ parts.month }}</span>
       <span class="event-card__dom">{{ parts.dayOrdinal }}</span>
     </div>
-    <div class="event-card__details">
+    <div>
       {% if eventCardIsDetail %}
         <h1 id="event-title" class="event-card__title">{{ event.data.title }}</h1>
       {% else %}
@@ -30,7 +30,7 @@
       {% endif %}
       <p class="event-card__line">{{ event.data.date | formatEventDateLong: tz }}</p>
       <p class="event-card__line">{{ event.data.date | formatEventTimeRange: end_iso, tz }}</p>
-      <p class="event-card__line event-card__location">@ {{ event.data.location }}</p>
+      <p class="event-card__line">@ {{ event.data.location }}</p>
     </div>
   </div>
 
