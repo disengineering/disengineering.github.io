@@ -46,7 +46,19 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-h1 { font-size: 1.75em; }
+/* Default “page header” chrome for top-level titles */
+h1 {
+  font-size: 1.75em;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid white;
+  box-sizing: border-box;
+  background-clip: content-box;
+  color: white;
+  text-align: center;
+  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  min-width: 0;
+}
 h2 { font-size: 1.2em; }
 h3 { font-size: 1em; }
 h4 { font-size: 0.9em; }
@@ -353,20 +365,23 @@ header#site-header {
   min-width: 0;
 }
 
-.section-heading--accent-blue {
+.section-heading--accent-blue,
+.page-header--accent-blue {
   background-color: blue !important;
 }
 
-.section-heading--accent-red {
+.section-heading--accent-red,
+.page-header--accent-red {
   background-color: red !important;
 }
 
-.section-heading--accent-green {
+.section-heading--accent-green,
+.page-header--accent-green {
   background-color: green !important;
 }
 
 @media (max-width: 640px) {
-  h1.section-heading {
+  h1:not(.event-card__title) {
     font-size: clamp(1rem, 4.8vw, 1.35rem);
     padding: 6px;
   }
@@ -1511,6 +1526,12 @@ section[aria-label="Curated links"] p:has(a) {
 }
 
 .event-card__title {
+  /* Undo default h1 page-header chrome */
+  padding: 0;
+  border: none;
+  text-align: left;
+  background-clip: border-box;
+  background-color: transparent;
   font-family: "Times New Roman", Times, serif;
   margin: 0 0 0.35rem;
   letter-spacing: var(--wide-spacing);
