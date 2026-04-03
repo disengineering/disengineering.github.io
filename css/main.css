@@ -38,8 +38,6 @@ body {
   color: white;
   font-family: "Times New Roman", Times, serif;
   line-height: 1.5;
-  max-width: 70em;
-  margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -80,6 +78,8 @@ img {
 
 #body-layout {
   --site-border-w: 14px;
+  max-width: 70em;
+  margin-inline: auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
