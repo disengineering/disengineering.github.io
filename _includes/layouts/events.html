@@ -4,8 +4,8 @@ layout: layouts/base.html
 <main>
   <h1 id="events-page-header" class="section-heading" style="background-color: red">EVENTS</h1>
 
-  <section class="events-section" aria-labelledby="upcoming-heading">
-    <h2 id="upcoming-heading" class="events-section__label">UPCOMING</h2>
+  <section class="events-section">
+    <h2 class="events-section__label">UPCOMING</h2>
     <div>
       {% for event in collections.eventsUpcoming %}
         {% include "partials/event-card.html" %}
@@ -15,8 +15,8 @@ layout: layouts/base.html
     </div>
   </section>
 
-  <section class="events-section" aria-labelledby="past-heading">
-    <h2 id="past-heading" class="events-section__label">PAST EVENTS</h2>
+  <section class="events-section">
+    <h2 class="events-section__label">PAST EVENTS</h2>
     <div>
       {% for event in collections.eventsPast %}
         {% include "partials/event-card.html" %}
