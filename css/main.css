@@ -600,25 +600,15 @@ a:hover, a:focus-visible {
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: clamp(0.04rem, 0.35vw, 0.1rem);
   min-height: 0;
   min-width: 0;
 }
 
-.osc-pad__label {
-  flex: 0 0 auto;
-  font-family: "Times New Roman", Times, serif;
-  font-size: clamp(0.32rem, 1.05vw, 0.48rem);
-  line-height: 1;
-  letter-spacing: 0.1em;
-  color: #aaa;
-  text-align: center;
-  user-select: none;
-}
-
 .osc-btn--pad {
   flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 0;
   width: 100%;
   max-width: 100%;
@@ -628,6 +618,12 @@ a:hover, a:focus-visible {
   background: #0a0a0a;
   cursor: pointer;
   box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(0.32rem, 1.05vw, 0.48rem);
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  user-select: none;
 }
 
 .osc-btn--pad:hover,
