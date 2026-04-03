@@ -80,7 +80,13 @@
         />
       </header>
       <div id="content">
+        {% if page.url == '/' %}
         {{ content }}
+        {% else %}
+        <div class="content-measure">
+          {{ content }}
+        </div>
+        {% endif %}
         <footer id="site-footer">
           <img
             eleventy:ignore

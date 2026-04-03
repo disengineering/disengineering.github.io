@@ -97,6 +97,14 @@ img {
   padding: 1em;
 }
 
+/* Main template output: readable line length (home page is full width inside #content) */
+.content-measure {
+  max-width: 50em;
+  margin-inline: auto;
+  width: 100%;
+  min-width: 0;
+}
+
 /* Sticky footer: grow page content so #site-footer sits at the bottom on short pages */
 #content > :not(#site-footer) {
   flex: 1 1 auto;
@@ -115,11 +123,6 @@ img {
   #main-and-aside {
     grid-template-columns: 1fr;
   }
-}
-
-#main-content {
-  max-width: 50em;
-  margin: 0 auto;
 }
 
 /* =============================================================================
