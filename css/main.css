@@ -1247,7 +1247,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
-    "heading"
     "media"
     "description"
     "chapters";
@@ -1260,17 +1259,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 
 .zine-volume-grid > * {
   background-color: #000;
-}
-
-.zine-volume-grid > *:not(.section-heading) {
   min-width: 0;
-}
-
-.zine-volume-grid > .section-heading {
-  grid-area: heading;
-  margin: 0;
-  width: 100%;
-  justify-self: stretch;
 }
 
 .zine-volume-grid > .zine-carousel {
@@ -1311,7 +1300,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   .zine-volume-grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas:
-      "heading heading"
       "media media"
       "description chapters";
   }
