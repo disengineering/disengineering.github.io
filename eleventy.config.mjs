@@ -13,7 +13,6 @@ export default function (eleventyConfig) {
     htmlOptions: {
       imgAttributes: {
         loading: "lazy",
-        decoding: "async",
       },
     },
   });
