@@ -118,10 +118,19 @@ img {
 }
 
 #main-content {
-  border: 1px solid white;
   min-width: 0;
 }
 
+@media (min-width: 641px) {
+  #main-content {
+    border: 1px solid #fff;
+  }
+}
+
+.page-shell {
+  padding: clamp(1rem, 3vw, 2rem);
+  min-width: 0;
+}
 
 /* =============================================================================
    SITE HEADER
@@ -1409,13 +1418,6 @@ section[aria-label="Curated links"] p:has(a) {
 /* =============================================================================
    EVENT DETAIL PAGE
    ============================================================================= */
-
-.page-shell,
-.event-page {
-  padding: clamp(1rem, 3vw, 2rem);
-  border: 1px solid white;
-  min-width: 0;
-}
 
 .event-card--detail {
   max-width: 52rem;
