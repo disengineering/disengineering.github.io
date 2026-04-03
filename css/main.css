@@ -365,6 +365,18 @@ header#site-header {
   background-color: green !important;
 }
 
+@media (max-width: 640px) {
+  h1.section-heading {
+    font-size: clamp(1rem, 4.8vw, 1.35rem);
+    padding: 6px;
+  }
+
+  h2.section-heading {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    padding: 6px;
+  }
+}
+
 .content-block {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
