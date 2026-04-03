@@ -118,13 +118,8 @@ img {
 }
 
 #main-content {
-  min-width: 0;
-}
-
-@media (min-width: 641px) {
-  #main-content {
-    border: 1px solid #fff;
-  }
+  max-width: 50em;
+  margin: 0 auto;
 }
 
 /* =============================================================================
