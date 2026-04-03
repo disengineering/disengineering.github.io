@@ -127,11 +127,6 @@ img {
   }
 }
 
-.page-shell {
-  padding: clamp(1rem, 3vw, 2rem);
-  min-width: 0;
-}
-
 /* =============================================================================
    SITE HEADER
    ============================================================================= */
@@ -963,10 +958,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
   font-size: 0.95em;
   margin: 0 0 0.35rem;
-}
-
-.zine-subheading--center {
-  text-align: center;
 }
 
 .zine-subheading--inline {
