@@ -1,4 +1,8 @@
 # Deploy to GitHub Pages (see https://www.11ty.dev/docs/deployment/#deploy-an-eleventy-project-to-git-hub-pages )
+#
+# Required: repo Settings → Pages → Build and deployment → Source = "GitHub Actions"
+# (pick this workflow). If Source is "Deploy from a branch", GitHub runs Jekyll on the
+# repo and fails on Eleventy/Liquid includes.
 name: Deploy to GitHub Pages
 
 on:

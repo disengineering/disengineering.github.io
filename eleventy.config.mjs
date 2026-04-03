@@ -1,7 +1,12 @@
+import fs from "node:fs";
+import path from "node:path";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default function (eleventyConfig) {
+  eleventyConfig.on("eleventy.after", ({ directories }) => {
+    fs.writeFileSync(path.join(directories.output, ".nojekyll"), "");
+  });
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     formats: ["webp"],
     widths: ["auto"],
