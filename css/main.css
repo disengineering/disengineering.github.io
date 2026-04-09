@@ -387,22 +387,19 @@ header#site-header {
   background-clip: content-box;
   color: white;
   text-align: center;
-  font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
+  font-family: "Retro Computer", ui-monospace, "Cescadia Code", monospace;
   min-width: 0;
 }
 
-.section-heading--accent-blue,
-.page-header--accent-blue {
+.section-heading--accent-blue {
   background-color: blue !important;
 }
 
-.section-heading--accent-red,
-.page-header--accent-red {
+.section-heading--accent-red {
   background-color: red !important;
 }
 
-.section-heading--accent-green,
-.page-header--accent-green {
+.section-heading--accent-green {
   background-color: green !important;
 }
 
