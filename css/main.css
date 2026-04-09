@@ -528,16 +528,15 @@ a:hover, a:focus-visible {
   display: inline-block;
   padding: 0.35rem 0.85rem;
   border: 2px solid white;
-  background: transparent;
   text-decoration: none;
-  background-color: white;
-  color: black
+  background-color: black;
+  color: white;
 }
 
 .btn:hover,
 .btn:focus-visible {
-  background: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 
@@ -1557,8 +1556,9 @@ section[aria-label="Curated links"] p:has(a) {
 }
 
 .event-card__tag--fill {
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 .event-card__tag--outline {
