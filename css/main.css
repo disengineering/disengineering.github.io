@@ -378,12 +378,14 @@ header#site-header {
 }
 
 #site-header nav a:hover > img:last-child,
-#site-header nav a:focus-visible > img:last-child {
+#site-header nav a:focus-visible > img:last-child,
+#site-header nav a[aria-current="page"] > img:last-child {
   opacity: 1;
 }
 
 #site-header nav a:hover > img:first-child,
-#site-header nav a:focus-visible > img:first-child {
+#site-header nav a:focus-visible > img:first-child,
+#site-header nav a[aria-current="page"] > img:first-child {
   opacity: 0;
 }
 
