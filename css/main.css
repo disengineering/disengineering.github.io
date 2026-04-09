@@ -10,6 +10,32 @@
   font-display: swap;
 }
 
+/* Happy Times at the IKOB New Game Plus Edition — SIL OFL 1.1 (see assets/fonts/happy-times/LICENSE.txt).
+   Webfonts from https://fonderiebretagne.fr/font/happy-times-at-the-ikob-new-game-plus-edition-bold */
+@font-face {
+  font-family: "Happy Times at the IKOB New Game Plus Edition";
+  src: url("/assets/fonts/happy-times/happy-times-ng_regular_master-webfont.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Happy Times at the IKOB New Game Plus Edition";
+  src: url("/assets/fonts/happy-times/happy-times-ng_italic_master-webfont.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Happy Times at the IKOB New Game Plus Edition";
+  src: url("/assets/fonts/happy-times/happy-times-ng_bold_master-webfont.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 /* =============================================================================
    DESIGN TOKENS
@@ -36,7 +62,7 @@ body {
   margin: 0;
   background: black;
   color: white;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   line-height: 1.5;
 }
 
@@ -659,7 +685,7 @@ a:hover, a:focus-visible {
   background: #0a0a0a;
   cursor: pointer;
   box-sizing: border-box;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   font-size: clamp(0.28rem, 0.92vw, 0.42rem);
   line-height: 1;
   letter-spacing: 0.1em;
@@ -732,7 +758,7 @@ a:hover, a:focus-visible {
 }
 
 .osc-toggle-row__label {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   font-size: clamp(0.38rem, 1.25vw, 0.55rem);
   letter-spacing: 0.12em;
   color: #aaa;
@@ -1465,7 +1491,7 @@ section[aria-label="Curated links"] p:has(a) {
 /* Event cards (sidebar + index) */
 .events-sidebar-section__label,
 .events-section__label {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   font-weight: normal;
   font-size: 0.7rem;
   letter-spacing: 0.4em;
@@ -1539,7 +1565,7 @@ section[aria-label="Curated links"] p:has(a) {
 
 .event-card__dow,
 .event-card__month {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
 }
 
 .event-card__dom {
@@ -1554,7 +1580,7 @@ section[aria-label="Curated links"] p:has(a) {
   text-align: left;
   background-clip: border-box;
   background-color: transparent;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   margin: 0 0 0.35rem;
   letter-spacing: var(--wide-spacing);
   font-weight: normal;
