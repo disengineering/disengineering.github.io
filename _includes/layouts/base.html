@@ -26,8 +26,7 @@
     {% if extraHead %}{{ extraHead }}{% endif %}
   </head>
   <body>
-    <div id="body-layout">
-      <header id="site-header">
+    <header id="site-header">
         <img
           eleventy:ignore
           id="site-header-wires"
@@ -84,7 +83,8 @@
           width="400"
           height="200"
         />
-      </header>
+    </header>
+    <div id="body-layout">
       <div id="content">
         {% if page.url == '/' %}
         {{ content }}
