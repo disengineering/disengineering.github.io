@@ -94,54 +94,110 @@ description: Disengineering — a hardware hacking collective focused on electro
                 aria-label="Oscilloscope waveform display"
               ></canvas>
             </div>
-            <div id="oscilloscope-pads" role="group" aria-label="Waveform shape">
-              <div class="osc-pad">
-                <button
-                  type="button"
-                  class="osc-btn--pad"
-                  data-wave="sine"
-                  aria-pressed="true"
-                  title="Sine"
-                >
-                  SINE
-                </button>
+            <div id="oscilloscope-pads">
+              <div class="osc-pad-column" role="group" aria-label="Oscillator 1 waveform">
+                <div class="osc-pad">
+                  <button
+                    type="button"
+                    class="osc-btn--pad"
+                    data-osc="1"
+                    data-wave="sine"
+                    aria-pressed="true"
+                    title="Oscillator 1: sine"
+                  >
+                    SINE
+                  </button>
+                </div>
+                <div class="osc-pad">
+                  <button
+                    type="button"
+                    class="osc-btn--pad"
+                    data-osc="1"
+                    data-wave="square"
+                    aria-pressed="false"
+                    title="Oscillator 1: square"
+                  >
+                    SQR
+                  </button>
+                </div>
+                <div class="osc-pad">
+                  <button
+                    type="button"
+                    class="osc-btn--pad"
+                    data-osc="1"
+                    data-wave="triangle"
+                    aria-pressed="false"
+                    title="Oscillator 1: triangle"
+                  >
+                    TRI
+                  </button>
+                </div>
+                <div class="osc-pad">
+                  <button
+                    type="button"
+                    class="osc-btn--pad"
+                    data-osc="1"
+                    data-wave="sawtooth"
+                    aria-pressed="false"
+                    title="Oscillator 1: sawtooth"
+                  >
+                    SAW
+                  </button>
+                </div>
               </div>
-              <div class="osc-pad">
-                <button
-                  type="button"
-                  class="osc-btn--pad"
-                  data-wave="square"
-                  aria-pressed="false"
-                  title="Square"
-                >
-                  SQR
-                </button>
-              </div>
-              <div class="osc-pad">
-                <button
-                  type="button"
-                  class="osc-btn--pad"
-                  data-wave="triangle"
-                  aria-pressed="false"
-                  title="Triangle"
-                >
-                  TRI
-                </button>
-              </div>
-              <div class="osc-pad">
-                <button
-                  type="button"
-                  class="osc-btn--pad"
-                  data-wave="sawtooth"
-                  aria-pressed="false"
-                  title="Sawtooth"
-                >
-                  SAW
-                </button>
+              <div class="osc-pad-column" role="group" aria-label="Oscillator 2 waveform">
+                <div class="osc-pad">
+                  <button
+                    type="button"
+                    class="osc-btn--pad"
+                    data-osc="2"
+                    data-wave="sine"
+                    aria-pressed="true"
+                    title="Oscillator 2: sine"
+                  >
+                    SINE
+                  </button>
+                </div>
+                <div class="osc-pad">
+                  <button
+                    type="button"
+                    class="osc-btn--pad"
+                    data-osc="2"
+                    data-wave="square"
+                    aria-pressed="false"
+                    title="Oscillator 2: square"
+                  >
+                    SQR
+                  </button>
+                </div>
+                <div class="osc-pad">
+                  <button
+                    type="button"
+                    class="osc-btn--pad"
+                    data-osc="2"
+                    data-wave="triangle"
+                    aria-pressed="false"
+                    title="Oscillator 2: triangle"
+                  >
+                    TRI
+                  </button>
+                </div>
+                <div class="osc-pad">
+                  <button
+                    type="button"
+                    class="osc-btn--pad"
+                    data-osc="2"
+                    data-wave="sawtooth"
+                    aria-pressed="false"
+                    title="Oscillator 2: sawtooth"
+                  >
+                    SAW
+                  </button>
+                </div>
               </div>
             </div>
             <div id="oscilloscope-knobs">
-              <span id="osc-lbl-freq" class="visually-hidden">Frequency</span>
+              <span id="osc-lbl-freq" class="visually-hidden">First oscillator pitch</span>
               <input-knob
                 id="osc-knob-freq"
                 class="osc-knob osc-knob--top"
@@ -151,29 +207,44 @@ description: Disengineering — a hardware hacking collective focused on electro
                 scale="8"
                 aria-labelledby="osc-lbl-freq"
               ></input-knob>
-              <span id="osc-lbl-time" class="visually-hidden">Time scale</span>
+              <span id="osc-lbl-tone" class="visually-hidden">Second oscillator pitch</span>
               <input-knob
-                id="osc-knob-time"
+                id="osc-knob-tone"
                 class="osc-knob osc-knob--bottom"
                 min="0"
                 max="100"
-                value="72"
+                value="48"
                 scale="8"
-                aria-labelledby="osc-lbl-time"
+                aria-labelledby="osc-lbl-tone"
               ></input-knob>
             </div>
-            <div id="oscilloscope-fader">
-              <span id="osc-lbl-vol" class="visually-hidden">Level</span>
-              <input
-                id="osc-fader"
-                class="osc-fader"
-                type="range"
-                min="0"
-                max="100"
-                value="65"
-                step="1"
-                aria-labelledby="osc-lbl-vol"
-              />
+            <div id="oscilloscope-faders">
+              <div class="osc-fader-slot">
+                <span id="osc-lbl-vol-1" class="visually-hidden">Oscillator 1 level</span>
+                <input
+                  id="osc-fader-1"
+                  class="osc-fader"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="65"
+                  step="1"
+                  aria-labelledby="osc-lbl-vol-1"
+                />
+              </div>
+              <div class="osc-fader-slot">
+                <span id="osc-lbl-vol-2" class="visually-hidden">Oscillator 2 level</span>
+                <input
+                  id="osc-fader-2"
+                  class="osc-fader"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="65"
+                  step="1"
+                  aria-labelledby="osc-lbl-vol-2"
+                />
+              </div>
             </div>
             <div id="oscilloscope-bottom-spacer" aria-hidden="true"></div>
             <div id="oscilloscope-bottom-right">

@@ -1,9 +1,9 @@
 /**
- * Sidebar oscilloscope: Web Audio demo oscillator + analyser-driven canvas trace.
+ * Sidebar oscilloscope: Web Audio dual oscillators + analyser-driven canvas trace.
  * Knobs via <input-knob> (https://github.com/GoogleChromeLabs/input-knob).
  * Defaults to power off. Browsers require a user gesture to run AudioContext — the Power button provides that.
- * When on: scope runs with sound enabled by default; Mute silences speakers.
- * Display: triggered timebase (rising-edge sync). Time knob sets seconds across the graticule; frequency changes how many cycles fit in that window.
+ * When on: scope runs with sound enabled by default; Mute silences speakers. Two faders set per-oscillator level.
+ * Display: triggered timebase (rising-edge sync). Horizontal timebase is fixed; top knob = osc 1 pitch, bottom = osc 2 pitch.
  */
 import "https://unpkg.com/input-knob@0.0.11/dist/input-knob.esm.js";
 
@@ -18,32 +18,48 @@ const ASSETS = {
 
 const root = document.getElementById("oscilloscope-root");
 const canvas = document.getElementById("oscilloscope-canvas");
-const faderEl = document.getElementById("osc-fader");
+const faderEl1 = document.getElementById("osc-fader-1");
+const faderEl2 = document.getElementById("osc-fader-2");
 const muteBtn = document.getElementById("osc-mute");
 const powerBtn = document.getElementById("osc-power");
 
 const knobFreq = document.getElementById("osc-knob-freq");
-const knobTime = document.getElementById("osc-knob-time");
+const knobTone = document.getElementById("osc-knob-tone");
 
-if (!root || !canvas || !faderEl || !knobFreq || !knobTime || !muteBtn || !powerBtn) {
+if (!root || !canvas || !faderEl1 || !faderEl2 || !knobFreq || !knobTone || !muteBtn || !powerBtn) {
   throw new Error("Oscilloscope markup missing required elements");
 }
 
 const padButtons = root.querySelectorAll(".osc-btn--pad");
-let currentWave = "sine";
+let currentWave1 = "sine";
+let currentWave2 = "sine";
 
 const ctx2d = canvas.getContext("2d", { alpha: false });
 
 let audioCtx = null;
-let oscillator = null;
-let gainNode = null;
+let oscillator1 = null;
+let oscillator2 = null;
+/** Per-oscillator output level (0–1). */
+let gainOsc1 = null;
+let gainOsc2 = null;
+/** Master mute: 0 when muted, 1 when audible. */
+let muteGain = null;
 let analyser = null;
 let rafId = 0;
-let faderValue = Number(faderEl.value) / 100;
+let faderValue1 = Number(faderEl1.value) / 100;
+let faderValue2 = Number(faderEl2.value) / 100;
 /** When true: no output to speakers (gain 0). Scope still shows waveform after audio has started. */
 let muted = false;
 /** Audio engine off until Power ON (user gesture unlocks AudioContext.resume). */
 let powerOn = false;
+
+/** Seconds of signal across full graticule width (was the former time-scale knob at ~72/100). */
+const SCOPE_WINDOW_SEC = (() => {
+  const tNorm = 0.72;
+  const minWindowSec = 0.0004;
+  const maxWindowSec = 0.04;
+  return minWindowSec * (maxWindowSec / minWindowSec) ** tNorm;
+})();
 
 function hzFromFreqKnob() {
   const fMin = 20;
@@ -53,34 +69,58 @@ function hzFromFreqKnob() {
   return fMin * (fMax / fMin) ** Math.max(0, Math.min(1, t));
 }
 
+function hzFromToneKnob() {
+  const fMin = 20;
+  const fMax = 5000;
+  const t =
+    (Number(knobTone.value) - Number(knobTone.min)) / (Number(knobTone.max) - Number(knobTone.min));
+  return fMin * (fMax / fMin) ** Math.max(0, Math.min(1, t));
+}
+
 function ensureAudio() {
   if (audioCtx) return audioCtx;
   audioCtx = new AudioContext();
-  oscillator = audioCtx.createOscillator();
-  oscillator.type = currentWave;
-  oscillator.frequency.value = hzFromFreqKnob();
+  oscillator1 = audioCtx.createOscillator();
+  oscillator1.type = currentWave1;
+  oscillator1.frequency.value = hzFromFreqKnob();
+  oscillator2 = audioCtx.createOscillator();
+  oscillator2.type = currentWave2;
+  oscillator2.frequency.value = hzFromToneKnob();
 
-  gainNode = audioCtx.createGain();
-  gainNode.gain.value = muted ? 0 : faderValue;
+  gainOsc1 = audioCtx.createGain();
+  gainOsc1.gain.value = faderValue1;
+  gainOsc2 = audioCtx.createGain();
+  gainOsc2.gain.value = faderValue2;
+  muteGain = audioCtx.createGain();
+  muteGain.gain.value = muted ? 0 : 1;
 
   analyser = audioCtx.createAnalyser();
   analyser.fftSize = 4096;
   analyser.smoothingTimeConstant = 0;
 
-  /* Output path (mute = gain 0). Visualization taps the oscillator directly so the trace stays visible when muted. */
-  oscillator.connect(gainNode);
-  gainNode.connect(audioCtx.destination);
-  oscillator.connect(analyser);
+  /* Per-osc faders → mute → speakers. Analyser taps after per-osc gain so the trace matches level; mute does not affect scope. */
+  oscillator1.connect(gainOsc1);
+  oscillator2.connect(gainOsc2);
+  gainOsc1.connect(muteGain);
+  gainOsc2.connect(muteGain);
+  muteGain.connect(audioCtx.destination);
+  gainOsc1.connect(analyser);
+  gainOsc2.connect(analyser);
 
-  oscillator.start();
+  oscillator1.start();
+  oscillator2.start();
   return audioCtx;
 }
 
 function syncKnobsToAudio() {
-  if (!oscillator || !gainNode || !analyser || !audioCtx) return;
-  oscillator.frequency.setValueAtTime(hzFromFreqKnob(), audioCtx.currentTime);
-  gainNode.gain.setValueAtTime(muted ? 0 : faderValue, audioCtx.currentTime);
-  oscillator.type = currentWave;
+  if (!oscillator1 || !oscillator2 || !gainOsc1 || !gainOsc2 || !muteGain || !analyser || !audioCtx) return;
+  oscillator1.frequency.setValueAtTime(hzFromFreqKnob(), audioCtx.currentTime);
+  oscillator2.frequency.setValueAtTime(hzFromToneKnob(), audioCtx.currentTime);
+  gainOsc1.gain.setValueAtTime(faderValue1, audioCtx.currentTime);
+  gainOsc2.gain.setValueAtTime(faderValue2, audioCtx.currentTime);
+  muteGain.gain.setValueAtTime(muted ? 0 : 1, audioCtx.currentTime);
+  oscillator1.type = currentWave1;
+  oscillator2.type = currentWave2;
 }
 
 /** Single-flight boot after Power ON (user gesture). */
@@ -103,15 +143,25 @@ function bootFromGesture() {
 function turnPowerOff() {
   stopWaveformLoop();
   bootPromise = null;
-  if (oscillator) {
+  if (oscillator1) {
     try {
-      oscillator.stop();
+      oscillator1.stop();
     } catch {
       /* ignore */
     }
   }
-  oscillator = null;
-  gainNode = null;
+  if (oscillator2) {
+    try {
+      oscillator2.stop();
+    } catch {
+      /* ignore */
+    }
+  }
+  oscillator1 = null;
+  oscillator2 = null;
+  gainOsc1 = null;
+  gainOsc2 = null;
+  muteGain = null;
   analyser = null;
   if (audioCtx) {
     audioCtx.close();
@@ -191,15 +241,7 @@ function drawFrame() {
   const px = window.devicePixelRatio || 1;
   const sampleRate = audioCtx.sampleRate;
 
-  /* Time knob = horizontal timebase: how many *seconds* of signal span the full width.
-     Window is fixed in time (not in cycles), so changing frequency changes cycles on screen
-     (wavelength compresses / stretches). */
-  const tMin = Number(knobTime.min);
-  const tMax = Number(knobTime.max);
-  const tNorm = (Number(knobTime.value) - tMin) / (tMax - tMin);
-  const minWindowSec = 0.0004;
-  const maxWindowSec = 0.04;
-  const windowSec = minWindowSec * (maxWindowSec / minWindowSec) ** tNorm;
+  const windowSec = SCOPE_WINDOW_SEC;
   let spanSamples = windowSec * sampleRate;
   spanSamples = Math.max(64, Math.min(spanSamples, buf.length - 2));
 
@@ -245,23 +287,31 @@ function drawLoop() {
 }
 
 function setFaderUi() {
-  faderEl.value = String(Math.round(faderValue * 100));
+  faderEl1.value = String(Math.round(faderValue1 * 100));
+  faderEl2.value = String(Math.round(faderValue2 * 100));
 }
 
-function applyGainFromFader() {
-  if (muted || !gainNode || !audioCtx) return;
-  gainNode.gain.setValueAtTime(faderValue, audioCtx.currentTime);
+function applyPerOscGainsFromFaders() {
+  if (!gainOsc1 || !gainOsc2 || !audioCtx) return;
+  gainOsc1.gain.setValueAtTime(faderValue1, audioCtx.currentTime);
+  gainOsc2.gain.setValueAtTime(faderValue2, audioCtx.currentTime);
 }
 
-function readFaderFromInput() {
-  faderValue = Number(faderEl.value) / 100;
-  applyGainFromFader();
+function readFader1FromInput() {
+  faderValue1 = Number(faderEl1.value) / 100;
+  applyPerOscGainsFromFaders();
 }
 
-faderEl.addEventListener("input", readFaderFromInput);
+function readFader2FromInput() {
+  faderValue2 = Number(faderEl2.value) / 100;
+  applyPerOscGainsFromFaders();
+}
+
+faderEl1.addEventListener("input", readFader1FromInput);
+faderEl2.addEventListener("input", readFader2FromInput);
 
 function onKnobInteraction() {
-  if (oscillator) syncKnobsToAudio();
+  if (oscillator1) syncKnobsToAudio();
 }
 
 muteBtn.addEventListener("click", async () => {
@@ -273,7 +323,7 @@ muteBtn.addEventListener("click", async () => {
   } else {
     muted = true;
     updateMuteUi();
-    if (gainNode && audioCtx) gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+    if (muteGain && audioCtx) muteGain.gain.setValueAtTime(0, audioCtx.currentTime);
   }
 });
 
@@ -291,16 +341,25 @@ powerBtn.addEventListener("click", async () => {
 padButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const w = btn.dataset.wave;
-    if (!w || w === currentWave) return;
-    currentWave = w;
-    padButtons.forEach((p) => p.setAttribute("aria-pressed", p === btn ? "true" : "false"));
-    if (oscillator) syncKnobsToAudio();
+    const oscKey = btn.dataset.osc;
+    if (!w || (oscKey !== "1" && oscKey !== "2")) return;
+    if (oscKey === "1") {
+      if (w === currentWave1) return;
+      currentWave1 = w;
+    } else {
+      if (w === currentWave2) return;
+      currentWave2 = w;
+    }
+    root.querySelectorAll(`.osc-btn--pad[data-osc="${oscKey}"]`).forEach((p) => {
+      p.setAttribute("aria-pressed", p === btn ? "true" : "false");
+    });
+    if (oscillator1) syncKnobsToAudio();
   });
 });
 
 ["knob-move-change", "knob-move-end"].forEach((ev) => {
   knobFreq.addEventListener(ev, onKnobInteraction);
-  knobTime.addEventListener(ev, onKnobInteraction);
+  knobTone.addEventListener(ev, onKnobInteraction);
 });
 
 document.documentElement.style.setProperty("--osc-knob-top", `url(${ASSETS.knobTop})`);
