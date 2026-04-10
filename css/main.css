@@ -10,6 +10,15 @@
   font-display: swap;
 }
 
+/* GNU Unifont — dual SIL OFL 1.1 / GPLv2+ with GNU Font Embedding Exception. https://unifoundry.com/unifont/index.html — see assets/fonts/unifont/OFL-1.1.txt */
+@font-face {
+  font-family: "Unifont";
+  src: url("/assets/fonts/unifont/unifont-17.0.04.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Happy Times at the IKOB New Game Plus Edition — SIL OFL 1.1 (see assets/fonts/happy-times/LICENSE.txt).
    Webfonts from https://fonderiebretagne.fr/font/happy-times-at-the-ikob-new-game-plus-edition-bold */
 @font-face {
@@ -92,6 +101,35 @@ h3 { font-size: 1em; }
 h4 { font-size: 0.9em; }
 h5 { font-size: 0.75em; }
 h6 { font-size: 0.6em; }
+
+code,
+kbd,
+samp,
+pre {
+  font-family: "Unifont", ui-monospace, "Cascadia Code", monospace;
+}
+
+code,
+kbd,
+samp {
+  border: 1px dotted currentColor;
+  padding: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+pre {
+  border: 1px dotted currentColor;
+  padding: 2px;
+  overflow-x: auto;
+}
+
+pre code {
+  border: none;
+  padding: 0;
+  box-decoration-break: unset;
+  -webkit-box-decoration-break: unset;
+}
 
 img {
   max-width: 100%;
