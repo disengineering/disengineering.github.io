@@ -951,71 +951,34 @@ input.osc-fader[type="range"]::-moz-range-thumb {
    ============================================================================= */
 
 #site-footer {
-  flex-shrink: 0;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  justify-items: center;
-  gap: clamp(0.35rem, 1.5vw, 1rem);
-  margin-top: clamp(1.5rem, 4vw, 2.5rem);
-  padding: var(--page-padding);
+  gap: 1em;
+  overflow: hidden;
+  padding-top: 1em;
+  margin-top: 1em;
   border-top: 1px solid white;
 }
 
-/* min-width:0 lets grid columns shrink; do not set max-width:100% here —
-   overrides .footer-ground and blows images up to full column width. */
-#site-footer > * {
-  min-width: 0;
+/* Match image height to three lines of footer text (inherits body line-height). */
+#site-footer img {
+  height: 3lh;
+  width: auto;
+  object-fit: contain;
 }
 
-#links {
+#site-footer #links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.15em;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  width: 100%;
-}
-
-#links a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-#footer-brand {
-  width: 100%;
-  display: flex;
   justify-content: center;
-}
-
-#footer-brand-logo {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-#site-footer #footer-brand-logo img {
-  width: auto;
-  height: auto;
-  max-width: min(100%, 15rem);
-  max-height: 3rem;
-}
-
-#footer-brand-est {
-  font-size: 0.8em;
+  align-items: center;
+  align-self: stretch;
   text-align: center;
-  line-height: 1.2;
-}
-
-#site-footer .footer-ground {
-  display: block;
-  width: 4rem;
-  max-width: 4rem;
-  height: auto;
-  object-fit: contain;
 }
 
 
