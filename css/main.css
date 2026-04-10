@@ -44,6 +44,7 @@
 :root {
   --wide-spacing: 0.15em;
   --page-padding: 1em;
+  --link-hover-blue: rgb(0, 42, 255);
 }
 
 
@@ -75,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Default “page header” chrome for top-level titles */
 h1 {
-  font-size: 1.75em;
+  font-size: 1.65em;
   margin: 0;
   padding: 8px;
   border: 1px solid white;
@@ -418,7 +419,7 @@ header#site-header {
 
 @media (max-width: 640px) {
   h1:not(.event-card__title) {
-    font-size: clamp(1rem, 4.8vw, 1.35rem);
+    font-size: clamp(1rem, 4.5vw, 1.28rem);
     padding: 6px;
   }
 
@@ -503,8 +504,18 @@ a {
   color: inherit;
 }
 
-a:hover, a:focus-visible {
-  color: yellow;
+#content a:not(.btn) {
+  color: white;
+}
+
+#content a:not(.btn):hover,
+#content a:not(.btn):focus-visible {
+  color: var(--link-hover-blue);
+}
+
+#content a:not(.btn):hover:active,
+#content a:not(.btn):active {
+  color: red;
 }
 
 .btn {
@@ -524,6 +535,11 @@ a:hover, a:focus-visible {
 .btn:focus-visible {
   background-color: white;
   color: black;
+}
+
+.btn:hover:active,
+.btn:active {
+  color: red;
 }
 
 
