@@ -1181,6 +1181,10 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   height: auto;
 }
 
+#textbook-series .zine-banner {
+  margin-top: 1.5rem;
+}
+
 #textbook-stats {
   display: flex;
   flex-direction: column;
