@@ -1405,6 +1405,11 @@ input.osc-fader[type="range"]::-moz-range-thumb {
    LINKS PAGE (/links)
    ============================================================================= */
 
+/* Long URLs are single “words”; break link text only, not description <p> lines. */
+section[aria-label="Curated links"] a {
+  overflow-wrap: anywhere;
+}
+
 /* Headers are plain <p>; rows with links are indented under each header. */
 section[aria-label="Curated links"] p:has(a) {
   padding-left: 1.5em;
