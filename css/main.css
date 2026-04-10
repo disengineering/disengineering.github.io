@@ -53,7 +53,9 @@
 :root {
   --wide-spacing: 0.15em;
   --page-padding: 1em;
-  --link-hover-blue: rgb(0, 42, 255);
+  /* P3 blue primary; sRGB line is the closest fallback when color() is unsupported */
+  --link-hover-blue: rgb(0, 112, 255);
+  --link-hover-blue: color(display-p3 0 0 1);
 }
 
 
