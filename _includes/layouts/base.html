@@ -32,8 +32,6 @@
           id="site-header-wires"
           src="/assets/header/wires_banner.png"
           alt=""
-          width="400"
-          height="200"
         />
         {% assign _nav_seg = page.url | split: "/" | slice: 1, 1 | first %}
         <a id="site-logo" href="/" aria-label="Disengineering home">
@@ -41,38 +39,34 @@
             eleventy:ignore
             src="/assets/header/DIS_LOGO.png"
             alt="Disengineering"
-            width="800"
-            height="200"
           />
           <img
             eleventy:ignore
             src="/assets/header/DIS_LOGO_HOVER.png"
             alt=""
-            width="800"
-            height="200"
             aria-hidden="true"
           />
         </a>
         <nav aria-label="Primary">
-          <a href="/zines/"{% if _nav_seg == "zines" %} aria-current="page"{% endif %}>
-            <img eleventy:ignore src="/assets/header/nav/zines/zines.png" alt="Zines" width="200" height="60" />
-            <img eleventy:ignore src="/assets/header/nav/zines/zines_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          <a id="site-nav-zines" href="/zines/"{% if _nav_seg == "zines" %} aria-current="page"{% endif %}>
+            <img eleventy:ignore src="/assets/header/nav/zines/zines.png" alt="Zines" />
+            <img eleventy:ignore src="/assets/header/nav/zines/zines_hover.png" alt="" aria-hidden="true" />
           </a>
-          <a href="/events/"{% if _nav_seg == "events" %} aria-current="page"{% endif %}>
-            <img eleventy:ignore src="/assets/header/nav/workshops/workshops.png" alt="Workshops" width="200" height="60" />
-            <img eleventy:ignore src="/assets/header/nav/workshops/workshops_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          <a id="site-nav-events" href="/events/"{% if _nav_seg == "events" %} aria-current="page"{% endif %}>
+            <img eleventy:ignore src="/assets/header/nav/workshops/workshops.png" alt="Workshops" />
+            <img eleventy:ignore src="/assets/header/nav/workshops/workshops_hover.png" alt="" aria-hidden="true" />
           </a>
-          <a href="/links/"{% if _nav_seg == "links" %} aria-current="page"{% endif %}>
-            <img eleventy:ignore src="/assets/header/nav/links/links.png" alt="Links" width="200" height="60" />
-            <img eleventy:ignore src="/assets/header/nav/links/links_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          <a id="site-nav-links" href="/links/"{% if _nav_seg == "links" %} aria-current="page"{% endif %}>
+            <img eleventy:ignore src="/assets/header/nav/links/links.png" alt="Links" />
+            <img eleventy:ignore src="/assets/header/nav/links/links_hover.png" alt="" aria-hidden="true" />
           </a>
-          <a href="/archive/"{% if _nav_seg == "archive" %} aria-current="page"{% endif %}>
-            <img eleventy:ignore src="/assets/header/nav/archive/archive.png" alt="Archive" width="200" height="60" />
-            <img eleventy:ignore src="/assets/header/nav/archive/archive_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          <a id="site-nav-archive" href="/archive/"{% if _nav_seg == "archive" %} aria-current="page"{% endif %}>
+            <img eleventy:ignore src="/assets/header/nav/archive/archive.png" alt="Archive" />
+            <img eleventy:ignore src="/assets/header/nav/archive/archive_hover.png" alt="" aria-hidden="true" />
           </a>
-          <a href="/about/"{% if _nav_seg == "about" %} aria-current="page"{% endif %}>
-            <img eleventy:ignore src="/assets/header/nav/about/about.png" alt="About" width="200" height="60" />
-            <img eleventy:ignore src="/assets/header/nav/about/about_hover.png" alt="" width="200" height="60" aria-hidden="true" />
+          <a id="site-nav-about" href="/about/"{% if _nav_seg == "about" %} aria-current="page"{% endif %}>
+            <img eleventy:ignore src="/assets/header/nav/about/about.png" alt="About" />
+            <img eleventy:ignore src="/assets/header/nav/about/about_hover.png" alt="" aria-hidden="true" />
           </a>
         </nav>
         <img
@@ -80,8 +74,6 @@
           id="site-header-hands"
           src="/assets/header/hands_banner.png"
           alt=""
-          width="400"
-          height="200"
         />
     </header>
     <div id="body-layout">
