@@ -514,6 +514,14 @@ a {
   color: red;
 }
 
+.favicon {
+  display: inline;
+  vertical-align: middle;
+  width: 1.7ch;
+  height: 1.7ch;
+  margin-inline-end: 0.55ch;
+}
+
 .btn {
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
   font-size: medium;

@@ -552,4 +552,31 @@ description: Curated links in the spirit of Web 1.0 — a jumping-off point for 
 
   <p><em>MORE TO COME</em></p>
   </section>
+  <script>
+    const section = document.querySelector('main section[aria-label="Curated links"]');
+    if (section) {
+      const api =
+        "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=64&url=";
+      for (const a of section.querySelectorAll("a[href]")) {
+        if (a.querySelector("img.favicon")) continue;
+        const raw = a.getAttribute("href");
+        if (!raw) continue;
+        let resolved;
+        try {
+          resolved = new URL(raw, window.location.href).href;
+        } catch {
+          continue;
+        }
+        if (!/^https?:$/i.test(new URL(resolved).protocol)) continue;
+        const img = document.createElement("img");
+        img.className = "favicon";
+        img.alt = "";
+        img.setAttribute("aria-hidden", "true");
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.src = api + encodeURIComponent(resolved);
+        a.insertBefore(img, a.firstChild);
+      }
+    }
+  </script>
 </main>
