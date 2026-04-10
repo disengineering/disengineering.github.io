@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Default “page header” chrome for top-level titles */
 h1 {
-  font-size: 1.65em;
+  font-size: 1.35em;
   margin: 0;
   padding: 8px;
   border: 1px solid white;
@@ -419,12 +419,10 @@ header#site-header {
 
 @media (max-width: 640px) {
   h1:not(.event-card__title) {
-    font-size: clamp(1rem, 4.5vw, 1.28rem);
     padding: 6px;
   }
 
   h2.section-heading {
-    font-size: clamp(0.9rem, 4vw, 1.1rem);
     padding: 6px;
   }
 }
@@ -711,7 +709,7 @@ a {
   cursor: pointer;
   box-sizing: border-box;
   font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
-  font-size: clamp(0.28rem, 0.92vw, 0.42rem);
+  font-size: 0.35rem;
   line-height: 1;
   letter-spacing: 0.1em;
   color: #aaa;
@@ -784,7 +782,7 @@ a {
 
 .osc-toggle-row__label {
   font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
-  font-size: clamp(0.38rem, 1.25vw, 0.55rem);
+  font-size: 0.46rem;
   letter-spacing: 0.12em;
   color: #aaa;
   user-select: none;
@@ -1023,7 +1021,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 
 .zine-lead-heading {
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
-  font-size: clamp(1.2rem, 1.35vw + 0.85rem, 1.75rem);
+  font-size: 1.45rem;
   line-height: 1.2;
   margin: 0 0 0.35rem;
 }
@@ -1282,7 +1280,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 .zine-carousel__arrow {
   flex: 0 0 auto;
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
-  font-size: clamp(1rem, 3vw, 1.35rem);
+  font-size: 1.15rem;
   text-decoration: none;
   color: #fff;
   padding: 0.25rem 0.4rem;
