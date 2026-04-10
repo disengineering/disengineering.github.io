@@ -957,8 +957,8 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   align-items: center;
   gap: 1em;
   overflow: hidden;
-  padding-top: 1em;
-  margin-top: 1em;
+  padding-top: 2em;
+  margin-top: 2em;
   border-top: 1px solid white;
 }
 
