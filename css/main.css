@@ -95,6 +95,14 @@ body[data-color-scheme="high-contrast"] {
   --scheme-link-active: red;
 }
 
+body[data-color-scheme="greyscale"] {
+  --scheme-bg-primary: rgb(190, 190, 190);
+  --scheme-fg-primary: black;
+  --scheme-link: black;
+  --scheme-link-visited: rgb(42, 42, 42);
+  --scheme-link-active: red;
+}
+
 body[data-color-scheme] {
   --scheme-bg-secondary: var(--scheme-bg-primary);
 }
