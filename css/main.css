@@ -72,9 +72,9 @@
 
 body[data-color-scheme="brown-chartreuse"] {
   --scheme-bg-primary: rgb(50, 28, 26);
-  --scheme-fg-primary: rgb(223, 251, 81);
-  --scheme-link: rgb(223, 251, 81);
-  --scheme-link-visited: rgb(168, 190, 61);
+  --scheme-fg-primary: hsl(70, 96%, 65%);
+  --scheme-link: hsl(70, 96%, 65%);
+  --scheme-link-visited: hsl(70, 51%, 49%);
   --scheme-link-active: red;
 }
 
@@ -97,6 +97,22 @@ body[data-color-scheme="high-contrast"] {
 
 body[data-color-scheme] {
   --scheme-bg-secondary: var(--scheme-bg-primary);
+}
+
+/* Recolor raster marks to --scheme-fg-primary via SVG flood + alpha mask (see #scheme-image-recolor in base layout). */
+svg.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+#scheme-image-recolor feFlood {
+  flood-color: var(--scheme-fg-primary);
+}
+
+.scheme-color-image {
+  filter: url(#scheme-image-recolor);
 }
 
 
@@ -245,7 +261,7 @@ header#site-header {
   display: contents;
 }
 
-/* White-on-transparent PNGs: tint with the active scheme (mask + solid fill). */
+/* White-on-transparent PNGs: tint via .scheme-color-image + #scheme-image-recolor. */
 .site-header-graphic {
   position: relative;
   display: block;
@@ -255,24 +271,6 @@ header#site-header {
 .site-header-graphic__sizing {
   display: block;
   max-width: 100%;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.site-header-graphic::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--scheme-fg-primary);
-  -webkit-mask-image: var(--site-header-mask);
-  mask-image: var(--site-header-mask);
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  pointer-events: none;
 }
 
 #site-header-wires {
@@ -284,11 +282,6 @@ header#site-header {
 
 #site-header-wires .site-header-graphic__sizing {
   object-position: center left;
-}
-
-#site-header-wires.site-header-graphic::after {
-  -webkit-mask-position: center left;
-  mask-position: center left;
 }
 
 #site-logo {
@@ -1108,7 +1101,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 }
 
 /*
-  Footer DIS_LOGO: mask + hidden sizing img (see .site-header-graphic). Center in the row; width follows logo rules.
+  Footer DIS_LOGO: scheme-colored img (see .scheme-color-image). Center in the row; width follows logo rules.
 */
 #footer-brand {
   flex: 0 1 auto;

@@ -26,63 +26,71 @@
     {% if extraHead %}{{ extraHead }}{% endif %}
   </head>
   <body{% if colorScheme %} data-color-scheme="{{ colorScheme }}"{% endif %}>
+    <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="scheme-image-recolor" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="1" result="flood" />
+          <feComposite in="flood" in2="SourceGraphic" operator="in" />
+        </filter>
+      </defs>
+    </svg>
     <header id="site-header">
-        <span id="site-header-wires" class="site-header-graphic" style="--site-header-mask: url('/assets/header/wires_banner.png')" aria-hidden="true">
-          <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/wires_banner.png" alt="" aria-hidden="true" />
+        <span id="site-header-wires" class="site-header-graphic" aria-hidden="true">
+          <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/wires_banner.png" alt="" aria-hidden="true" />
         </span>
         {% assign _nav_seg = page.url | split: "/" | slice: 1, 1 | first %}
         <a id="site-logo" href="/" aria-label="Disengineering home">
-          <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/DIS_LOGO.png')">
-            <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/DIS_LOGO.png" alt="" aria-hidden="true" />
+          <span class="site-header-graphic">
+            <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/DIS_LOGO.png" alt="" aria-hidden="true" />
           </span>
-          <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/DIS_LOGO_HOVER.png')">
-            <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/DIS_LOGO_HOVER.png" alt="" aria-hidden="true" />
+          <span class="site-header-graphic">
+            <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/DIS_LOGO_HOVER.png" alt="" aria-hidden="true" />
           </span>
         </a>
         <nav aria-label="Primary">
           <a id="site-nav-zines" href="/zines/" aria-label="Zines"{% if _nav_seg == "zines" %} aria-current="page"{% endif %}>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/zines/zines.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/zines/zines.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/zines/zines.png" alt="" aria-hidden="true" />
             </span>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/zines/zines_hover.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/zines/zines_hover.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/zines/zines_hover.png" alt="" aria-hidden="true" />
             </span>
           </a>
           <a id="site-nav-events" href="/events/" aria-label="Workshops"{% if _nav_seg == "events" %} aria-current="page"{% endif %}>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/workshops/workshops.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/workshops/workshops.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/workshops/workshops.png" alt="" aria-hidden="true" />
             </span>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/workshops/workshops_hover.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/workshops/workshops_hover.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/workshops/workshops_hover.png" alt="" aria-hidden="true" />
             </span>
           </a>
           <a id="site-nav-links" href="/links/" aria-label="Links"{% if _nav_seg == "links" %} aria-current="page"{% endif %}>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/links/links.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/links/links.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/links/links.png" alt="" aria-hidden="true" />
             </span>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/links/links_hover.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/links/links_hover.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/links/links_hover.png" alt="" aria-hidden="true" />
             </span>
           </a>
           <a id="site-nav-archive" href="/archive/" aria-label="Archive"{% if _nav_seg == "archive" %} aria-current="page"{% endif %}>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/archive/archive.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/archive/archive.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/archive/archive.png" alt="" aria-hidden="true" />
             </span>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/archive/archive_hover.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/archive/archive_hover.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/archive/archive_hover.png" alt="" aria-hidden="true" />
             </span>
           </a>
           <a id="site-nav-about" href="/about/" aria-label="About"{% if _nav_seg == "about" %} aria-current="page"{% endif %}>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/about/about.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/about/about.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/about/about.png" alt="" aria-hidden="true" />
             </span>
-            <span class="site-header-graphic" style="--site-header-mask: url('/assets/header/nav/about/about_hover.png')">
-              <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/nav/about/about_hover.png" alt="" aria-hidden="true" />
+            <span class="site-header-graphic">
+              <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/nav/about/about_hover.png" alt="" aria-hidden="true" />
             </span>
           </a>
         </nav>
-        <span id="site-header-hands" class="site-header-graphic" style="--site-header-mask: url('/assets/header/hands_banner.png')" aria-hidden="true">
-          <img eleventy:ignore class="site-header-graphic__sizing" src="/assets/header/hands_banner.png" alt="" aria-hidden="true" />
+        <span id="site-header-hands" class="site-header-graphic" aria-hidden="true">
+          <img eleventy:ignore class="site-header-graphic__sizing scheme-color-image" src="/assets/header/hands_banner.png" alt="" aria-hidden="true" />
         </span>
     </header>
     <div id="body-layout">
@@ -97,7 +105,7 @@
         <footer id="site-footer">
           <img
             eleventy:ignore
-            class="footer-ground"
+            class="footer-ground scheme-color-image"
             src="/assets/footer/in_ground.png"
             alt="In ground we trust"
             loading="lazy"
@@ -110,13 +118,10 @@
           <div id="footer-brand">
             <div id="footer-brand-logo" role="img" aria-label="Disengineering">
               <div class="footer-brand-logo__plate">
-                <span
-                  class="site-header-graphic footer-brand-logo__mark"
-                  style="--site-header-mask: url('/assets/header/DIS_LOGO.png')"
-                >
+                <span class="site-header-graphic footer-brand-logo__mark">
                   <img
                     eleventy:ignore
-                    class="site-header-graphic__sizing"
+                    class="site-header-graphic__sizing scheme-color-image"
                     src="/assets/header/DIS_LOGO.png"
                     alt=""
                     decoding="async"
@@ -130,7 +135,7 @@
           <span id="footer-brand-est">EST. 2022</span>
           <img
             eleventy:ignore
-            class="footer-ground"
+            class="footer-ground scheme-color-image"
             src="/assets/footer/in_ground.png"
             alt=""
             loading="lazy"
