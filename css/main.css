@@ -628,6 +628,12 @@ a {
 }
 
 #oscilloscope-root {
+  --osc-knob-top: url("/assets/sidebar/oscilloscope/knob-top.png");
+  --osc-knob-top-move: url("/assets/sidebar/oscilloscope/knob-top-move.png");
+  --osc-knob-bottom: url("/assets/sidebar/oscilloscope/knob-bottom.png");
+  --osc-knob-bottom-move: url("/assets/sidebar/oscilloscope/knob-bottom-move.png");
+  --osc-fader-track: url("/assets/sidebar/oscilloscope/fader-track.png");
+  --osc-fader-knob: url("/assets/sidebar/oscilloscope/fader-knob.png");
   width: 100%;
   min-width: 0;
   aspect-ratio: 2051 / 1236;

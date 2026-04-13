@@ -7,15 +7,6 @@
  */
 import "https://unpkg.com/input-knob@0.0.11/dist/input-knob.esm.js";
 
-const ASSETS = {
-  faderTrack: "/assets/sidebar/oscilloscope/fader-track.png",
-  faderKnob: "/assets/sidebar/oscilloscope/fader-knob.png",
-  knobTop: "/assets/sidebar/oscilloscope/knob-top.png",
-  knobTopMove: "/assets/sidebar/oscilloscope/knob-top-move.png",
-  knobBottom: "/assets/sidebar/oscilloscope/knob-bottom.png",
-  knobBottomMove: "/assets/sidebar/oscilloscope/knob-bottom-move.png",
-};
-
 const root = document.getElementById("oscilloscope-root");
 const canvas = document.getElementById("oscilloscope-canvas");
 const faderEl1 = document.getElementById("osc-fader-1");
@@ -361,13 +352,6 @@ padButtons.forEach((btn) => {
   knobFreq.addEventListener(ev, onKnobInteraction);
   knobTone.addEventListener(ev, onKnobInteraction);
 });
-
-document.documentElement.style.setProperty("--osc-knob-top", `url(${ASSETS.knobTop})`);
-document.documentElement.style.setProperty("--osc-knob-top-move", `url(${ASSETS.knobTopMove})`);
-document.documentElement.style.setProperty("--osc-knob-bottom", `url(${ASSETS.knobBottom})`);
-document.documentElement.style.setProperty("--osc-knob-bottom-move", `url(${ASSETS.knobBottomMove})`);
-document.documentElement.style.setProperty("--osc-fader-track", `url(${ASSETS.faderTrack})`);
-document.documentElement.style.setProperty("--osc-fader-knob", `url(${ASSETS.faderKnob})`);
 
 updatePowerUi();
 updateMuteUi();
