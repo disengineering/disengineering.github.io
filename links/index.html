@@ -5,7 +5,7 @@ layout: layouts/base.html
 description: Curated links in the spirit of Web 1.0 — a jumping-off point for web-surfing adventures.
 ---
 
-<main>
+<main class="links-page">
   <header>
     <h1>LINKS</h1>
   </header>
@@ -553,7 +553,7 @@ description: Curated links in the spirit of Web 1.0 — a jumping-off point for 
   <p><em>MORE TO COME</em></p>
   </section>
   <script>
-    const section = document.querySelector('main section[aria-label="Curated links"]');
+    const section = document.querySelector("main.links-page section");
     if (section) {
       const api =
         "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=64&url=";
