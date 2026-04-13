@@ -199,25 +199,33 @@ description: Disengineering — a hardware hacking collective focused on electro
             </div>
             <div id="oscilloscope-knobs">
               <span id="osc-lbl-freq" class="visually-hidden">First oscillator pitch</span>
-              <input-knob
-                id="osc-knob-freq"
-                class="osc-knob osc-knob--top"
-                min="0"
-                max="100"
-                value="55"
-                scale="8"
-                aria-labelledby="osc-lbl-freq"
-              ></input-knob>
+              <div class="osc-knob-shell osc-knob-shell--top">
+                <input
+                  type="range"
+                  id="osc-knob-freq"
+                  class="input-knob osc-knob"
+                  min="0"
+                  max="6"
+                  value="3.3"
+                  step="0.01"
+                  aria-labelledby="osc-lbl-freq"
+                  data-src="/assets/sidebar/oscilloscope/knob-top-move.png"
+                />
+              </div>
               <span id="osc-lbl-tone" class="visually-hidden">Second oscillator pitch</span>
-              <input-knob
-                id="osc-knob-tone"
-                class="osc-knob osc-knob--bottom"
-                min="0"
-                max="100"
-                value="48"
-                scale="8"
-                aria-labelledby="osc-lbl-tone"
-              ></input-knob>
+              <div class="osc-knob-shell osc-knob-shell--bottom">
+                <input
+                  type="range"
+                  id="osc-knob-tone"
+                  class="input-knob osc-knob"
+                  min="0"
+                  max="6"
+                  value="2.88"
+                  step="0.01"
+                  aria-labelledby="osc-lbl-tone"
+                  data-src="/assets/sidebar/oscilloscope/knob-bottom-move.png"
+                />
+              </div>
             </div>
             <div id="oscilloscope-faders">
               <div class="osc-fader-slot">
@@ -279,6 +287,7 @@ description: Disengineering — a hardware hacking collective focused on electro
             </div>
           </div>
         </div>
+        <script src="/js/vendor/input-knobs.js"></script>
         <script type="module" src="/js/oscilloscope.mjs"></script>
       </div>
     </section>

@@ -21,3 +21,7 @@ Add `eleventy:ignore` on the `<img>` when the asset should stay as the original 
 - Pairs of images used together (e.g. base + hover) if you need identical encoding between them.
 
 Omit `eleventy:ignore` for photographs and similar content where WebP compression is desired. See the [Image plugin docs](https://www.11ty.dev/docs/plugins/image/) for `eleventy:ignore` and other attributes.
+
+## Vendored third-party scripts
+
+Files checked in under paths like `js/vendor/` are **upstream copies** (or pinned releases) of external libraries. **Do not modify vendored files** for site-specific behavior.

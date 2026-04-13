@@ -852,44 +852,47 @@ a {
   cursor: not-allowed;
 }
 
-input-knob.osc-knob {
-  /* Outer size shows the full bezel art; padding shrinks the rotator so the dial doesn’t cover it. */
+/* g200kg input-knobs: bezel shell + rotating dial image on the range input (see index.html data-src). */
+.osc-knob-shell {
   --knob-w: min(5.35rem, 27vw);
   width: var(--knob-w);
   height: calc(var(--knob-w) * 1.065);
-  /* Asymmetric padding: less left / more right shunts the rotator left; more top / less bottom nudges it down. */
-  padding: 24% 44% 4% 0.5%;
-  border: none;
-  background: transparent center / contain no-repeat;
-  background-origin: padding-box;
   box-sizing: border-box;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent center / contain no-repeat;
 }
 
-input-knob.osc-knob--top {
+.osc-knob-shell--top {
   background-image: var(--osc-knob-top);
 }
 
-input-knob.osc-knob--bottom {
+.osc-knob-shell--bottom {
   background-image: var(--osc-knob-bottom);
 }
 
-input-knob.osc-knob::part(rotator) {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+.osc-knob-shell .input-knob.osc-knob {
+  width: 58%;
+  height: auto;
+  aspect-ratio: 1;
+  max-width: 100%;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
   border: none;
+  cursor: ns-resize;
+}
+
+.osc-knob-shell .input-knob.osc-knob:focus {
+  outline: none;
+}
+
+.osc-knob-shell .input-knob.osc-knob:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
   border-radius: 50%;
-  background: transparent center / contain no-repeat;
-  background-size: contain;
-}
-
-input-knob.osc-knob--top::part(rotator) {
-  background-image: var(--osc-knob-top-move);
-}
-
-input-knob.osc-knob--bottom::part(rotator) {
-  background-image: var(--osc-knob-bottom-move);
 }
 
 /* Native range; track + thumb styled to match asset art (WebKit + Firefox). */

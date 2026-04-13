@@ -1,11 +1,11 @@
 /**
  * Sidebar oscilloscope: Web Audio dual oscillators + analyser-driven canvas trace.
- * Knobs via <input-knob> (https://github.com/GoogleChromeLabs/input-knob).
+ * Pitch knobs via vendored input-knobs (/js/vendor/input-knobs.js; upstream https://github.com/g200kg/input-knobs).
+ * Knobs use a narrow min–max span on the range inputs (see index.html) so pointer/wheel deltas scale down; audio mapping still normalizes to 0–1 from the element’s min/max.
  * Defaults to power off. Browsers require a user gesture to run AudioContext — the Power button provides that.
  * When on: scope runs with sound enabled by default; Mute silences speakers. Two faders set per-oscillator level.
  * Display: triggered timebase (rising-edge sync). Horizontal timebase is fixed; top knob = osc 1 pitch, bottom = osc 2 pitch.
  */
-import "https://unpkg.com/input-knob@0.0.11/dist/input-knob.esm.js";
 
 const root = document.getElementById("oscilloscope-root");
 const canvas = document.getElementById("oscilloscope-canvas");
@@ -301,8 +301,18 @@ function readFader2FromInput() {
 faderEl1.addEventListener("input", readFader1FromInput);
 faderEl2.addEventListener("input", readFader2FromInput);
 
-function onKnobInteraction() {
+function onKnobInput() {
   if (oscillator1) syncKnobsToAudio();
+}
+
+/** input-knobs sets inline px sizes on first init; re-read from CSS when the bezel shell resizes. */
+function refreshPitchKnobsFromLayout() {
+  for (const el of [knobFreq, knobTone]) {
+    if (typeof el.refresh !== "function") continue;
+    el.style.width = "";
+    el.style.height = "";
+    el.refresh();
+  }
 }
 
 muteBtn.addEventListener("click", async () => {
@@ -348,10 +358,30 @@ padButtons.forEach((btn) => {
   });
 });
 
-["knob-move-change", "knob-move-end"].forEach((ev) => {
-  knobFreq.addEventListener(ev, onKnobInteraction);
-  knobTone.addEventListener(ev, onKnobInteraction);
+knobFreq.addEventListener("input", onKnobInput);
+knobTone.addEventListener("input", onKnobInput);
+
+/* input-knobs finishes init on a short interval after window "load"; wait for .refresh before syncing layout. */
+window.addEventListener("load", () => {
+  let tries = 0;
+  const runWhenReady = () => {
+    if (typeof knobFreq.refresh === "function" && typeof knobTone.refresh === "function") {
+      refreshPitchKnobsFromLayout();
+      return;
+    }
+    if (++tries > 80) return;
+    setTimeout(runWhenReady, 25);
+  };
+  runWhenReady();
 });
+
+const knobShellObserver = new ResizeObserver(() => {
+  refreshPitchKnobsFromLayout();
+});
+for (const knob of [knobFreq, knobTone]) {
+  const shell = knob.closest(".osc-knob-shell");
+  if (shell) knobShellObserver.observe(shell);
+}
 
 updatePowerUi();
 updateMuteUi();
@@ -387,4 +417,5 @@ ro.observe(canvas);
 window.addEventListener("beforeunload", () => {
   turnPowerOff();
   ro.disconnect();
+  knobShellObserver.disconnect();
 });
