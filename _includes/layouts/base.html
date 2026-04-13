@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/css/main.css" />
     {% if extraHead %}{{ extraHead }}{% endif %}
   </head>
-  <body>
+  <body{% if colorScheme %} data-color-scheme="{{ colorScheme }}"{% endif %}>
     <header id="site-header">
         <img
           eleventy:ignore

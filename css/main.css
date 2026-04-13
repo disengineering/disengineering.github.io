@@ -50,12 +50,38 @@
    DESIGN TOKENS
    ============================================================================= */
 
+/* Page color scheme: components use --scheme-* only. Override with body[data-color-scheme="…"]. */
 :root {
   --wide-spacing: 0.15em;
   --page-padding: 1em;
-  /* P3 blue primary; sRGB line is the closest fallback when color() is unsupported */
-  --link-hover-blue: rgb(0, 112, 255);
-  --link-hover-blue: color(display-p3 0 0 1);
+  --scheme-dark-primary: black;
+  --scheme-light-primary: white;
+  --scheme-link: white;
+  --scheme-link-visited: rgb(176, 176, 176);
+  --scheme-link-active: red;
+  --scheme-link-hover: rgb(0, 112, 255);
+}
+
+@supports (color: color(display-p3 0 0 1)) {
+  :root {
+    --scheme-link-hover: color(display-p3 0 0 1);
+  }
+}
+
+body[data-color-scheme="about"] {
+  --scheme-dark-primary: rgb(50, 28, 26);
+  --scheme-light-primary: rgb(223, 251, 81);
+  --scheme-link: rgb(223, 251, 81);
+  --scheme-link-visited: rgb(168, 190, 61);
+  --scheme-link-active: red;
+}
+
+body[data-color-scheme="links"] {
+  --scheme-dark-primary: rgb(199, 167, 234);
+  --scheme-light-primary: black;
+  --scheme-link: black;
+  --scheme-link-visited: rgb(42, 42, 42);
+  --scheme-link-active: red;
 }
 
 
@@ -75,8 +101,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: black;
-  color: white;
+  background: var(--scheme-dark-primary);
+  color: var(--scheme-light-primary);
   font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   line-height: 1.5;
 }
@@ -90,10 +116,10 @@ h1 {
   font-size: 1.35em;
   margin: 0;
   padding: 8px;
-  border: 1px solid white;
+  border: 1px solid var(--scheme-light-primary);
   box-sizing: border-box;
   background-clip: content-box;
-  color: white;
+  color: var(--scheme-light-primary);
   text-align: center;
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
   min-width: 0;
@@ -394,10 +420,10 @@ header#site-header {
 .section-heading {
   margin: 0;
   padding: 8px;
-  border: 1px solid white;
+  border: 1px solid var(--scheme-light-primary);
   box-sizing: border-box;
   background-clip: content-box;
-  color: white;
+  color: var(--scheme-light-primary);
   text-align: center;
   font-family: "Retro Computer", ui-monospace, "Cescadia Code", monospace;
   min-width: 0;
@@ -501,17 +527,20 @@ a {
 }
 
 #content a:not(.btn) {
-  color: white;
+  color: var(--scheme-link);
+}
+
+#content a:not(.btn):visited {
+  color: var(--scheme-link-visited);
 }
 
 #content a:not(.btn):hover,
 #content a:not(.btn):focus-visible {
-  color: var(--link-hover-blue);
+  color: var(--scheme-link-hover);
 }
 
-#content a:not(.btn):hover:active,
 #content a:not(.btn):active {
-  color: red;
+  color: var(--scheme-link-active);
 }
 
 .favicon {
@@ -529,21 +558,21 @@ a {
   align-self: flex-start;
   display: inline-block;
   padding: 0.35rem 0.85rem;
-  border: 2px solid white;
+  border: 2px solid var(--scheme-light-primary);
   text-decoration: none;
-  background-color: black;
-  color: white;
+  background-color: var(--scheme-dark-primary);
+  color: var(--scheme-light-primary);
 }
 
 .btn:hover,
 .btn:focus-visible {
-  background-color: white;
-  color: black;
+  background-color: var(--scheme-light-primary);
+  color: var(--scheme-dark-primary);
 }
 
 .btn:hover:active,
 .btn:active {
-  color: red;
+  color: var(--scheme-link-active);
 }
 
 
@@ -605,7 +634,7 @@ a {
 }
 
 .sidebar-panel {
-  border: 1px solid white;
+  border: 1px solid var(--scheme-light-primary);
   min-width: 0;
 }
 
@@ -979,7 +1008,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   overflow: hidden;
   padding-top: 2em;
   margin-top: 2em;
-  border-top: 1px solid white;
+  border-top: 1px solid var(--scheme-light-primary);
 }
 
 /* Match image height to three lines of footer text (inherits body line-height). */
@@ -1193,7 +1222,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 
 #zine-hero-photo {
   margin-top: 0.75rem;
-  border: 1px solid #fff;
+  border: 1px solid var(--scheme-light-primary);
 }
 
 #zine-hero-photo img {
@@ -1245,7 +1274,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 
 /* Textbook series: dashed frame + roomy inset so copy sits inside the border */
 #textbook-series .zine-prose-box {
-  border: 2px dashed #fff;
+  border: 2px dashed var(--scheme-light-primary);
   box-sizing: border-box;
   max-width: 100%;
   padding: clamp(1rem, 2.5vw, 1.5rem) clamp(1.75rem, 8vw, 4rem);
@@ -1257,7 +1286,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 }
 
 #free-press .zine-prose-box {
-  border: 2px dashed #fff;
+  border: 2px dashed var(--scheme-light-primary);
   box-sizing: border-box;
   max-width: 100%;
   padding: clamp(1rem, 2.5vw, 1.5rem) clamp(1.75rem, 8vw, 4rem);
@@ -1280,7 +1309,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 .zine-carousel > img {
   flex: 1 1 auto;
   min-width: 0;
-  border: 1px solid #fff;
+  border: 1px solid var(--scheme-light-primary);
 }
 
 .zine-carousel__arrow {
@@ -1288,10 +1317,10 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   font-family: "Retro Computer", ui-monospace, "Cascadia Code", monospace;
   font-size: 1.15rem;
   text-decoration: none;
-  color: #fff;
+  color: var(--scheme-light-primary);
   padding: 0.25rem 0.4rem;
-  border: 2px solid #fff;
-  background: #111;
+  border: 2px solid var(--scheme-light-primary);
+  background: color-mix(in srgb, var(--scheme-light-primary) 10%, var(--scheme-dark-primary));
 }
 
 .zine-carousel__arrow:hover,
@@ -1310,14 +1339,14 @@ input.osc-fader[type="range"]::-moz-range-thumb {
     "description"
     "chapters";
   gap: 1px;
-  background: #fff;
-  border: 1px solid #fff;
+  background: var(--scheme-light-primary);
+  border: 1px solid var(--scheme-light-primary);
   box-sizing: border-box;
   min-width: 0;
 }
 
 .zine-volume-grid > * {
-  background-color: #000;
+  background-color: var(--scheme-dark-primary);
   min-width: 0;
 }
 
@@ -1412,7 +1441,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 
 #zine-matchbooks-media {
   margin-top: 0.75rem;
-  border: 1px solid #fff;
+  border: 1px solid var(--scheme-light-primary);
 }
 
 #whos-it-for-section {
@@ -1422,7 +1451,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 
 #whos-it-for-section > .content-block__media,
 #whos-it-for-section > .content-block__body {
-  border: 1px solid #fff;
+  border: 1px solid var(--scheme-light-primary);
   min-width: 0;
 }
 
@@ -1471,7 +1500,7 @@ section[aria-label="Curated links"] p:has(a) {
 .event-card--detail {
   max-width: 52rem;
   margin: 0 auto;
-  color: #fff;
+  color: var(--scheme-light-primary);
 }
 
 .event-card__body {
@@ -1499,13 +1528,13 @@ section[aria-label="Curated links"] p:has(a) {
   text-align: center;
   margin: 0 0 0.75rem;
   padding: 0.35rem 0.5rem;
-  border: 1px solid #fff;
+  border: 1px solid var(--scheme-light-primary);
   text-transform: uppercase;
 }
 
 .event-card {
   padding: 1em;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--scheme-light-primary);
   letter-spacing: normal;
 }
 
@@ -1535,15 +1564,15 @@ section[aria-label="Curated links"] p:has(a) {
 }
 
 .event-card__tag--fill {
-  background: #000;
-  color: #fff;
-  border: 1px solid #fff;
+  background: var(--scheme-dark-primary);
+  color: var(--scheme-light-primary);
+  border: 1px solid var(--scheme-light-primary);
 }
 
 .event-card__tag--outline {
   background: transparent;
-  color: #fff;
-  border: 1px solid #fff;
+  color: var(--scheme-light-primary);
+  border: 1px solid var(--scheme-light-primary);
 }
 
 .event-card__main {
@@ -1555,7 +1584,7 @@ section[aria-label="Curated links"] p:has(a) {
 }
 
 .event-card__date-block {
-  border: 1px solid #fff;
+  border: 1px solid var(--scheme-light-primary);
   padding: 0.35rem 0.4rem;
   text-align: center;
   display: flex;
@@ -1629,5 +1658,5 @@ section[aria-label="Curated links"] p:has(a) {
 .events-section + .events-section {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid #fff;
+  border-top: 1px solid var(--scheme-light-primary);
 }
