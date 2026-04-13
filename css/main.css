@@ -53,6 +53,7 @@
 :root {
   --wide-spacing: 0.15em;
   --page-padding: 1em;
+  --font-happy-times: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   /* P3 blue primary; sRGB line is the closest fallback when color() is unsupported */
   --link-hover-blue: rgb(0, 112, 255);
   --link-hover-blue: color(display-p3 0 0 1);
@@ -77,7 +78,7 @@ body {
   flex-direction: column;
   background: black;
   color: white;
-  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
+  font-family: var(--font-happy-times);
   line-height: 1.5;
 }
 
@@ -720,7 +721,7 @@ a {
   background: #0a0a0a;
   cursor: pointer;
   box-sizing: border-box;
-  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
+  font-family: var(--font-happy-times);
   font-size: 0.35rem;
   line-height: 1;
   letter-spacing: 0.1em;
@@ -793,7 +794,7 @@ a {
 }
 
 .osc-toggle-row__label {
-  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
+  font-family: var(--font-happy-times);
   font-size: 0.46rem;
   letter-spacing: 0.12em;
   color: #aaa;
@@ -1498,7 +1499,7 @@ main.links-page section p:has(a) {
 /* Event cards (sidebar + index) */
 .events-sidebar-section__label,
 .events-section__label {
-  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
+  font-family: var(--font-happy-times);
   font-weight: normal;
   font-size: 0.7rem;
   letter-spacing: 0.4em;
@@ -1573,7 +1574,7 @@ main.links-page section p:has(a) {
 
 .event-card__dow,
 .event-card__month {
-  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
+  font-family: var(--font-happy-times);
 }
 
 .event-card__dom {
@@ -1588,7 +1589,7 @@ main.links-page section p:has(a) {
   text-align: left;
   background-clip: border-box;
   background-color: transparent;
-  font-family: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
+  font-family: var(--font-happy-times);
   margin: 0 0 0.35rem;
   letter-spacing: var(--wide-spacing);
   font-weight: normal;
