@@ -855,6 +855,9 @@ a {
 /* g200kg input-knobs: bezel shell + rotating dial image on the range input (see index.html data-src). */
 .osc-knob-shell {
   --knob-w: min(5.35rem, 27vw);
+  /* Shift dial vs. bezel: wrapper translate only (input-knobs owns transform on the range). */
+  --osc-knob-shift-x: -0.26;
+  --osc-knob-shift-y: 0.04;
   width: var(--knob-w);
   height: calc(var(--knob-w) * 1.065);
   box-sizing: border-box;
@@ -863,6 +866,16 @@ a {
   justify-content: center;
   flex-shrink: 0;
   background: transparent center / contain no-repeat;
+}
+
+.osc-knob-nudge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(
+    calc(var(--knob-w) * var(--osc-knob-shift-x)),
+    calc(var(--knob-w) * var(--osc-knob-shift-y))
+  );
 }
 
 .osc-knob-shell--top {
