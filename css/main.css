@@ -59,7 +59,7 @@
   /* Default: blue plate behind footer DIS_LOGO; themed pages set this to bg-primary via body[data-color-scheme]. */
   --scheme-bg-secondary: rgb(0, 0, 255);
   --scheme-link: white;
-  --scheme-link-visited: rgb(176, 176, 176);
+  --scheme-link-visited: white;
   --scheme-link-active: red;
   --scheme-link-hover: rgb(0, 112, 255);
 }
