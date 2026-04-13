@@ -230,12 +230,50 @@ header#site-header {
   display: contents;
 }
 
+/* White-on-transparent PNGs: tint with the active scheme (mask + solid fill). */
+.site-header-graphic {
+  position: relative;
+  display: block;
+  line-height: 0;
+}
+
+.site-header-graphic__sizing {
+  display: block;
+  max-width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-header-graphic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--scheme-light-primary);
+  -webkit-mask-image: var(--site-header-mask);
+  mask-image: var(--site-header-mask);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  pointer-events: none;
+}
+
 #site-header-wires {
   grid-column: 1;
   grid-row: 1;
   justify-self: start;
   align-self: center;
+}
+
+#site-header-wires .site-header-graphic__sizing {
   object-position: center left;
+}
+
+#site-header-wires.site-header-graphic::after {
+  -webkit-mask-position: center left;
+  mask-position: center left;
 }
 
 #site-logo {
@@ -276,29 +314,41 @@ header#site-header {
   grid-row: 2;
 }
 
-#site-logo > img:first-child {
+#site-logo > .site-header-graphic:first-child {
   position: relative;
   width: 100%;
   margin: 0 auto;
-  display: block;
 }
 
-#site-logo > img:last-child {
+#site-logo > .site-header-graphic:first-child .site-header-graphic__sizing {
+  width: 100%;
+  height: auto;
+}
+
+#site-logo > .site-header-graphic:last-child {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+#site-logo > .site-header-graphic:last-child .site-header-graphic__sizing {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+}
+
+#site-logo > .site-header-graphic:last-child {
   opacity: 0;
 }
 
-#site-logo:hover > img:last-child,
-#site-logo:focus-visible > img:last-child {
+#site-logo:hover > .site-header-graphic:last-child,
+#site-logo:focus-visible > .site-header-graphic:last-child {
   opacity: 1;
 }
 
-#site-logo:hover > img:first-child,
-#site-logo:focus-visible > img:first-child {
+#site-logo:hover > .site-header-graphic:first-child,
+#site-logo:focus-visible > .site-header-graphic:first-child {
   opacity: 0;
 }
 
@@ -356,9 +406,15 @@ header#site-header {
     align-self: stretch;
   }
 
-  #site-header nav > a > img:first-child {
+  #site-header nav > a > .site-header-graphic:first-child {
     height: 100%;
     width: auto;
+  }
+
+  #site-header nav > a > .site-header-graphic:first-child .site-header-graphic__sizing {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
   }
 }
 
@@ -380,36 +436,47 @@ header#site-header {
   outline-offset: 2px;
 }
 
-#site-header nav > a > img:last-child {
+#site-header nav > a > .site-header-graphic:last-child {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
   opacity: 0;
 }
 
-#site-header nav a:hover > img:last-child,
-#site-header nav a:focus-visible > img:last-child,
-#site-header nav a[aria-current="page"] > img:last-child {
+#site-header nav > a > .site-header-graphic:last-child .site-header-graphic__sizing {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#site-header nav a:hover > .site-header-graphic:last-child,
+#site-header nav a:focus-visible > .site-header-graphic:last-child,
+#site-header nav a[aria-current="page"] > .site-header-graphic:last-child {
   opacity: 1;
 }
 
-#site-header nav a:hover > img:first-child,
-#site-header nav a:focus-visible > img:first-child,
-#site-header nav a[aria-current="page"] > img:first-child {
+#site-header nav a:hover > .site-header-graphic:first-child,
+#site-header nav a:focus-visible > .site-header-graphic:first-child,
+#site-header nav a[aria-current="page"] > .site-header-graphic:first-child {
   opacity: 0;
 }
 
-#site-header nav > a > img:first-child {
+#site-header nav > a > .site-header-graphic:first-child {
   position: relative;
   flex: 1 1 auto;
   width: auto;
   height: auto;
   max-width: 100%;
   max-height: 100%;
+}
+
+#site-header nav > a > .site-header-graphic:first-child .site-header-graphic__sizing {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  display: block;
 }
 
 
