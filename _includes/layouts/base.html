@@ -19,11 +19,25 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://disengineering.github.io/assets/footer/footer_logo.png" />
     <title>{% if title %}{{ title }} — disengineering{% else %}disengineering{% endif %}</title>
+    {% if page.url == '/' %}<link rel="preconnect" href="https://unpkg.com" crossorigin />{% endif %}
+    <link
+      rel="preload"
+      href="/assets/fonts/happy-times/happy-times-ng_regular_master-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/retro_computer_personal_use.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
     <link rel="stylesheet" href="/css/main.css" />
-    {% if extraHead %}{{ extraHead }}{% endif %}
   </head>
   <body>
     <header id="site-header">
