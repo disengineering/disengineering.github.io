@@ -84,6 +84,15 @@ body[data-color-scheme="lavender-black"] {
   --scheme-link-active: red;
 }
 
+body[data-color-scheme="high-contrast"] {
+  --scheme-dark-primary: white;
+  --scheme-light-primary: rgb(0, 0, 255);
+  --scheme-link: rgb(128, 0, 128);
+  --scheme-link-visited: rgb(85, 26, 139);
+  --scheme-link-hover: red;
+  --scheme-link-active: red;
+}
+
 
 /* =============================================================================
    RESET & DOCUMENT BASE
