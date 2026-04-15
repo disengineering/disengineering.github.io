@@ -10,9 +10,12 @@ description: Disengineering — a hardware hacking collective focused on electro
 
     <section class="content-block" aria-labelledby="about-heading">
       <div class="content-block__media">
-        <img src="/assets/body/about_image.png" alt="Hands adjusting knobs on a wooden electronic instrument"
-          fetchpriority="high"
-          width="1200" height="900" loading="eager" />
+        <!--
+          Regenerate optimized animated WebP (under ~5 MiB) from the GIF:
+          ffmpeg -y -i assets/body/animated_about_image.gif -vf "fps=15,scale=900:-1:flags=lanczos" -c:v libwebp -quality 55 -compression_level 6 -loop 0 assets/body/animated_about_image.webp
+        -->
+        <img src="/assets/body/animated_about_image.gif" alt="Hands adjusting knobs on a wooden electronic instrument"
+          eleventy:ignore fetchpriority="high" width="1146" height="1080" loading="eager" />
       </div>
       <div class="content-block__body">
         <p id="about-heading" class="home-intro">
