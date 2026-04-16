@@ -134,7 +134,8 @@ pre code {
   -webkit-box-decoration-break: unset;
 }
 
-img {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
