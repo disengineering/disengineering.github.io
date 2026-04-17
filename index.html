@@ -54,6 +54,16 @@ description: Disengineering — a hardware hacking collective focused on electro
 
     <section class="content-block" aria-labelledby="zines-heading">
       <div class="content-block__media">
+        <!--
+          Animated WebP from assets/body/zines.MOV. Map only stream 0:0 so QuickTime’s attached
+          poster image (stream 1) is not encoded.
+
+          High quality (larger file):
+          ffmpeg -y -i assets/body/zines.MOV -map 0:0 -an -c:v libwebp -loop 0 -q:v 82 -compression_level 6 -preset default assets/body/zines.webp
+
+          Smaller (~under 2 MiB): 15 fps + lower q:
+          ffmpeg -y -i assets/body/zines.MOV -map 0:0 -an -vf "fps=15" -c:v libwebp -loop 0 -q:v 70 -compression_level 6 -preset default assets/body/zines.webp
+        -->
         <img src="/assets/body/zines.webp" alt="Illustrated zine cover: Happy Fun Musical Play Thing"
           loading="lazy" eleventy:ignore />
       </div>
