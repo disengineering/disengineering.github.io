@@ -22,6 +22,10 @@ Add `eleventy:ignore` on the `<img>` when the asset should stay as the original 
 
 Omit `eleventy:ignore` for photographs and similar content where WebP compression is desired. See the [Image plugin docs](https://www.11ty.dev/docs/plugins/image/) for `eleventy:ignore` and other attributes.
 
+## Derived assets and regeneration commands
+
+When a checked-in file is derived from another (compression, transcoding, rasterization, format conversion), document the exact command(s) to reproduce it at the usage sit that references the asset (for example an HTML comment next to the `<img>` or `<video>`).
+
 ## Vendored third-party scripts
 
-Files checked in under paths like `js/vendor/` are **upstream copies** (or pinned releases) of external libraries. **Do not modify vendored files** for site-specific behavior.
+Files checked in under paths like `js/vendor/` are upstream copies (or pinned releases) of external libraries. Do not modify vendored files for site-specific behavior.
