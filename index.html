@@ -13,8 +13,9 @@ description: Disengineering — a hardware hacking collective focused on electro
     <section class="content-block" aria-labelledby="about-heading">
       <div class="content-block__media">
         <!--
-          Regenerate optimized animated WebP (under ~5 MiB) from the GIF:
-          ffmpeg -y -i assets/body/animated_about_image.gif -vf "fps=15,scale=900:-1:flags=lanczos" -c:v libwebp -quality 55 -compression_level 6 -loop 0 assets/body/animated_about_image.webp
+          Regenerate animated WebP from the GIF: preserve native frame timing (omit any fps= filter).
+          Target under 2.5 MiB (2.5 * 1024 * 1024 bytes); raise -quality or width only if size allows.
+          ffmpeg -y -i assets/body/animated_about_image.gif -vf "scale=408:-1:flags=lanczos" -c:v libwebp -quality 35 -compression_level 6 -loop 0 assets/body/animated_about_image.webp
         -->
         <img src="/assets/body/animated_about_image.webp" alt="Hands adjusting knobs on a wooden electronic instrument"
           eleventy:ignore fetchpriority="high" loading="eager" />
@@ -56,13 +57,9 @@ description: Disengineering — a hardware hacking collective focused on electro
       <div class="content-block__media">
         <!--
           Animated WebP from assets/body/zines.MOV. Map only stream 0:0 so QuickTime’s attached
-          poster image (stream 1) is not encoded.
-
-          High quality (larger file):
-          ffmpeg -y -i assets/body/zines.MOV -map 0:0 -an -c:v libwebp -loop 0 -q:v 82 -compression_level 6 -preset default assets/body/zines.webp
-
-          Smaller (~under 2 MiB): 15 fps + lower q:
-          ffmpeg -y -i assets/body/zines.MOV -map 0:0 -an -vf "fps=15" -c:v libwebp -loop 0 -q:v 70 -compression_level 6 -preset default assets/body/zines.webp
+          poster image (stream 1) is not encoded. Preserve native frame rate (omit any fps= filter).
+          Target under 2.5 MiB; lower -q:v if the encode exceeds the budget after source changes.
+          ffmpeg -y -i assets/body/zines.MOV -map 0:0 -an -c:v libwebp -loop 0 -q:v 32 -compression_level 6 -preset default assets/body/zines.webp
         -->
         <img src="/assets/body/zines.webp" alt="Illustrated zine cover: Happy Fun Musical Play Thing"
           loading="lazy" eleventy:ignore />
