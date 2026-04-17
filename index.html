@@ -14,8 +14,8 @@ description: Disengineering — a hardware hacking collective focused on electro
       <div class="content-block__media">
         <!--
           Regenerate animated WebP from the GIF: preserve native frame timing (omit any fps= filter).
-          Target under 2.5 MiB (2.5 * 1024 * 1024 bytes); raise -quality or width only if size allows.
-          ffmpeg -y -i assets/body/animated_about_image.gif -vf "scale=408:-1:flags=lanczos" -c:v libwebp -quality 35 -compression_level 6 -loop 0 assets/body/animated_about_image.webp
+          Target under 3 MiB (3 * 1024 * 1024 bytes); raise -quality or width only if size allows.
+          ffmpeg -y -i assets/body/animated_about_image.gif -vf "scale=440:-1:flags=lanczos" -c:v libwebp -quality 40 -compression_level 6 -loop 0 assets/body/animated_about_image.webp
         -->
         <img src="/assets/body/animated_about_image.webp" alt="Hands adjusting knobs on a wooden electronic instrument"
           eleventy:ignore fetchpriority="high" loading="eager" />
