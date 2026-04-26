@@ -53,6 +53,7 @@
 :root {
   --wide-spacing: 0.15em;
   --page-padding: 1em;
+  --event-card-padding: 1em;
   --font-happy-times: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   /* P3 blue primary; sRGB line is the closest fallback when color() is unsupported */
   --link-hover-blue: rgb(0, 112, 255);
@@ -1528,7 +1529,7 @@ main.links-page section p:has(a) {
 }
 
 .event-card {
-  padding: 1em;
+  padding: var(--event-card-padding);
   border-bottom: 1px solid #fff;
   letter-spacing: normal;
 }
@@ -1644,6 +1645,10 @@ main.links-page section p:has(a) {
   font-size: 0.86rem;
   letter-spacing: normal;
   opacity: 0.85;
+}
+
+.events-sidebar-empty {
+  padding-inline: var(--event-card-padding);
 }
 
 #events-page-header {
