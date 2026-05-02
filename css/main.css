@@ -453,6 +453,10 @@ header#site-header {
   min-width: 0;
 }
 
+.section-heading marquee {
+  display: block;
+}
+
 .section-heading--accent-blue {
   background-color: blue !important;
 }
