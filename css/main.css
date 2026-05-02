@@ -29,6 +29,15 @@
   font-display: swap;
 }
 
+/* Acer VGA 8x8-2y: https://int10h.org/oldschool-pc-fonts/fontlist/font?acer_vga_8x8-2y */
+@font-face {
+  font-family: "Acer VGA 8x8-2y";
+  src: url("/assets/fonts/oldschool-pc/Web437_Acer_VGA_8x8-2y.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Happy Times at the IKOB New Game Plus Edition — SIL OFL 1.1 (see assets/fonts/happy-times/LICENSE.txt).
    Webfonts from https://fonderiebretagne.fr/font/happy-times-at-the-ikob-new-game-plus-edition-bold */
 @font-face {
@@ -66,7 +75,8 @@
   --event-card-padding: 1em;
   --font-happy-times: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   --font-monospace: "IBM VGA 8x16", "Retro Computer", "Unifont", ui-monospace, "Cascadia Code", monospace;
-  --font-header: var(--font-monospace);
+  --font-h1: "Acer VGA 8x8-2y", var(--font-monospace);
+  --font-h2plus: "Acer VGA 8x8-2y", var(--font-monospace);
   /* P3 blue primary; sRGB line is the closest fallback when color() is unsupported */
   --link-hover-blue: rgb(0, 112, 255);
   --link-hover-blue: color(display-p3 0 0 1);
@@ -99,6 +109,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+h1, h2 {
+  text-transform: uppercase;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-h2plus);
+}
+
 /* Default “page header” chrome for top-level titles */
 h1 {
   font-size: 1.35em;
@@ -109,10 +127,27 @@ h1 {
   background-clip: content-box;
   color: white;
   text-align: center;
-  font-family: var(--font-header);
+  font-family: var(--font-h1);
   min-width: 0;
 }
-h2 { font-size: 1.2em; }
+h2 {
+  font-size: 1.2em;
+}
+
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  content: "<";
+}
+
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+  content: ">";
+}
+
 h3 { font-size: 1em; }
 h4 { font-size: 0.9em; }
 h5 { font-size: 0.75em; }
@@ -414,7 +449,7 @@ header#site-header {
   background-clip: content-box;
   color: white;
   text-align: center;
-  font-family: var(--font-header);
+  font-family: var(--font-h2plus);
   min-width: 0;
 }
 
@@ -1529,15 +1564,12 @@ main.links-page section p:has(a) {
 /* Event cards (sidebar + index) */
 .events-sidebar-section__label,
 .events-section__label {
-  font-family: var(--font-happy-times);
   font-weight: normal;
   font-size: 0.7rem;
-  letter-spacing: 0.4em;
   text-align: center;
   margin: 0 0 0.75rem;
   padding: 0.35rem 0.5rem;
   border: 1px solid #fff;
-  text-transform: uppercase;
 }
 
 .event-card {

@@ -4,11 +4,11 @@ description: Disengineering — a hardware hacking collective focused on electro
 ---
 <div id="main-and-aside">
   <main>
-    <h1>
+    <h2 class="section-heading">
       <marquee>
-        DOWN WITH PLANNED OBSOLESCENCE. LONG LIVE REPAIR CULTURE. MAKE WEIRD ELECTRONIC SOUNDS.
+        Down with planned obsolescence. Long live repair culture. Make weird electronic sounds.
       </marquee>
-    </h1>
+    </h2>
 
     <section class="content-block" aria-labelledby="about-heading">
       <div class="content-block__media">
@@ -104,7 +104,7 @@ description: Disengineering — a hardware hacking collective focused on electro
   <aside id="sidebar" aria-label="Oscilloscope and events">
     <section class="sidebar-panel">
       <h2 class="section-heading">
-        OSCILLOSCOPE
+        Oscilloscope
       </h2>
       <div id="osc-wrap">
         <div id="oscilloscope-root">
@@ -318,8 +318,8 @@ description: Disengineering — a hardware hacking collective focused on electro
         <script type="module" src="/js/oscilloscope.mjs"></script>
       </div>
     </section>
-    <section class="sidebar-panel">
-      <h2 class="section-heading">EVENTS</h2>
+    <section class="sidebar-panel" aria-labelledby="homepage-events-heading">
+      <h2 id="homepage-events-heading" class="section-heading">Events</h2>
       {% include "partials/events-sidebar.html" %}
       <div id="events-actions">
         <a class="btn" href="/events/">SEE FULL CALENDAR</a>
