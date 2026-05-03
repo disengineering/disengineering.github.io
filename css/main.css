@@ -69,6 +69,7 @@ body[data-color-scheme="brown-chartreuse"] {
   --scheme-dark-primary: rgb(50, 28, 26);
   --scheme-light-primary: rgb(223, 251, 81);
   --scheme-link: rgb(223, 251, 81);
+  --scheme-link-hover: rgb(168, 190, 61);
   --scheme-link-visited: rgb(168, 190, 61);
   --scheme-link-active: red;
 }
@@ -77,6 +78,7 @@ body[data-color-scheme="grayscale"] {
   --scheme-dark-primary: #9b9b9b;
   --scheme-light-primary: black;
   --scheme-link: black;
+  --scheme-link-hover: rgb(190, 190, 190);
   --scheme-link-visited: rgb(42, 42, 42);
   --scheme-link-active: rgb(0, 0, 255);
 }
@@ -85,8 +87,27 @@ body[data-color-scheme="lavender-black"] {
   --scheme-dark-primary: rgb(199, 167, 234);
   --scheme-light-primary: black;
   --scheme-link: black;
+  --scheme-link-hover: rgb(74, 74, 74);
   --scheme-link-visited: rgb(42, 42, 42);
   --scheme-link-active: red;
+}
+
+body[data-color-scheme="hyperblue"] {
+  --scheme-dark-primary: white;
+  --scheme-light-primary: blue;
+  --scheme-link: blue;
+  --scheme-link-visited: rgb(0, 0, 255);
+  --scheme-link-active: red;
+  --scheme-link-hover: rgb(0, 112, 255);
+}
+
+body[data-color-scheme="bsod"] {
+  --scheme-dark-primary: rgb(0, 0, 255);
+  --scheme-light-primary: rgb(255, 255, 255);
+  --scheme-link: rgb(255, 255, 255);
+  --scheme-link-visited: rgb(255, 255, 255);
+  --scheme-link-active: red;
+  --scheme-link-hover: rgb(190, 190, 190);
 }
 
 
