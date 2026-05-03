@@ -594,7 +594,8 @@ a.drop-ascii:focus-visible {
   background-color: green !important;
 }
 
-.zine-section > .section-heading {
+.zine-section > .section-heading,
+.zine-volume-grid > .section-heading {
   text-transform: none;
 }
 
@@ -1507,14 +1508,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   border: 1px solid var(--scheme-light-primary);
 }
 
-.zine-carousel__nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-}
-
 .zine-carousel__arrow {
   flex: 0 0 auto;
   font-family: var(--font-monospace);
@@ -1548,30 +1541,56 @@ button.zine-carousel__arrow {
   color: yellow;
 }
 
-/* Volume blocks: title row, image, then description | chapters; single column when narrow */
+/* Volume blocks: slide full width; prev | next; overview | TOC (uniform gap) */
 .zine-volume-grid {
+  --zine-volume-gap: 1rem;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "media"
-    "description"
-    "chapters";
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--zine-volume-gap);
+}
+
+.zine-volume-grid > .section-heading {
+  grid-column: 1 / -1;
+  justify-self: center;
 }
 
 .zine-volume-grid > .zine-carousel {
-  grid-area: media;
+  grid-column: 1 / -1;
   margin: 0;
   padding: 0.5rem;
 }
 
-.zine-volume-grid__description {
-  grid-area: description;
+.zine-volume-grid > .zine-carousel__arrow--prev {
+  grid-column: 1;
+  justify-self: end;
 }
 
+.zine-volume-grid > .zine-carousel__arrow--next {
+  grid-column: 2;
+  justify-self: start;
+}
+
+.zine-volume-grid > .zine-volume-grid__details {
+  grid-column: 1 / -1;
+}
+
+.zine-volume-grid__details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: var(--zine-volume-gap);
+  min-width: 0;
+}
+
+.zine-volume-grid__overview,
+.zine-volume-grid__chapters {
+  min-width: 0;
+  border: 1px solid #000;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
 
 .zine-volume-grid__chapters {
-  grid-area: chapters;
-  text-align: center;
+  text-align: left;
 }
 
 .zine-volume-grid .zine-carousel > img {
@@ -1591,19 +1610,20 @@ button.zine-carousel__arrow {
 }
 
 @media (min-width: 641px) {
-  .zine-volume-grid {
+  .zine-volume-grid__details {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas:
-      "media media"
-      "description chapters";
+    column-gap: var(--zine-volume-gap);
+    row-gap: 0;
   }
 }
 
-.zine-volume-detail__list-title {
+.zine-volume-grid__column-title {
   font-family: var(--font-monospace);
   font-size: 1.5rem;
   margin: 0 0 0.4rem;
+  padding-bottom: 0.35rem;
   text-align: left;
+  border-bottom: 1px solid #000;
 }
 
 .zine-chapter-list {
