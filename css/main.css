@@ -1474,6 +1474,14 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   background: color-mix(in srgb, var(--scheme-light-primary) 10%, var(--scheme-dark-primary));
 }
 
+button.zine-carousel__arrow {
+  margin: 0;
+  cursor: pointer;
+  appearance: none;
+  font: inherit;
+  line-height: inherit;
+}
+
 .zine-carousel__arrow:hover,
 .zine-carousel__arrow:focus-visible {
   color: yellow;
