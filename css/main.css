@@ -45,7 +45,7 @@
 
 /* Page color scheme: components use --scheme-* only. Override with body[data-color-scheme="…"]. */
 :root {
-  --wide-spacing: 0.15em;
+  --wide-spacing: 0.10em;
   --page-padding: 1em;
   --event-card-padding: 1em;
   --font-happy-times: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
@@ -110,6 +110,7 @@ body {
   color: var(--scheme-light-primary);
   font-family: var(--font-happy-times);
   line-height: 1.5;
+  letter-spacing: var(--wide-spacing);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -203,6 +204,21 @@ pre code {
   padding: 0;
   box-decoration-break: unset;
   -webkit-box-decoration-break: unset;
+}
+
+/* Pixel / monospace stack: keep browser-default tracking (body uses wide serif spacing). */
+h1, h2, h3, h4, h5, h6,
+code, kbd, samp, pre,
+.drop-ascii,
+.btn,
+#zine-textbook-volumes-marquee-wrapper,
+#important-zine-info-heading,
+#important-zine-info-close,
+.zine-carousel__arrow,
+button.zine-carousel__arrow,
+.zine-volume-grid__column-title,
+.event-card__tag {
+  letter-spacing: normal;
 }
 
 img,
@@ -689,7 +705,6 @@ a {
 .btn {
   font-family: var(--font-monospace);
   font-size: medium;
-  letter-spacing: var(--wide-spacing);
   align-self: flex-start;
   display: inline-block;
   padding: 0.35rem 0.85rem;
@@ -708,11 +723,6 @@ a {
 .btn:hover:active,
 .btn:active {
   color: var(--scheme-link-active);
-}
-
-
-.wide-spacing {
-  letter-spacing: var(--wide-spacing);
 }
 
 #homepage-marquee {
@@ -1282,7 +1292,6 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 #important-zine-info-close::after {
   content: "!!!";
   font-family: var(--font-monospace);
-  letter-spacing: 0.08em;
 }
 
 
@@ -1539,7 +1548,6 @@ main.links-page section p:has(a) {
 .event-card__tag {
   font-family: var(--font-monospace);
   font-size: 0.4em;
-  letter-spacing: 0.1em;
   padding: 0.2rem 0.45rem;
   text-transform: uppercase;
 }
