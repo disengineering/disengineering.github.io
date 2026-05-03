@@ -1254,6 +1254,51 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   display: block;
 }
 
+
+#important-zine-info {
+  margin-top: 1rem;
+}
+
+#important-zine-info-heading, #important-zine-info-close {
+  font-family: var(--font-monospace);
+  border: 1px solid var(--scheme-light-primary);
+  text-transform: uppercase;
+  font-style: italic;
+  display: inline-block;
+  padding: 0.15em 0.4em;
+}
+
+#important-zine-info-text {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+#important-zine-info-content {
+  border: 1px solid var(--scheme-light-primary);
+}
+
+#important-zine-info-heading::before,
+#important-zine-info-heading::after,
+#important-zine-info-close::before,
+#important-zine-info-close::after {
+  content: "!!!";
+  font-family: var(--font-monospace);
+  letter-spacing: 0.08em;
+}
+
+
+
+#important-zine-info-image {
+  max-width: 30em;
+  margin: 0 auto;
+  height: auto;
+}
+
+#important-zine-info-close {
+  display: block;
+  width: fit-content;
+  margin-inline-start: auto;
+}
+
 .zine-carousel {
   display: flex;
   flex-direction: column;
