@@ -50,8 +50,7 @@
   --event-card-padding: 1em;
   --font-happy-times: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   --font-monospace: "Acer VGA 8x8-2y", ui-monospace, "Cascadia Code", monospace;
-  --font-h1: var(--font-monospace);
-  --font-h2plus: var(--font-monospace);
+  --font-heading: var(--font-monospace);
   --scheme-dark-primary: black;
   --scheme-light-primary: white;
   --scheme-link: white;
@@ -122,7 +121,7 @@ h1, h2 {
 }
 
 h2, h3, h4, h5, h6 {
-  font-family: var(--font-h2plus);
+  font-family: var(--font-heading);
 }
 
 /* Default “page header” chrome for top-level titles */
@@ -133,13 +132,29 @@ h1 {
   border: 1px solid var(--scheme-light-primary);
   box-sizing: border-box;
   background-clip: content-box;
-  color: var(--scheme-light-primary);
   text-align: center;
-  font-family: var(--font-h1);
+  font-family: var(--font-heading);
   min-width: 0;
 }
+
+.section-heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--scheme-light-primary);
+  box-sizing: border-box;
+  background-clip: content-box;
+  text-align: center;
+  font-family: var(--font-heading);
+}
+
 h2 {
   font-size: 1.2em;
+}
+
+h2.border {
+  border: 1px solid var(--scheme-light-primary);
 }
 
 h3::before,
@@ -516,12 +531,11 @@ header#site-header {
    CONTENT BLOCKS & SECTION CHROME
    ============================================================================= */
 
-.drop-ascii,
-.section-heading {
+.drop-ascii {
   margin-block: 0;
   margin-inline: auto;
-  padding-block: 0;
-  padding-inline: 8px;
+  padding-block: 4px;
+  padding-inline: 12px;
   box-sizing: border-box;
   width: fit-content;
   max-width: 100%;
@@ -549,28 +563,16 @@ a.drop-ascii:focus-visible {
   outline-offset: 3px;
 }
 
-.section-heading marquee {
-  display: block;
-}
-
-.section-heading--accent-blue,
 .drop-ascii--accent-blue {
   background-color: blue !important;
 }
 
-.section-heading--accent-red,
 .drop-ascii--accent-red {
   background-color: red !important;
 }
 
-.section-heading--accent-green,
 .drop-ascii--accent-green {
   background-color: green !important;
-}
-
-.zine-section > .section-heading,
-.zine-volume-grid > .section-heading {
-  text-transform: none;
 }
 
 @media (max-width: 640px) {
@@ -578,9 +580,9 @@ a.drop-ascii:focus-visible {
     padding: 6px;
   }
 
-  .drop-ascii,
-  .section-heading {
-    padding-inline: 6px;
+  .drop-ascii {
+    padding-block: 3px;
+    padding-inline: 10px;
   }
 }
 
@@ -714,12 +716,6 @@ a {
 }
 
 #homepage-marquee {
-  border: 1px solid var(--scheme-light-primary);
-  box-sizing: border-box;
-  padding: 0.3zem;
-}
-
-#homepage-marquee marquee {
   display: block;
 }
 
@@ -1242,6 +1238,22 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   margin-inline: 0;
 }
 
+/* Full viewport bleed: break out of .content-measure + #content padding */
+#zine-textbook-volumes-marquee-wrapper {
+  font-family: var(--font-monospace);
+  border: 1px solid var(--scheme-light-primary);
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: none;
+  margin-inline: calc(50% - 50vw);
+}
+
+#zine-textbook-volumes-marquee-wrapper marquee {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  display: block;
+}
+
 .zine-carousel {
   display: flex;
   flex-direction: column;
@@ -1298,27 +1310,25 @@ button.zine-carousel__arrow {
   gap: var(--zine-volume-gap);
 }
 
-.zine-volume-grid > .section-heading {
+/* Grid cell placement — add these on direct children of .zine-volume-grid */
+.zine-volume-grid__cell--volume-heading {
   grid-column: 1 / -1;
   justify-self: center;
+  text-transform: none;
 }
 
-.zine-volume-grid > .zine-carousel {
+.zine-volume-grid__cell--row-full {
   grid-column: 1 / -1;
 }
 
-.zine-volume-grid > .zine-carousel__arrow--prev {
+.zine-volume-grid__cell--column-1-trailing {
   grid-column: 1;
   justify-self: end;
 }
 
-.zine-volume-grid > .zine-carousel__arrow--next {
+.zine-volume-grid__cell--column-2-leading {
   grid-column: 2;
   justify-self: start;
-}
-
-.zine-volume-grid > .zine-volume-grid__details {
-  grid-column: 1 / -1;
 }
 
 .zine-volume-grid__details {
