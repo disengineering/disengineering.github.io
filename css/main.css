@@ -542,32 +542,60 @@ header#site-header {
    CONTENT BLOCKS & SECTION CHROME
    ============================================================================= */
 
+.drop-ascii,
 .section-heading {
-  margin: 0;
-  padding: 8px;
-  border: 1px solid var(--scheme-light-primary);
+  margin-block: 0;
+  margin-inline: auto;
+  padding-block: 0;
+  padding-inline: 8px;
   box-sizing: border-box;
-  background-clip: content-box;
-  color: var(--scheme-light-primary);
+  width: fit-content;
+  max-width: 100%;
+  border: 3px solid #000;
+  color: #fff !important;
   text-align: center;
-  font-family: var(--font-h2plus);
+  font-family: var(--font-monospace);
+  box-shadow: -4px 4px 0 #000;
   min-width: 0;
+}
+
+a.drop-ascii {
+  display: inline-block;
+  text-decoration: none;
+}
+
+a.drop-ascii:hover,
+a.drop-ascii:focus-visible {
+  transform: translate(-2px, 2px);
+  box-shadow: -2px 2px 0 #000;
+}
+
+a.drop-ascii:focus-visible {
+  outline: 2px solid var(--scheme-light-primary);
+  outline-offset: 3px;
 }
 
 .section-heading marquee {
   display: block;
 }
 
-.section-heading--accent-blue {
+.section-heading--accent-blue,
+.drop-ascii--accent-blue {
   background-color: blue !important;
 }
 
-.section-heading--accent-red {
+.section-heading--accent-red,
+.drop-ascii--accent-red {
   background-color: red !important;
 }
 
-.section-heading--accent-green {
+.section-heading--accent-green,
+.drop-ascii--accent-green {
   background-color: green !important;
+}
+
+.zine-section > .section-heading {
+  text-transform: none;
 }
 
 @media (max-width: 640px) {
@@ -575,8 +603,9 @@ header#site-header {
     padding: 6px;
   }
 
-  h2.section-heading {
-    padding: 6px;
+  .drop-ascii,
+  .section-heading {
+    padding-inline: 6px;
   }
 }
 
@@ -1385,6 +1414,19 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   margin-top: 1.5rem;
 }
 
+.zine-textbook-volumes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.zine-textbook-volumes .drop-ascii {
+  margin-inline: 0;
+}
+
 #textbook-stats {
   display: flex;
   flex-direction: column;
@@ -1534,9 +1576,18 @@ button.zine-carousel__arrow {
 
 .zine-volume-grid .zine-carousel > img {
   border: none;
+}
+
+.zine-volume-grid .zine-carousel.offset-zine > img {
   margin-left: 12vw;
   width: calc(100% - 12vw);
   max-width: calc(100% - 12vw);
+}
+
+.zine-volume-grid .zine-carousel.non-offset-zine > img {
+  margin-inline: 12vw;
+  width: calc(100% - 24vw);
+  max-width: calc(100% - 24vw);
 }
 
 @media (min-width: 641px) {
