@@ -51,18 +51,15 @@
   --font-happy-times: "Happy Times at the IKOB New Game Plus Edition", "Times New Roman", Times, serif;
   --font-monospace: "Acer VGA 8x8-2y", ui-monospace, "Cascadia Code", monospace;
   --font-heading: var(--font-monospace);
+  /* Disengineering blue (RGB 0, 42, 255). */
+  --disengineering-blue: rgb(0, 42, 255);
+  --disengineering-blue-hover: color-mix(in srgb, var(--disengineering-blue) 70%, white);
   --scheme-dark-primary: black;
   --scheme-light-primary: white;
   --scheme-link: white;
   --scheme-link-visited: white;
   --scheme-link-active: red;
-  --scheme-link-hover: rgb(0, 112, 255);
-}
-
-@supports (color: color(display-p3 0 0 1)) {
-  :root {
-    --scheme-link-hover: color(display-p3 0 0 1);
-  }
+  --scheme-link-hover: var(--disengineering-blue-hover);
 }
 
 body[data-color-scheme="brown-chartreuse"] {
@@ -80,7 +77,7 @@ body[data-color-scheme="grayscale"] {
   --scheme-link: black;
   --scheme-link-hover: rgb(190, 190, 190);
   --scheme-link-visited: rgb(42, 42, 42);
-  --scheme-link-active: rgb(0, 0, 255);
+  --scheme-link-active: var(--disengineering-blue);
 }
 
 body[data-color-scheme="lavender-black"] {
@@ -94,15 +91,15 @@ body[data-color-scheme="lavender-black"] {
 
 body[data-color-scheme="hyperblue"] {
   --scheme-dark-primary: white;
-  --scheme-light-primary: blue;
-  --scheme-link: blue;
-  --scheme-link-visited: rgb(0, 0, 255);
+  --scheme-light-primary: var(--disengineering-blue);
+  --scheme-link: var(--disengineering-blue);
+  --scheme-link-visited: var(--disengineering-blue);
   --scheme-link-active: red;
-  --scheme-link-hover: rgb(0, 112, 255);
+  --scheme-link-hover: var(--disengineering-blue-hover);
 }
 
 body[data-color-scheme="bsod"] {
-  --scheme-dark-primary: rgb(0, 0, 255);
+  --scheme-dark-primary: var(--disengineering-blue);
   --scheme-light-primary: rgb(255, 255, 255);
   --scheme-link: rgb(255, 255, 255);
   --scheme-link-visited: rgb(255, 255, 255);
@@ -516,7 +513,7 @@ header#site-header {
 }
 
 #site-header nav > a:focus-visible {
-  outline: 2px solid #4a8cff;
+  outline: 2px solid var(--disengineering-blue);
   outline-offset: 2px;
 }
 
@@ -601,7 +598,7 @@ a.drop-ascii:focus-visible {
 }
 
 .drop-ascii--accent-blue {
-  background-color: blue !important;
+  background-color: var(--disengineering-blue) !important;
 }
 
 .drop-ascii--accent-red {
