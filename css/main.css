@@ -312,20 +312,23 @@ header#site-header {
 }
 
 /* White-on-transparent PNGs: tint with the active scheme (mask + solid fill). */
-.site-header-graphic {
+.site-header-graphic,
+.site-footer-graphic {
   position: relative;
   display: block;
   line-height: 0;
 }
 
-.site-header-graphic__sizing {
+.site-header-graphic__sizing,
+.site-footer-graphic__sizing {
   display: block;
   max-width: 100%;
   opacity: 0;
   pointer-events: none;
 }
 
-.site-header-graphic::after {
+.site-header-graphic::after,
+.site-footer-graphic::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1196,8 +1199,13 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   border-top: 1px solid var(--scheme-light-primary);
 }
 
-/* Match image height to three lines of footer text (inherits body line-height). */
-#site-footer img {
+/* Shared header wrapper uses line-height: 0; footer height: 3lh needs inherited line-height. */
+#site-footer .site-footer-graphic {
+  line-height: inherit;
+}
+
+/* Match graphic height to three lines of footer text (inherits body line-height). */
+#site-footer .site-footer-graphic__sizing {
   height: 3lh;
   width: auto;
   object-fit: contain;

@@ -14,10 +14,10 @@
       property="og:description"
       content="{{ description | default: 'The Disengineering Society is a hardware hacking collective. We run workshops teaching people how to build electronic musical instruments using salvaged electronic waste.' }}"
     />
-    <meta property="og:image" content="https://disengineering.github.io/assets/footer/footer_logo.png" />
+    <meta property="og:image" content="https://disengineering.github.io/assets/header/DIS_LOGO.png" />
     <meta property="og:url" content="https://disengineering.github.io{{ page.url }}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://disengineering.github.io/assets/footer/footer_logo.png" />
+    <meta name="twitter:image" content="https://disengineering.github.io/assets/header/DIS_LOGO.png" />
     <title>{% if title %}{{ title }} — disengineering{% else %}disengineering{% endif %}</title>
     <link
       rel="preload"
@@ -115,33 +115,42 @@
         </div>
         {% endif %}
         <footer id="site-footer">
-          <img
-            eleventy:ignore
-            src="/assets/footer/in_ground.png"
-            alt="In ground we trust"
-            loading="lazy"
-          />
+          <span class="site-footer-graphic" style="--site-header-mask: url('/assets/footer/in_ground.png')">
+            <img
+              eleventy:ignore
+              class="site-footer-graphic__sizing"
+              src="/assets/footer/in_ground.png"
+              alt="In ground we trust"
+              loading="lazy"
+            />
+          </span>
           <ul id="links">
             <li><a href="https://instagram.com/disengineering">INSTAGRAM</a></li>
             <li><a href="mailto:disengineeringsociety@gmail.com">EMAIL</a></li>
             <li>DISCORD COMING SOON</li>
           </ul>
           <div>
-            <img
-              eleventy:ignore
-              src="/assets/footer/footer_logo.png"
-              alt="Disengineering"
-              loading="lazy"
-            />
+            <span class="site-footer-graphic" style="--site-header-mask: url('/assets/header/DIS_LOGO.png')">
+              <img
+                eleventy:ignore
+                class="site-footer-graphic__sizing"
+                src="/assets/header/DIS_LOGO.png"
+                alt="Disengineering"
+                loading="lazy"
+              />
+            </span>
           </div>
           <span>EST. 2022</span>
-          <img
-            eleventy:ignore
-            src="/assets/footer/in_ground.png"
-            alt=""
-            loading="lazy"
-            aria-hidden="true"
-          />
+          <span class="site-footer-graphic" style="--site-header-mask: url('/assets/footer/in_ground.png')">
+            <img
+              eleventy:ignore
+              class="site-footer-graphic__sizing"
+              src="/assets/footer/in_ground.png"
+              alt=""
+              loading="lazy"
+              aria-hidden="true"
+            />
+          </span>
         </footer>
       </div>
     </div>
