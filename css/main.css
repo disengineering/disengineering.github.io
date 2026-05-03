@@ -1406,6 +1406,10 @@ button.zine-carousel__arrow {
   padding: 0;
   padding-inline-start: 0;
   font-size: 0.9em;
+  /* Bleed into panel padding so `[n]` lines up with the border; heading stays padded. */
+  margin-inline-start: -0.5rem;
+  width: calc(100% + 0.5rem);
+  box-sizing: border-box;
 }
 
 .zine-chapter-list li {
@@ -1424,7 +1428,7 @@ button.zine-carousel__arrow {
   inset-inline-start: 0;
   top: 0;
   width: 4ch;
-  text-align: end;
+  text-align: center;
 }
 
 
