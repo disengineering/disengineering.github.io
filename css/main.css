@@ -1495,10 +1495,8 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0.5rem;
-  margin: 0.75rem 0 0;
+  margin: 0;
   padding: 0;
-  border: none;
 }
 
 .zine-carousel > img {
@@ -1556,8 +1554,6 @@ button.zine-carousel__arrow {
 
 .zine-volume-grid > .zine-carousel {
   grid-column: 1 / -1;
-  margin: 0;
-  padding: 0.5rem;
 }
 
 .zine-volume-grid > .zine-carousel__arrow--prev {
