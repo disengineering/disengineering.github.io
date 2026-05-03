@@ -1450,43 +1450,59 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 
 .zine-carousel {
   display: flex;
-  align-items: center;
-  gap: 0.35rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
   margin: 0.75rem 0 0;
   padding: 0;
   border: none;
 }
 
 .zine-carousel > img {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
+  width: 100%;
   min-width: 0;
   border: 1px solid var(--scheme-light-primary);
+}
+
+.zine-carousel__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
 }
 
 .zine-carousel__arrow {
   flex: 0 0 auto;
   font-family: var(--font-monospace);
-  font-size: 1.15rem;
+  font-size: 1rem;
+  line-height: 1.25;
   text-decoration: none;
   color: var(--scheme-light-primary);
-  padding: 0.25rem 0.4rem;
-  border: 2px solid var(--scheme-light-primary);
-  background: color-mix(in srgb, var(--scheme-light-primary) 10%, var(--scheme-dark-primary));
+  padding: 0.35rem 0.65rem;
+  border: 2px outset #b6b6b6;
+  background: var(--scheme-dark-primary);
+  outline: 1px dashed #000;
+  outline-offset: -5px;
 }
 
 button.zine-carousel__arrow {
   margin: 0;
   cursor: pointer;
   appearance: none;
-  font: inherit;
-  line-height: inherit;
+  font-family: var(--font-monospace);
+  font-size: 1rem;
+  line-height: 1.25;
 }
 
 .zine-carousel__arrow:hover,
 .zine-carousel__arrow:focus-visible {
+  border-style: inset;
+}
+
+.zine-carousel__arrow:active {
   color: yellow;
-  outline: 2px solid yellow;
-  outline-offset: 2px;
 }
 
 /* Volume blocks: title row, image, then description | chapters; single column when narrow */
@@ -1497,16 +1513,6 @@ button.zine-carousel__arrow {
     "media"
     "description"
     "chapters";
-  gap: 1px;
-  background: var(--scheme-light-primary);
-  border: 1px solid var(--scheme-light-primary);
-  box-sizing: border-box;
-  min-width: 0;
-}
-
-.zine-volume-grid > * {
-  background-color: var(--scheme-dark-primary);
-  min-width: 0;
 }
 
 .zine-volume-grid > .zine-carousel {
@@ -1517,25 +1523,11 @@ button.zine-carousel__arrow {
 
 .zine-volume-grid__description {
   grid-area: description;
-  padding: clamp(0.65rem, 2vw, 1rem);
 }
 
-.zine-volume-grid__logo {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 4.5em;
-  display: block;
-  margin: 0 auto 0.75rem;
-}
-
-#volume-2 .zine-volume-grid__logo {
-  max-height: 9em;
-}
 
 .zine-volume-grid__chapters {
   grid-area: chapters;
-  padding: clamp(0.65rem, 2vw, 1rem);
   text-align: center;
 }
 
@@ -1552,15 +1544,11 @@ button.zine-carousel__arrow {
   }
 }
 
-.zine-volume-grid__description p {
-  margin: 0;
-}
-
 .zine-volume-detail__list-title {
   font-family: var(--font-monospace);
   font-size: 1.5rem;
   margin: 0 0 0.4rem;
-  text-align: center;
+  text-align: left;
 }
 
 .zine-chapter-list {
