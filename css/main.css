@@ -742,7 +742,7 @@ a {
 #homepage-marquee {
   border: 1px solid var(--scheme-light-primary);
   box-sizing: border-box;
-  padding: 0.3em;
+  padding: 0.3zem;
 }
 
 #homepage-marquee marquee {
@@ -1232,7 +1232,7 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 }
 
 .zine-banner {
-  margin: 0;
+  margin: 0 0 1rem;
   text-align: center;
 }
 
@@ -1410,6 +1410,8 @@ button.zine-carousel__arrow {
 
 .zine-chapter-list li {
   counter-increment: zine-chapter;
+  position: relative;
+  padding-inline-start: calc(4ch + 0.15em);
 }
 
 .zine-chapter-list li + li {
@@ -1417,7 +1419,12 @@ button.zine-carousel__arrow {
 }
 
 .zine-chapter-list li::before {
-  content: "[" counter(zine-chapter) "] ";
+  content: "[" counter(zine-chapter) "]";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 4ch;
+  text-align: end;
 }
 
 
