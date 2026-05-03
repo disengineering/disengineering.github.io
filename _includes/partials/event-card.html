@@ -15,10 +15,11 @@
   </header>
 
   <div class="event-card__main">
-    <div class="event-card__date-block" aria-hidden="true">
-      <span class="event-card__dow">{{ parts.weekday }}</span>
-      <span class="event-card__month">{{ parts.month }}</span>
-      <span class="event-card__dom">{{ parts.dayOrdinal }}</span>
+    <div class="event-card__date-block">
+      <span class="visually-hidden">{{ event.data.date | formatEventDateLong: tz }}</span>
+      <span class="event-card__dow" aria-hidden="true">{{ parts.weekday }}</span>
+      <span class="event-card__month" aria-hidden="true">{{ parts.month }}</span>
+      <span class="event-card__dom" aria-hidden="true">{{ parts.dayOrdinal }}</span>
     </div>
     <div>
       {% if eventCardIsDetail %}
@@ -28,7 +29,6 @@
           <a href="{{ event.url }}">{{ event.data.title }}</a>
         </h3>
       {% endif %}
-      <p class="event-card__line">{{ event.data.date | formatEventDateLong: tz }}</p>
       <p class="event-card__line">{{ event.data.date | formatEventTimeRange: end_iso, tz }}</p>
       <p class="event-card__line">@ {{ event.data.location }}</p>
     </div>

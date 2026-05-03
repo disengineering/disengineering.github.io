@@ -739,6 +739,16 @@ a {
   letter-spacing: var(--wide-spacing);
 }
 
+#homepage-marquee {
+  border: 1px solid var(--scheme-light-primary);
+  box-sizing: border-box;
+  padding: 0.3em;
+}
+
+#homepage-marquee marquee {
+  display: block;
+}
+
 /* =============================================================================
    PHILOSOPHY (HOME)
    ============================================================================= */
