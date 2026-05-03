@@ -1534,6 +1534,9 @@ button.zine-carousel__arrow {
 
 .zine-volume-grid .zine-carousel > img {
   border: none;
+  margin-left: 12vw;
+  width: calc(100% - 12vw);
+  max-width: calc(100% - 12vw);
 }
 
 @media (min-width: 641px) {
