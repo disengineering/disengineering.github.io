@@ -81,7 +81,7 @@
   --scheme-dark-primary: black;
   --scheme-light-primary: white;
   --scheme-link: white;
-  --scheme-link-visited: rgb(176, 176, 176);
+  --scheme-link-visited: white;
   --scheme-link-active: red;
   --scheme-link-hover: rgb(0, 112, 255);
 }
@@ -98,6 +98,14 @@ body[data-color-scheme="brown-chartreuse"] {
   --scheme-link: rgb(223, 251, 81);
   --scheme-link-visited: rgb(168, 190, 61);
   --scheme-link-active: red;
+}
+
+body[data-color-scheme="grayscale"] {
+  --scheme-dark-primary: #9b9b9b;
+  --scheme-light-primary: black;
+  --scheme-link: black;
+  --scheme-link-visited: rgb(42, 42, 42);
+  --scheme-link-active: rgb(0, 0, 255);
 }
 
 body[data-color-scheme="lavender-black"] {
