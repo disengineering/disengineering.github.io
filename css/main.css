@@ -1495,6 +1495,145 @@ button.zine-carousel__arrow {
   text-align: center;
 }
 
+/* “Other zines” — retro gray panel, split image / copy rows (zines page) */
+#other-zines {
+  --other-zines-bg: #a0a0a0;
+  --other-zines-ink: #000;
+  margin-top: 2rem;
+  border: 1px solid var(--other-zines-ink);
+  background: var(--other-zines-bg);
+  color: var(--other-zines-ink);
+  box-sizing: border-box;
+}
+
+.other-zine-section-heading {
+  border-bottom: 1px solid var(--other-zines-ink);
+  padding: 0.85rem 1rem;
+  text-align: center;
+}
+
+.other-zine-section-heading h2 {
+  margin: 0;
+  font-family: var(--font-monospace);
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.15;
+  text-transform: none;
+}
+
+.other-zines-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  border-bottom: 1px solid var(--other-zines-ink);
+  min-height: 0;
+  align-items: stretch;
+}
+
+.other-zines-row:last-child {
+  border-bottom: none;
+}
+
+.other-zine-row-left {
+  border-right: 1px solid var(--other-zines-ink);
+  line-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  background: var(--other-zines-ink);
+}
+
+.other-zine-row-left img {
+  width: 100%;
+  height: 100%;
+  min-height: 11rem;
+  object-fit: cover;
+  display: block;
+}
+
+.other-zine-row-right {
+  padding: 1rem 1.15rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  justify-content: center;
+  font-family: var(--font-happy-times);
+  min-width: 0;
+}
+
+.other-zine-row-right h3 {
+  margin: 0;
+  font-family: var(--font-monospace);
+  font-size: 1rem;
+  line-height: 1.25;
+  font-weight: bold;
+}
+
+.other-zine-row-right h3::before {
+  content: "<";
+}
+
+.other-zine-row-right h3::after {
+  content: ">";
+}
+
+.other-zine-row-right p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.other-zine-row-right .other-zine-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.other-zine-row-right .other-zine-btn {
+  appearance: none;
+  box-sizing: border-box;
+  margin: 0;
+  cursor: pointer;
+  font-family: var(--font-monospace);
+  font-size: 0.85rem;
+  line-height: 1.2;
+  padding: 0.35rem 0.65rem;
+  color: var(--other-zines-ink);
+  background: #c0c0c0;
+  border: 2px outset #e8e8e8;
+  box-shadow: 1px 1px 0 #000;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.other-zine-row-right .other-zine-btn:hover,
+.other-zine-row-right .other-zine-btn:focus-visible {
+  border-style: inset;
+}
+
+.other-zine-row-right .other-zine-btn:focus-visible {
+  outline: 2px solid var(--other-zines-ink);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .other-zines-row {
+    grid-template-columns: 1fr;
+  }
+
+  .other-zine-row-left {
+    border-right: none;
+    border-bottom: 1px solid var(--other-zines-ink);
+  }
+
+  .other-zine-row-left img {
+    min-height: 10rem;
+    max-height: min(42vh, 22rem);
+  }
+}
+
 
 /* =============================================================================
    LINKS PAGE (/links)
