@@ -1555,7 +1555,7 @@ button.zine-carousel__arrow {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  justify-content: center;
+  justify-content: flex-start;
   font-family: var(--font-happy-times);
   min-width: 0;
 }
