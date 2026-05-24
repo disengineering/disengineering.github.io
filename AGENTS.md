@@ -10,6 +10,10 @@ Use `id` selectors when the markup should have at most one instance of that elem
 
 Remove superfluous `class` and `id` attributes from HTML when nothing references them: no matching selectors in site CSS, no use in JavaScript, no same-site `href="#…"` fragment links, and no `aria-labelledby` / `aria-controls` / `for` (etc.) pairing. Keeping only referenced hooks keeps templates easier to maintain.
 
+## Styling
+
+Do not use the `clamp` function - we want sizes to change at discrete breakpoints, not continuously as a function of the viewport size.
+
 ## Images and `eleventy:ignore`
 
 The site uses [@11ty/eleventy-img](https://www.11ty.dev/docs/plugins/image/) with the HTML transform: raster images in `<img src="…">` are built to WebP by default.
