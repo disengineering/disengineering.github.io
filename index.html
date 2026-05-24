@@ -18,7 +18,7 @@ description: Disengineering — a hardware hacking collective focused on electro
           ffmpeg -y -i assets/body/animated_about_image.gif -vf "scale=526:-1:flags=lanczos" -c:v libwebp -quality 44 -compression_level 6 -loop 0 assets/body/animated_about_image.webp
         -->
         <img src="/assets/body/animated_about_image.webp" alt="Hands adjusting knobs on a wooden electronic instrument"
-          eleventy:ignore fetchpriority="high" loading="eager" />
+          width="526" height="496" eleventy:ignore fetchpriority="high" loading="eager" />
       </div>
       <div class="content-block__body">
         <p id="about-heading">
@@ -35,8 +35,8 @@ description: Disengineering — a hardware hacking collective focused on electro
         <a class="btn" href="/events">WORKSHOPS</a>
       </div>
       <div class="content-block__media">
-        <video id="homepage-workshop-reel" src="/assets/body/homepage-reel.webm" playsinline muted loop autoplay
-          preload="auto"
+        <video id="homepage-workshop-reel" src="/assets/body/homepage-reel.webm" width="1280" height="720"
+          playsinline muted loop autoplay preload="auto"
           aria-label="Workshop participants building electronics at a table"></video>
         <script>
           const video = document.getElementById("homepage-workshop-reel");
@@ -62,7 +62,7 @@ description: Disengineering — a hardware hacking collective focused on electro
           ffmpeg -y -i assets/body/zines.MOV -map 0:0 -an -c:v libwebp -loop 0 -q:v 32 -compression_level 6 -preset default assets/body/zines.webp
         -->
         <img src="/assets/body/zines.webp" alt="Illustrated zine cover: Happy Fun Musical Play Thing"
-          loading="lazy" eleventy:ignore />
+          width="596" height="444" loading="lazy" eleventy:ignore />
       </div>
       <div class="content-block__body">
         <p id="zines-heading">
@@ -74,7 +74,7 @@ description: Disengineering — a hardware hacking collective focused on electro
 
     <section class="content-block content-block--stack" aria-labelledby="concerts-heading">
       <div class="content-block__media">
-        <img src="/assets/body/concerts_photo.png" alt="Concert with electronic gear on stage" width="1200" height="900"
+        <img src="/assets/body/concerts_photo.png" alt="Concert with electronic gear on stage" width="3237" height="1370"
           loading="lazy" />
       </div>
       <div class="content-block__body">
@@ -90,13 +90,13 @@ description: Disengineering — a hardware hacking collective focused on electro
         for Right-to-Repair.
       </p>
       <div id="philosophy-row">
-        <img class="bug" eleventy:ignore src="/assets/body/bug1.png" alt="" width="200" height="200" loading="lazy" />
+        <img class="bug" eleventy:ignore src="/assets/body/bug1.png" alt="" width="1168" height="1176" loading="lazy" />
         <div id="philosophy-pots">
-          <img eleventy:ignore src="/assets/body/pot1.png" alt="" width="300" height="200" loading="lazy" />
+          <img eleventy:ignore src="/assets/body/pot1.png" alt="" width="474" height="580" loading="lazy" />
           <a class="btn" href="/about">LEARN MORE</a>
-          <img eleventy:ignore src="/assets/body/pot2.png" alt="" width="300" height="200" loading="lazy" />
+          <img eleventy:ignore src="/assets/body/pot2.png" alt="" width="471" height="588" loading="lazy" />
         </div>
-        <img class="bug" eleventy:ignore src="/assets/body/bug3.png" alt="" width="200" height="200" loading="lazy" />
+        <img class="bug" eleventy:ignore src="/assets/body/bug3.png" alt="" width="459" height="1039" loading="lazy" />
       </div>
     </section>
   </main>
