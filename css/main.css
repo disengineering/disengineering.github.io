@@ -99,12 +99,12 @@ body[data-color-scheme="lavender-black"] {
 }
 
 body[data-color-scheme="ochre"] {
-  --scheme-dark-primary: #002a32;
-  --scheme-light-primary: #f6f4ed;
-  --scheme-link: #febd23;
-  --scheme-link-hover: #feaed6;
-  --scheme-link-visited: #f6f4ed;
-  --scheme-link-active: #feaed6;
+  --scheme-dark-primary: rgb(129, 62, 30);
+  --scheme-light-primary: rgb(244, 192, 75);
+  --scheme-link: rgb(244, 192, 75);
+  --scheme-link-hover: rgb(255, 218, 116);
+  --scheme-link-visited: rgb(244, 192, 75);
+  --scheme-link-active: rgb(255, 218, 116);
 }
 
 body[data-color-scheme="hyperblue"] {
