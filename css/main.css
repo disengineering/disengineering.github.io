@@ -1229,6 +1229,13 @@ input.osc-fader[type="range"]::-moz-range-thumb {
   object-fit: contain;
 }
 
+#site-footer-hanging {
+  height: 3lh;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
 #site-footer #links {
   list-style: none;
   margin: 0;

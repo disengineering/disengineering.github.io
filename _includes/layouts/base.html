@@ -43,7 +43,7 @@
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/css/main.css?v=20260623-ochre" />
+    <link rel="stylesheet" href="/css/main.css?v=20260913-footer-hanging" />
   </head>
   <body{% if colorScheme %} data-color-scheme="{{ colorScheme }}"{% endif %}>
     <header id="site-header">
@@ -145,18 +145,21 @@
             </span>
           </div>
           <span>EST. 2022</span>
-          <span class="site-footer-graphic" style="--site-header-mask: url('/assets/footer/in_ground.png')">
-            <img
-              eleventy:ignore
-              class="site-footer-graphic__sizing"
-              src="/assets/footer/in_ground.png"
-              alt=""
-              width="1094"
-              height="1135"
-              loading="lazy"
-              aria-hidden="true"
-            />
-          </span>
+          <!--
+            assets/footer/hanging.png is a cropped, cream-keyed PNG of the hanging
+            figure screenshot (viewer chrome in the top-left removed). Keep the
+            original file; do not WebP-encode (pixel-stable N64-style art).
+          -->
+          <img
+            id="site-footer-hanging"
+            eleventy:ignore
+            src="/assets/footer/hanging.png"
+            alt=""
+            width="482"
+            height="874"
+            loading="lazy"
+            aria-hidden="true"
+          />
         </footer>
       </div>
     </div>
