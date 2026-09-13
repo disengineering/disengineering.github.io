@@ -1208,13 +1208,17 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 #site-footer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   gap: 1em;
-  overflow: hidden;
   padding-top: 2em;
   margin-top: 2em;
   border-top: 1px solid var(--scheme-light-primary);
+}
+
+#site-footer > * {
+  min-width: 0;
 }
 
 /* Shared header wrapper uses line-height: 0; footer height: 3lh needs inherited line-height. */
@@ -1230,10 +1234,16 @@ input.osc-fader[type="range"]::-moz-range-thumb {
 }
 
 #site-footer-hanging {
-  height: 3lh;
+  height: 6lh;
   width: auto;
   object-fit: contain;
   display: block;
+}
+
+@media (max-width: 640px) {
+  #site-footer-hanging {
+    height: 5lh;
+  }
 }
 
 #site-footer #links {
