@@ -1,18 +1,20 @@
             <div id="events-stack">
               <section aria-labelledby="homepage-upcoming-events-heading">
                 <h3 id="homepage-upcoming-events-heading" class="events-sidebar-section__label">Upcoming</h3>
-                {% for event in collections.eventsUpcoming %}
+                {% for event in collections.eventsSidebarUpcoming %}
                   {% include "partials/event-card.html" %}
                 {% else %}
                   <p class="events-sidebar-empty">No upcoming events.</p>
                 {% endfor %}
               </section>
+              {% if collections.eventsSidebarPast.size > 0 or collections.eventsPast.size == 0 %}
               <section aria-labelledby="homepage-past-events-heading">
                 <h3 id="homepage-past-events-heading" class="events-sidebar-section__label">Past events</h3>
-                {% for event in collections.eventsPast %}
+                {% for event in collections.eventsSidebarPast %}
                   {% include "partials/event-card.html" %}
                 {% else %}
                   <p class="events-sidebar-empty">No past events.</p>
                 {% endfor %}
               </section>
+              {% endif %}
             </div>
