@@ -81,20 +81,34 @@ export default function (eleventyConfig) {
     return { weekday, month, dayOrdinal: ordinalDay(dayNum) };
   });
 
-  eleventyConfig.addCollection("eventsUpcoming", (collectionApi) => {
+  function eventCollections(collectionApi) {
     const now = new Date();
-    return collectionApi
-      .getFilteredByTag("event")
+    const items = collectionApi.getFilteredByTag("event");
+    const upcoming = items
       .filter((item) => new Date(item.data.date) >= now)
       .sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
-  });
-
-  eleventyConfig.addCollection("eventsPast", (collectionApi) => {
-    const now = new Date();
-    return collectionApi
-      .getFilteredByTag("event")
+    const past = items
       .filter((item) => new Date(item.data.date) < now)
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+    return { upcoming, past };
+  }
+
+  eleventyConfig.addCollection("eventsUpcoming", (collectionApi) => eventCollections(collectionApi).upcoming);
+
+  eleventyConfig.addCollection("eventsPast", (collectionApi) => eventCollections(collectionApi).past);
+
+  // Homepage sidebar: keep four cards visible, filling leftover slots with past events.
+  const HOMEPAGE_SIDEBAR_EVENT_COUNT = 4;
+
+  eleventyConfig.addCollection("eventsSidebarUpcoming", (collectionApi) => {
+    const { upcoming } = eventCollections(collectionApi);
+    return upcoming.slice(0, HOMEPAGE_SIDEBAR_EVENT_COUNT);
+  });
+
+  eleventyConfig.addCollection("eventsSidebarPast", (collectionApi) => {
+    const { upcoming, past } = eventCollections(collectionApi);
+    const pastSlots = Math.max(0, HOMEPAGE_SIDEBAR_EVENT_COUNT - Math.min(upcoming.length, HOMEPAGE_SIDEBAR_EVENT_COUNT));
+    return past.slice(0, pastSlots);
   });
 
   eleventyConfig.addCollection("archiveProjects", (collectionApi) =>
